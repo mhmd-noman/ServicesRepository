@@ -17,6 +17,20 @@ public class Utils {
 		return false;
 	}
 	
+	public static boolean validateIfNullOrInvalidInteger(Integer number) {
+		if (null == number || number < 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static boolean validateIfNullOrInvalidDouble(Double number) {
+		if (null == number) {
+			return true;
+		}
+		return false;
+	}
+	
 	public static PreparedStatement prepareStatementParams(PreparedStatement stmt, List<Object> parameters) {
 		int i = 1;
 		try {

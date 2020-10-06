@@ -21,8 +21,8 @@ public class CreateUser extends AbstractUserManagementServicesHandler {
 		usersManagementResponse = new UsersManagementResponse();
 		if (!Utils.validateIfNullOrEmptyString(usersManagementRequest.getUsername())) {
 			usersManagementResponse = new UsersManagementResponse();
-			logger.info(logger.isInfoEnabled() ? "Going to create user for username: ": null);
 		}
+		logger.info(logger.isInfoEnabled() ? "Going to create user for username: ": null);
 		AbstractUserManagementServicesDao.getInstance().createUser(usersManagementRequest, connection);
 		usersManagementResponse.setResponseCode(CommonConstants.SUCCESS);
 		usersManagementResponse.setResponseDesc(CommonConstants.SUCCESS_DESCRIPTION);
