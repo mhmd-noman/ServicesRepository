@@ -18,7 +18,7 @@ import order.management.services.bl.AbstractOrderManagementServicesHandler;
 public class OrderManagementService {
 	private static final Logger logger = LoggerFactory.getLogger(OrderManagementService.class);
 	
-	public OrderManagementResponse userManagementService(OrderManagementRequest orderManagementRequest, Connection con) {
+	public OrderManagementResponse orderManagementService(OrderManagementRequest orderManagementRequest, Connection con) {
 		OrderManagementResponse orderManagementResponse = new OrderManagementResponse();
 		if (null == orderManagementRequest) {
 			orderManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);

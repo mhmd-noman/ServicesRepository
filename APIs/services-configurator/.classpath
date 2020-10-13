@@ -11,5 +11,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="/common-utilities"/>
+	<classpathentry kind="lib" path="C:/Users/Muhammad Nauman/Desktop/ServicesRepository/ServicesRepository/Libraries/slf4j-api-1.7.30.jar" sourcepath="C:/Users/Muhammad Nauman/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30-sources.jar"/>
+	<classpathentry kind="src" path="/product-management-services"/>
+	<classpathentry kind="src" path="/order-management-services"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

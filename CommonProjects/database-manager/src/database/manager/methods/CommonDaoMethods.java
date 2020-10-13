@@ -35,7 +35,9 @@ public class CommonDaoMethods extends AbstractCommonDbMethods {
 			while (rs.next()) {
 				Map<Integer, Object> result = new ConcurrentHashMap<>();
 				for (int i = 1; i <= columnCount; i++) {
-					result.put(i, rs.getObject(i));
+					if (null != rs.getObject(i)) {
+						result.put(i, rs.getObject(i));
+					}
 				}
 				resultSet.add(result);
 			}

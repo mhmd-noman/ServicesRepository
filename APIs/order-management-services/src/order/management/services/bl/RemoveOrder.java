@@ -19,7 +19,7 @@ public class RemoveOrder extends AbstractOrderManagementServicesHandler {
 		
 		orderManagementResponse = new OrderManagementResponse();
 		if (null == ordersManagementRequest.getOrder()
-				|| Utils.validateIfNullOrEmptyString(ordersManagementRequest.getOrder().getOrderId())) {
+				|| Utils.validateIfNullOrInvalidInteger(ordersManagementRequest.getOrder().getOrderId())) {
 			orderManagementResponse = new OrderManagementResponse();
 			orderManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);
 			orderManagementResponse.setResponseDesc(CommonConstants.INVALID_TRANS_DESCRIPTION);

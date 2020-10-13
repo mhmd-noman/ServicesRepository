@@ -1,11 +1,20 @@
 package order.management.services.beans;
 
+import java.util.List;
+
 import common.beans.Order;
 import common.enums.OrderManagementServiceAction;
 
 public class OrderManagementRequest {
+	private List<Integer> orderIds = null;
 	private Order order = null;
 	private OrderManagementServiceAction orderManagementServiceAction = null;
+	public List<Integer> getOrderIds() {
+		return orderIds;
+	}
+	public void setOrderIds(List<Integer> orderIds) {
+		this.orderIds = orderIds;
+	}
 	public Order getOrder() {
 		return order;
 	}

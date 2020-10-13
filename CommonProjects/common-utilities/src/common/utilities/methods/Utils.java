@@ -4,9 +4,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public class Utils {
-	public static boolean isNullOrEmptyCollection(final Collection< ? > c ) {
+	public static boolean isNullOrEmptyCollection(final Collection<?> c ) {
+	    return c == null || c.isEmpty();
+	}
+	
+	public static boolean isNullOrEmptyMap(final Map<?,?> c ) {
 	    return c == null || c.isEmpty();
 	}
 	
@@ -43,5 +48,17 @@ public class Utils {
 			e.printStackTrace();
 		}
 		return stmt;
+	}
+	
+	public static String prepareInClauseString(List<?> values) {
+		StringBuilder csv = new StringBuilder();
+		String quote = "'";
+		for (Object value : values) {
+			csv.append(quote + value + quote + ",");
+		}
+		if (null != csv && !validateIfNullOrEmptyString(csv.toString())) {
+			csv.deleteCharAt(csv.length() - 1);
+		}
+		return csv.toString();
 	}
 }

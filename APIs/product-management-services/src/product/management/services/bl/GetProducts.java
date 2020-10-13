@@ -24,11 +24,11 @@ public class GetProducts extends AbstractProductManagementServicesHandler {
 		productsManagementResponse = new ProductManagementResponse();
 		productsList = new ArrayList<>();
 		
-		if (null == productsManagementRequest.getProduct()) {
-			productsManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);
-			productsManagementResponse.setResponseDesc(CommonConstants.INVALID_TRANS_DESCRIPTION);
-			return productsManagementResponse;
-		}
+//		if (null == productsManagementRequest.getProduct()) {
+//			productsManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);
+//			productsManagementResponse.setResponseDesc(CommonConstants.INVALID_TRANS_DESCRIPTION);
+//			return productsManagementResponse;
+//		}
 		logger.info(logger.isInfoEnabled() ? "Going to create product for username: ": null);
 		productsList = AbstractProductManagementServicesDao.getInstance().getProducts(productsManagementRequest, connection);
 		if (!Utils.isNullOrEmptyCollection(productsList)) {

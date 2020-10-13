@@ -17,7 +17,6 @@ public class CreateUser extends AbstractUserManagementServicesHandler {
 	
 	public UsersManagementResponse userManagementService(UsersManagementRequest usersManagementRequest,  Connection connection) {
 		UsersManagementResponse usersManagementResponse = null;
-		
 		usersManagementResponse = new UsersManagementResponse();
 		if (!Utils.validateIfNullOrEmptyString(usersManagementRequest.getUsername())) {
 			usersManagementResponse = new UsersManagementResponse();

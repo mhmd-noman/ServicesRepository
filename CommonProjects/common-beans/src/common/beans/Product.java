@@ -3,19 +3,21 @@ package common.beans;
 import java.util.Date;
 
 public class Product {
-	private String id = null;
+	private Integer id = null;
 	private String name = null;
 	private String company = null;
 	private String category = null;
 	private String flavour = null;
 	private Integer quantity = null;
-	private Integer weight = null;
+	private Integer orderedQuantity = null;
+	private String weight = null;
 	private String servings = null;
 	private String servingSize = null;
 	private Double rtlPrice = null;
 	private Double orgPrice = null;
 	private Double netPrice = null;
 	private Double discount = null;
+	private Double discountWhenOrdered = null;
 	private String directiontoUse = null;
 	private String description = null;
 	private String barCode = null;
@@ -25,10 +27,10 @@ public class Product {
 	private Date lastUpdatedOn = null;
 	private String isActive = null;
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -61,10 +63,16 @@ public class Product {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public Integer getWeight() {
+	public Integer getOrderedQuantity() {
+		return orderedQuantity;
+	}
+	public void setOrderedQuantity(Integer orderedQuantity) {
+		this.orderedQuantity = orderedQuantity;
+	}
+	public String getWeight() {
 		return weight;
 	}
-	public void setWeight(Integer weight) {
+	public void setWeight(String weight) {
 		this.weight = weight;
 	}
 	public String getServings() {
@@ -102,6 +110,12 @@ public class Product {
 	}
 	public void setDiscount(Double discount) {
 		this.discount = discount;
+	}
+	public Double getDiscountWhenOrdered() {
+		return discountWhenOrdered;
+	}
+	public void setDiscountWhenOrdered(Double discountWhenOrdered) {
+		this.discountWhenOrdered = discountWhenOrdered;
 	}
 	public String getDirectiontoUse() {
 		return directiontoUse;
@@ -167,6 +181,8 @@ public class Product {
 		builder.append(flavour);
 		builder.append(", quantity=");
 		builder.append(quantity);
+		builder.append(", orderedQuantity=");
+		builder.append(orderedQuantity);
 		builder.append(", weight=");
 		builder.append(weight);
 		builder.append(", servings=");
@@ -181,6 +197,8 @@ public class Product {
 		builder.append(netPrice);
 		builder.append(", discount=");
 		builder.append(discount);
+		builder.append(", discountWhenOrdered=");
+		builder.append(discountWhenOrdered);
 		builder.append(", directiontoUse=");
 		builder.append(directiontoUse);
 		builder.append(", description=");

@@ -1,16 +1,19 @@
 package order.management.services.dao;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import common.beans.Order;
+import common.beans.Product;
 import common.utilities.constants.CommonConstants;
 import common.utilities.methods.Utils;
 import database.manager.methods.AbstractCommonDbMethods;
@@ -20,52 +23,69 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 	private static final Logger logger = LoggerFactory.getLogger(OrderManagementServicesDaoImpl.class);
 	
 	@Override
-	public List<Order> getOrders(OrderManagementRequest productsManagementRequest, Connection connection) {
+	public Map<Integer, Order> getOrders(OrderManagementRequest productsManagementRequest, Connection connection) {
 		List<Object> paramList = null;
 		List<Map<Integer, Object>> productsResultSet = null;
 		StringBuilder query = null;
-		
+
 		paramList = new ArrayList<>();
 		query = new StringBuilder(AbstractOrderManagementServicesDao.GET_ORDERS);
-		if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getOrderId())) {
+		
+		if (!Utils.isNullOrEmptyCollection(productsManagementRequest.getOrderIds())) {
+			query = new StringBuilder(AbstractOrderManagementServicesDao.GET_ORDERS);
 			query.append(AbstractOrderManagementServicesDao.ORDER_IDs);
-			paramList.add(productsManagementRequest.getOrder().getOrderId());
+			query = new StringBuilder(query.toString().replace("@order_ids", Utils.prepareInClauseString(productsManagementRequest.getOrderIds())));
+		} else {
+			query = new StringBuilder(AbstractOrderManagementServicesDao.GET_ORDERS);
 		}
-		if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getCustName())) {
-			query.append(AbstractOrderManagementServicesDao.CUSTOMER_NAME);
-			paramList.add(productsManagementRequest.getOrder().getCustName());
+		
+		if (null != productsManagementRequest.getOrder()) {
+			if (!Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getOrder().getOrderId())) {
+				query.append(AbstractOrderManagementServicesDao.ORDER_ID);
+				//query.replace("@orders_ids", );
+				paramList.add(productsManagementRequest.getOrder().getOrderId());
+			}
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getCustName())) {
+				query.append(AbstractOrderManagementServicesDao.CUSTOMER_NAME);
+				paramList.add(productsManagementRequest.getOrder().getCustName());
+			}
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getArea())) {
+				query.append(AbstractOrderManagementServicesDao.ORDER_AREA);
+				paramList.add(productsManagementRequest.getOrder().getArea());
+			}
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getCity())) {
+				query.append(AbstractOrderManagementServicesDao.ORDER_CITY);
+				paramList.add(productsManagementRequest.getOrder().getCity());
+			}
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getState())) {
+				query.append(AbstractOrderManagementServicesDao.ORDER_STATE);
+				paramList.add(productsManagementRequest.getOrder().getState());
+			}
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getCountry())) {
+				query.append(AbstractOrderManagementServicesDao.ORDER_COUNTRY);
+				paramList.add(productsManagementRequest.getOrder().getCountry());
+			}
 		}
-		if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getArea())) {
-			query.append(AbstractOrderManagementServicesDao.ORDER_AREA);
-			paramList.add(productsManagementRequest.getOrder().getArea());
-		}
-		if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getCity())) {
-			query.append(AbstractOrderManagementServicesDao.ORDER_CITY);
-			paramList.add(productsManagementRequest.getOrder().getCity());
-		}
-		if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getState())) {
-			query.append(AbstractOrderManagementServicesDao.ORDER_STATE);
-			paramList.add(productsManagementRequest.getOrder().getState());
-		}
-		if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getCountry())) {
-			query.append(AbstractOrderManagementServicesDao.ORDER_COUNTRY);
-			paramList.add(productsManagementRequest.getOrder().getCountry());
-		}
-		if (!Utils.isNullOrEmptyCollection(paramList)) {
-			logger.info(logger.isInfoEnabled() ? "Going to fetch products by using query: " +query+ " with paramters: "+ paramList: null);
-			productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
-		}
+		logger.info(logger.isInfoEnabled() ? "Going to fetch products by using query: " +query+ " with paramters: "+ paramList: null);
+		productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 		return prepareProductsData(productsResultSet);
 	}
 	
-	private static List<Order> prepareProductsData(List<Map<Integer, Object>> productsResultSet) {
-		List<Order> orders = new ArrayList<>();
+	private static Map<Integer, Order> prepareProductsData(List<Map<Integer, Object>> productsResultSet) {
+		Map<Integer, Order> orders = new ConcurrentHashMap<>();
 		Order order = null;
+		Product product = null;
 		int index = 0;
 		if (null != productsResultSet) {
 			for (Map<Integer, Object> productRow : productsResultSet) {
-				order = new Order();
-				order.setOrderId(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				++index;
+				product = new Product();
+				if (null != orders.get((Integer)productRow.get(index))) {
+					order = orders.get((Integer)productRow.get(index));
+				} else {
+					order = new Order();
+				}   
+				order.setOrderId(null != productRow.get(index) ? (Integer)productRow.get(index): null);
 				order.setOrderDescription(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				order.setCustName(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				order.setCustPhone(null != productRow.get(++index) ? (String)productRow.get(index): null);
@@ -76,13 +96,45 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 				order.setArea(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				order.setCity(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				order.setState(null != productRow.get(++index) ? (String)productRow.get(index): null);
-				order.setOrderOrgAmount(null != productRow.get(++index) ? (Double)productRow.get(index): null);
-				order.setOrderRtlAmount(null != productRow.get(++index) ? (Double)productRow.get(index): null);
-				order.setOrderCalcDiscount(null != productRow.get(++index) ? (Double)productRow.get(index): null);
+				order.setCountry(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				order.setOrderOrgAmount(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+				order.setOrderRtlAmount(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+				order.setOrderCalcDiscount(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
 				order.setCreatedOn(null != productRow.get(++index) ? (Date)productRow.get(index): null);
 				order.setCancelledAt(null != productRow.get(++index) ? (Date)productRow.get(index): null);
 				order.setOrderStatus(null != productRow.get(++index) ? (String)productRow.get(index): null);
-				orders.add(order);
+
+				product.setOrderedQuantity(null != productRow.get(++index) ? (Integer)productRow.get(index): null);
+				product.setOrgPrice(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+				product.setRtlPrice(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+				product.setDiscountWhenOrdered(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+				product.setNetPrice(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+				product.setId(null != productRow.get(++index) ? (Integer)productRow.get(index): null);
+				product.setName(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setCompany(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setCategory(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setFlavour(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setQuantity(null != productRow.get(++index) ? (Integer)productRow.get(index): null);
+				product.setWeight(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setServings(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setServingSize(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setOrgPrice(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+				product.setDiscount(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+				product.setMfgDate(null != productRow.get(++index) ? (Date)productRow.get(index): null);
+				product.setExpiryDate(null != productRow.get(++index) ? (Date)productRow.get(index): null);
+				product.setBarCode(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setDirectiontoUse(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setDescription(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setCreatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
+				product.setLastUpdatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
+				product.setIsActive(null != productRow.get(++index) ? (CommonConstants.OPTION_Y.equalsIgnoreCase((String)productRow.get(index)) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N): null);
+				if (null != order.getOrderedProducts()) {
+					order.getOrderedProducts().add(product);
+				} else {
+					order.setOrderedProducts(new ArrayList<>());
+					order.getOrderedProducts().add(product);
+				}
+				orders.put(order.getOrderId(), order);
 				index = 0;
 			}
 		}
@@ -180,7 +232,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 	public void removeOrder(OrderManagementRequest productsManagementRequest, Connection connection) {
 		List<Object> paramList = null;
 		if (null != productsManagementRequest.getOrder()
-				&& !Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getOrderId())) {
+				&& !Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getOrder().getOrderId())) {
 			paramList = new ArrayList<>();
 			paramList.add(productsManagementRequest.getOrder().getOrderId());
 			logger.info(logger.isInfoEnabled() ? "Going to remove order by using query: " +AbstractOrderManagementServicesDao.REMOVE_ORDER+ " with paramters: "+ paramList: null);

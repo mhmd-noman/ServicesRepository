@@ -39,10 +39,10 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 			query.append(AbstractUserManagementServicesDao.LAST_NAME);
 			paramList.add(usersManagementRequest.getLastName());
 		}
-		if (!Utils.isNullOrEmptyCollection(paramList)) {
-			logger.info(logger.isInfoEnabled() ? "Going to fetch users by using query: " +AbstractUserManagementServicesDao.GET_USERS+ " with paramters: "+ paramList: null);
-			usersResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
-		}
+		//if (!Utils.isNullOrEmptyCollection(paramList)) {
+		logger.info(logger.isInfoEnabled() ? "Going to fetch users by using query: " +AbstractUserManagementServicesDao.GET_USERS+ " with paramters: "+ paramList: null);
+		usersResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
+		//}
 		return prepareUsersData(usersResultSet);
 	}
 	

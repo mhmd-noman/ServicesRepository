@@ -2,12 +2,16 @@ package common.response;
 
 import java.util.List;
 
+import common.beans.Order;
+import common.beans.Product;
 import common.beans.User;
 
 public class MainResponseObject {
 	private String responseCode = null;
 	private String responseDesc = null;
 	private List<User> users = null;
+	private List<Product> products = null;
+	private List<Order> orders = null;
 
 	public String getResponseCode() {
 		return responseCode;
@@ -28,6 +32,18 @@ public class MainResponseObject {
 		this.users = users;
 	}
 
+	public List<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+	public List<Order> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

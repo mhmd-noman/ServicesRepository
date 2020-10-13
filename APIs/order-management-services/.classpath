@@ -10,5 +10,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="/product-management-services"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -18,7 +18,7 @@ import product.management.services.bl.AbstractProductManagementServicesHandler;
 public class ProductManagementService {
 	private static final Logger logger = LoggerFactory.getLogger(ProductManagementService.class);
 	
-	public ProductManagementResponse userManagementService(ProductManagementRequest productManagementRequest, Connection con) {
+	public ProductManagementResponse productManagementService(ProductManagementRequest productManagementRequest, Connection con) {
 		ProductManagementResponse productManagementResponse = new ProductManagementResponse();
 		if (null == productManagementRequest) {
 			productManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);

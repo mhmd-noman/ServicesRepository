@@ -1,5 +1,6 @@
 package product.management.services.dao;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,33 +24,46 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 		List<Object> paramList = null;
 		List<Map<Integer, Object>> productsResultSet = null;
 		StringBuilder query = null;
-		
 		paramList = new ArrayList<>();
-		query = new StringBuilder(AbstractProductManagementServicesDao.GET_PRODUCTS);
-		if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getId())) {
-			query.append(AbstractProductManagementServicesDao.PRODUCT_ID);
-			paramList.add(productsManagementRequest.getProduct().getId());
+
+		if (!Utils.isNullOrEmptyCollection(productsManagementRequest.getProductIds())) {
+			query = new StringBuilder(AbstractProductManagementServicesDao.GET_PRODUCTS);
+			query.append(AbstractProductManagementServicesDao.PRODUCT_IDS);
+			query = new StringBuilder(query.toString().replace("@product_ids", Utils.prepareInClauseString(productsManagementRequest.getProductIds())));
+		} else {
+			query = new StringBuilder(AbstractProductManagementServicesDao.GET_PRODUCTS);
 		}
-		if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getName())) {
-			query.append(AbstractProductManagementServicesDao.PRODUCT_NAME);
-			paramList.add(productsManagementRequest.getProduct().getName());
+		if (null != productsManagementRequest.getProduct()) {
+			if (!Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getProduct().getId())) {
+				query.append(AbstractProductManagementServicesDao.PRODUCT_ID);
+				paramList.add(productsManagementRequest.getProduct().getId());
+			}
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getName())) {
+				query.append(AbstractProductManagementServicesDao.PRODUCT_NAME);
+				paramList.add(productsManagementRequest.getProduct().getName());
+			}
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getCompany())) {
+				query.append(AbstractProductManagementServicesDao.PRODUCT_COMPANY);
+				paramList.add(productsManagementRequest.getProduct().getCompany());
+			}
+			if (!Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getOrgPrice())) {
+				query.append(AbstractProductManagementServicesDao.PRODUCT_PRICE);
+				paramList.add(productsManagementRequest.getProduct().getOrgPrice());
+			}
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getServings())) {
+				query.append(AbstractProductManagementServicesDao.PRODUCT_SERVING);
+				paramList.add(productsManagementRequest.getProduct().getServings());
+			}
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getWeight())) {
+				query.append(AbstractProductManagementServicesDao.PRODUCT_WEIGHT);
+				paramList.add(productsManagementRequest.getProduct().getWeight());
+			}
 		}
-		if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getCompany())) {
-			query.append(AbstractProductManagementServicesDao.PRODUCT_COMPANY);
-			paramList.add(productsManagementRequest.getProduct().getCompany());
+		if (!productsManagementRequest.isFetchOutOfStockProducts()) {
+			query.append(AbstractProductManagementServicesDao.IS_ACTIVE_PRODUCT);
 		}
-		if (!Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getOrgPrice())) {
-			query.append(AbstractProductManagementServicesDao.PRODUCT_PRICE);
-			paramList.add(productsManagementRequest.getProduct().getOrgPrice());
-		}
-		if (!Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getProduct().getWeight())) {
-			query.append(AbstractProductManagementServicesDao.PRODUCT_WEIGHT);
-			paramList.add(productsManagementRequest.getProduct().getWeight());
-		}
-		if (!Utils.isNullOrEmptyCollection(paramList)) {
-			logger.info(logger.isInfoEnabled() ? "Going to fetch products by using query: " +AbstractProductManagementServicesDao.GET_PRODUCTS+ " with paramters: "+ paramList: null);
-			productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
-		}
+		logger.info(logger.isInfoEnabled() ? "Going to fetch products by using query: " +AbstractProductManagementServicesDao.GET_PRODUCTS+ " with paramters: "+ paramList: null);
+		productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);
 		return prepareProductsData(productsResultSet);
 	}
 	
@@ -60,23 +74,24 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 		if (null != productsResultSet) {
 			for (Map<Integer, Object> productRow : productsResultSet) {
 				product = new Product();
-				product.setId(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setId(null != productRow.get(++index) ? (Integer)productRow.get(index): null);
 				product.setName(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				product.setCompany(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				product.setCategory(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				product.setFlavour(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				product.setQuantity(null != productRow.get(++index) ? (Integer)productRow.get(index): null);
-				product.setWeight(null != productRow.get(++index) ? (Integer)productRow.get(index): null);
+				product.setWeight(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				product.setServings(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				product.setServingSize(null != productRow.get(++index) ? (String)productRow.get(index): null);
-				product.setOrgPrice(null != productRow.get(++index) ? (Double)productRow.get(index): null);
-				product.setDiscount(null != productRow.get(++index) ? (Double)productRow.get(index): null);
+				product.setOrgPrice(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+				product.setDiscount(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
 				product.setMfgDate(null != productRow.get(++index) ? (Date)productRow.get(index): null);
 				product.setExpiryDate(null != productRow.get(++index) ? (Date)productRow.get(index): null);
 				product.setBarCode(null != productRow.get(++index) ? (String)productRow.get(index): null);
 				product.setDirectiontoUse(null != productRow.get(++index) ? (String)productRow.get(index): null);
-				product.setCreatedOn(null != productRow.get(++index) ? (Date)productRow.get(index): null);
-				product.setLastUpdatedOn(null != productRow.get(++index) ? (Date)productRow.get(index): null);
+				product.setDescription(null != productRow.get(++index) ? (String)productRow.get(index): null);
+				product.setCreatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
+				product.setLastUpdatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
 				product.setIsActive(null != productRow.get(++index) ? (CommonConstants.OPTION_Y.equalsIgnoreCase((String)productRow.get(index)) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N): null);
 				products.add(product);
 				index = 0;
@@ -90,7 +105,6 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 		List<Object> paramList = null;
 		if (null != productsManagementRequest && null != productsManagementRequest.getProduct()) {
 			paramList = new ArrayList<>();
-			paramList.add(productsManagementRequest.getProduct().getId());
 			paramList.add(productsManagementRequest.getProduct().getName());
 			paramList.add(productsManagementRequest.getProduct().getCompany());
 			paramList.add(productsManagementRequest.getProduct().getCategory());
@@ -106,8 +120,6 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 			paramList.add(productsManagementRequest.getProduct().getBarCode());
 			paramList.add(productsManagementRequest.getProduct().getDirectiontoUse());
 			paramList.add(productsManagementRequest.getProduct().getDescription());
-			paramList.add(productsManagementRequest.getProduct().getCreatedOn());
-			paramList.add(productsManagementRequest.getProduct().getLastUpdatedOn());
 			paramList.add(CommonConstants.OPTION_Y.equalsIgnoreCase(productsManagementRequest.getProduct().isActive()) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N);
 			logger.info(logger.isInfoEnabled() ? "Going to insert user by using query: " +AbstractProductManagementServicesDao.ADD_PRODUCT+ " with paramters: "+ paramList: null);
 			AbstractCommonDbMethods.getInstance().update(AbstractProductManagementServicesDao.ADD_PRODUCT, paramList, connection);
@@ -135,7 +147,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 			if (!Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getProduct().getQuantity())) {
 				updateColumns.append("quantity = '" +productsManagementRequest.getProduct().getQuantity()+ "',");
 			}
-			if (!Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getProduct().getWeight())) {
+			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getWeight())) {
 				updateColumns.append("weight = '" +productsManagementRequest.getProduct().getWeight()+ "',");
 			}
 			if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getServings())) {
@@ -179,7 +191,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 	public void deleteProduct(ProductManagementRequest productsManagementRequest, Connection connection) {
 		List<Object> paramList = null;
 		if (null != productsManagementRequest.getProduct()
-				&& !Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getId())) {
+				&& !Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getProduct().getId())) {
 			paramList = new ArrayList<>();
 			paramList.add(productsManagementRequest.getProduct().getId());
 			logger.info(logger.isInfoEnabled() ? "Going to delete product by using query: " +AbstractProductManagementServicesDao.DELETE_PRODUCT+ " with paramters: "+ paramList: null);
