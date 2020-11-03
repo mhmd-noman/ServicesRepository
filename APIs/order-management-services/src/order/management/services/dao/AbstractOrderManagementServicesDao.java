@@ -7,7 +7,7 @@ import common.beans.Order;
 import order.management.services.beans.OrderManagementRequest;
 
 public abstract class AbstractOrderManagementServicesDao {
-	public static final String PLACE_ORDER           = "insert into orders (order_id, order_description, cust_name, cust_phone, cust_phone2, cust_address, cust_address2, cust_email, area, city, state, country, order_org_amount, order_rtl_amount, order_calc_discount, created_on, cancelled_at, order_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	public static final String PLACE_ORDER           = "insert into orders (order_description, cust_name, cust_phone, cust_phone2, cust_address, cust_address2, cust_email, area, city, state, country, order_org_amount, order_rtl_amount, order_calc_discount, created_on, cancelled_at, order_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	public static final String INSERT_ORDER_PRODUCTS = "insert into order_products (order_id, product_id, product_name, product_quantity, product_org_price, product_rtl_price, product_discount, product_net_price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	public static final String UPDATE_ORDER          = "update products set email = ?, enabled = ?, first_name = ?, last_name = ?, password = ?, phone = ? where username = ?";
 	public static final String REMOVE_ORDER          = "delete orders where order_id = ?";

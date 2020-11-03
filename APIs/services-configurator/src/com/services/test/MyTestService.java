@@ -22,6 +22,62 @@ public class MyTestService {
 		//deleteProduct();
 		//updateProduct();
 		getOrders();
+		//placeOrder();
+	}
+	
+	
+	
+	public static void placeOrder() {
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		MainRequestObject mainRequestObject = new MainRequestObject();
+		MainResponseObject mainResponseObject = null;
+		mainRequestObject.setDbCode(dbCode);
+		
+		List<Product> products = new ArrayList<>();
+		
+		Product product1 = new Product();
+		product1.setId(1);
+		product1.setName("Nitro Tech");
+		product1.setOrderedQuantity(5);
+		product1.setRtlPrice(1800.00);
+		product1.setOrgPrice(2000.00);
+		product1.setDiscount(5.00);
+		
+		Product product2 = new Product();
+		product2.setId(2);
+		product2.setName("ON Whey");
+		product2.setOrderedQuantity(2);
+		product2.setOrgPrice(2000.00);
+		product2.setDiscount(5.00);
+		
+		products.add(product1);
+		products.add(product2);
+		
+		Order order = new Order();
+		order.setArea("Canal");
+		order.setState("Punjab");
+		order.setCity("Lahore");
+		order.setCountry("Pakistan");
+		order.setCustName("Damon");
+		order.setCustEmail("damon@gmail.com");
+		order.setCustPhone("032412345698");
+		order.setCustPhone2("032456958691");
+		order.setOrderCalcDiscount(5.00);
+		order.setOrderDescription("Testing Order Placement!");
+		order.setCustAddress1("Address1");
+		order.setCustAddress2("Address2");
+		order.setExpiryDate(new Date(System.currentTimeMillis()));
+		order.setMfgDate(new Date(System.currentTimeMillis()));
+		order.setOrderOrgAmount(2000.00);
+		order.setOrderRtlAmount(1600.00);
+		order.setOrderStatus("I");
+		order.setOrderedProducts(products);
+		
+		mainRequestObject.setOrderInfo(order);
+		
+		mainResponseObject = servicesConfigurator.placeOrder(mainRequestObject);
+		System.out.println("Response Code: "+ mainResponseObject.getResponseCode());
+		System.out.println("Response Desc: "+ mainResponseObject.getResponseDesc());
 	}
 	
 	public static void getOrders() {

@@ -29,6 +29,4 @@ public class ProductManagementService {
 		productManagementResponse = AbstractProductManagementServicesHandler.getInstance(productManagementRequest.getProductManagementServiceAction()).productManagementService(productManagementRequest, con);
 		return productManagementResponse;
 	}
-	
-	
 }

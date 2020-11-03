@@ -28,7 +28,7 @@ public class PlaceOrderConfigurator {
 	}
 	
 	private void mapRequest(MainRequestObject mainRequestObject, OrderManagementRequest orderManagementRequest) {
-		if (null != mainRequestObject && null != mainRequestObject.getProductInfo()) {
+		if (null != mainRequestObject && null != mainRequestObject.getOrderInfo()) {
 			logger.info(logger.isInfoEnabled() ? "Requested content recieved for order placement: [" +mainRequestObject+ "]": null);
 			orderManagementRequest.setOrder(mainRequestObject.getOrderInfo());
 		}

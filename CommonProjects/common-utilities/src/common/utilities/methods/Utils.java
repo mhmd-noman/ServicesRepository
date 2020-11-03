@@ -61,4 +61,24 @@ public class Utils {
 		}
 		return csv.toString();
 	}
+	
+	public static Double getRetailPrice(Double orgPrice, Double discount) {
+		if (validateIfNullOrInvalidDouble(orgPrice)) {
+			return 0D;
+		}
+		if (validateIfNullOrInvalidDouble(discount)) {
+			return orgPrice;
+		}
+		return (orgPrice - (orgPrice * (discount / 100)));
+	}
+	
+	public static Double getTotalPrice(Double price, Integer quantity) {
+		if (validateIfNullOrInvalidDouble(price)) {
+			return 0D;
+		}
+		if (validateIfNullOrInvalidInteger(quantity)) {
+			return price;
+		}
+		return (price * quantity);
+	}
 }

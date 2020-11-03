@@ -29,6 +29,4 @@ public class OrderManagementService {
 		orderManagementResponse = AbstractOrderManagementServicesHandler.getInstance(orderManagementRequest.getOrderManagementServiceAction()).orderManagementService(orderManagementRequest, con);
 		return orderManagementResponse;
 	}
-	
-	
 }

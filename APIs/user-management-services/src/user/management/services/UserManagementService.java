@@ -26,6 +26,4 @@ public class UserManagementService {
 		usersManagementResponse = AbstractUserManagementServicesHandler.getInstance(usersManagementRequest.getUserManagementServiceAction()).userManagementService(usersManagementRequest, con);
 		return usersManagementResponse;
 	}
-	
-	
 }

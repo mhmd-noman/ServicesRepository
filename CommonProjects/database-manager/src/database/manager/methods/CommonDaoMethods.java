@@ -10,8 +10,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.mysql.jdbc.Statement;
 
 import common.utilities.methods.Utils;
 import database.manager.beans.DatabaseInfo;
@@ -61,6 +64,50 @@ public class CommonDaoMethods extends AbstractCommonDbMethods {
 		}
 		return updatedRows;
 	}
+	
+	@Override
+	public Integer updateWithKeyReturn(String query, List<Object> parameters, Connection con) {
+		PreparedStatement stmt = null;
+		int key = 0;
+		ResultSet rs = null;
+		try {
+			stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			stmt = prepareStatementParams(stmt, parameters);
+			stmt.executeUpdate();
+			rs = stmt.getGeneratedKeys();
+			if (rs.next()) {
+				key = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return key;
+	}
+	
+	@Override
+	public int executeBatch(List<String> queries, List<Object> parameters, Connection con) {
+		PreparedStatement stmt = null;
+		int updatedRows[] = null;
+		int mainCount = 0;
+		int count = 1;
+		try {
+			stmt = con.prepareStatement(queries.get(0));
+			for (String query : queries) {
+				int i = 1;
+				count = StringUtils.countMatches(query, "?");
+				while (i <= count) { 
+					stmt.setObject(i, parameters.get(mainCount));
+					mainCount++;
+					i++;
+				}
+				stmt.addBatch();
+			}	
+			updatedRows = stmt.executeBatch();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return updatedRows.length;
+	}
 
 	@Override
 	public DatabaseInfo getDatabaseInfo(String dbCode, Connection connection) {
@@ -107,7 +154,6 @@ public class CommonDaoMethods extends AbstractCommonDbMethods {
 				i++;
 			}
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
 		return stmt;

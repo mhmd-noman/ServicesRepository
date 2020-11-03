@@ -16,5 +16,7 @@ public abstract class AbstractCommonDbMethods {
 	}
 	public abstract List<Map<Integer, Object>> select(String query, List<Object> parameters, Connection con);
 	public abstract Integer update(String query, List<Object> parameters, Connection con);
+	public abstract Integer updateWithKeyReturn(String query, List<Object> parameters, Connection con);
 	public abstract DatabaseInfo getDatabaseInfo(String dbCode, Connection connection);
+	public abstract int executeBatch(List<String> queries, List<Object> parameters, Connection con);
 }

@@ -144,9 +144,9 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 	@Override
 	public void placeOrder(OrderManagementRequest orderManagementRequest, Connection connection) {
 		List<Object> paramList = null;
+		Integer orderId = null;
 		if (null != orderManagementRequest && null != orderManagementRequest.getOrder()) {
 			paramList = new ArrayList<>();
-			paramList.add(orderManagementRequest.getOrder().getOrderId());
 			paramList.add(orderManagementRequest.getOrder().getOrderDescription());
 			paramList.add(orderManagementRequest.getOrder().getCustName());
 			paramList.add(orderManagementRequest.getOrder().getCustPhone());
@@ -161,10 +161,33 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 			paramList.add(orderManagementRequest.getOrder().getOrderOrgAmount());
 			paramList.add(orderManagementRequest.getOrder().getOrderRtlAmount());
 			paramList.add(orderManagementRequest.getOrder().getOrderCalcDiscount());
+			paramList.add(new Date(System.currentTimeMillis()));
+			paramList.add(orderManagementRequest.getOrder().getCancelledAt());
 			paramList.add(orderManagementRequest.getOrder().getOrderStatus());
 			logger.info(logger.isInfoEnabled() ? "Going to insert order by using query: " +AbstractOrderManagementServicesDao.PLACE_ORDER+ " with paramters: "+ paramList: null);
-			AbstractCommonDbMethods.getInstance().update(AbstractOrderManagementServicesDao.PLACE_ORDER, paramList, connection);
+			orderId = AbstractCommonDbMethods.getInstance().updateWithKeyReturn(AbstractOrderManagementServicesDao.PLACE_ORDER, paramList, connection);
 		}
+		orderManagementRequest.getOrder().setOrderId(orderId);
+		addOrderProducts(orderManagementRequest.getOrder(), connection);
+	}
+	
+	private void addOrderProducts(Order order, Connection connection) {
+		List<Object> paramList = null;
+		List<String> queries = new ArrayList<>();
+		paramList = new ArrayList<>();
+		logger.info(logger.isInfoEnabled() ? "Going to add "+order.getOrderedProducts().size()+" products for order: [" +order.getOrderId()+ "]": null);
+		for (Product product : order.getOrderedProducts()) {
+			queries.add(AbstractOrderManagementServicesDao.INSERT_ORDER_PRODUCTS);
+			paramList.add(order.getOrderId());
+			paramList.add(product.getId());
+			paramList.add(product.getName());
+			paramList.add(product.getOrderedQuantity());
+			paramList.add(product.getOrgPrice());
+			paramList.add(Utils.getRetailPrice(product.getOrgPrice(), product.getDiscount()));
+			paramList.add(product.getDiscount());
+			paramList.add(Utils.getRetailPrice(Utils.getTotalPrice(product.getOrgPrice(),  product.getOrderedQuantity()), product.getDiscount()));
+		}
+		AbstractCommonDbMethods.getInstance().executeBatch(queries, paramList, connection);
 	}
 	
 	@Override

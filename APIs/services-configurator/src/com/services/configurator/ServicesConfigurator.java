@@ -216,7 +216,7 @@ public class ServicesConfigurator {
 			return mainResponseObject;
 		}
 		placeOrderConfigurator = new PlaceOrderConfigurator();
-		logger.info(logger.isInfoEnabled() ? "Going to make call for deleteProduct Service with requested content: [" +mainRequestObject+ "]": null);
+		logger.info(logger.isInfoEnabled() ? "Going to make call for placeOrder Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = placeOrderConfigurator.placeOrder(mainRequestObject, con);
 		return mainResponseObject;
 	}
