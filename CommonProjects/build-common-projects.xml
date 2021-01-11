@@ -1,0 +1,17 @@
+<!--
+	@author: Muhammad Noman
+	@creation date: Jan, 01, 2021
+-->
+<project name="build-common-projects" default="buildCommonProjects">
+	<target name="buildCommonProjects">
+		<subant target="all">
+			<fileset dir="." includes="common-beans/build-common-beans.xml" />
+			<fileset dir="." includes="common-utilities/build-common-utilities.xml"/>
+			<fileset dir="." includes="database-manager/build-database-manager.xml"/>
+			<fileset dir="." includes="common-exception-handling/build-common-exception-handling.xml"/>
+
+			<!-- Add services above -->
+
+		</subant>
+	</target>
+</project>

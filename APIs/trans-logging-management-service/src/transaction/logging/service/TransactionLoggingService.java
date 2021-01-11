@@ -1,7 +1,7 @@
 /**
 * @author  Muhammad Noman
 * @version 1.0
-* @since   2020-October-15
+* @since   2020-December-27
 */
 package transaction.logging.service;
 
@@ -22,7 +22,7 @@ public class TransactionLoggingService {
 		if (null == transLoggingManagementRequest) {
 			return transLoggingManagementResponse;
 		}
-		logger.info(logger.isInfoEnabled() ? "Going to call userManagementService Service": null);
+		logger.info(logger.isInfoEnabled() ? "Going to call transactionLogging Service": null);
 		transLoggingManagementResponse = AbstractTransactionLoggingServiceHandler.getInstance().transLoggingManagementService(transLoggingManagementRequest, con);
 		return transLoggingManagementResponse;
 	}

@@ -10,25 +10,29 @@ import org.slf4j.LoggerFactory;
 import database.manager.methods.AbstractCommonDbMethods;
 import transaction.logging.service.TransactionLoggingService;
 import transaction.logging.service.beans.TransactionLoggingRequest;
-import transaction.logging.service.utils.Constants;
 
 public class TransactionLoggingServiceDaoImpl extends AbstractTransactionLoggingServiceDao {
 	private static final Logger logger = LoggerFactory.getLogger(TransactionLoggingService.class);
 
 	@Override
-	public void logTransaction(TransactionLoggingRequest usersManagementRequest, Connection connection) {
+	public void logTransaction(TransactionLoggingRequest transactionLoggingRequest, Connection connection) {
 		List<Object> paramList = null;
-		if (null != usersManagementRequest) {
+		if (null != transactionLoggingRequest) {
 			paramList = new ArrayList<>();
-			paramList.add(usersManagementRequest.getEmail());
-			paramList.add(Constants.OPTION_Y.equalsIgnoreCase(usersManagementRequest.getEnabled()));
-			paramList.add(usersManagementRequest.getFirstName());
-			paramList.add(usersManagementRequest.getLastName());
-			paramList.add(usersManagementRequest.getPassword());
-			paramList.add(usersManagementRequest.getPhone());
-			paramList.add(usersManagementRequest.getUsername());
-			logger.info(logger.isInfoEnabled() ? "Going to log transaction by using query: " +AbstractTransactionLoggingServiceDao.CREATE_USER+ " with paramters: "+ paramList: null);
-			AbstractCommonDbMethods.getInstance().update(AbstractTransactionLoggingServiceDao.CREATE_USER, paramList, connection);
+			paramList.add(transactionLoggingRequest.getMainRequestObject().getServiceId());
+			if (null != transactionLoggingRequest.getMainRequestObject().getUserInfo()) {
+				paramList.add(transactionLoggingRequest.getMainRequestObject().getUserInfo().getUsername());
+			}
+			if (null != transactionLoggingRequest.getMainRequestObject().getOrderInfo()) {
+				paramList.add(transactionLoggingRequest.getMainRequestObject().getOrderInfo().getOrderId());
+			}
+			paramList.add(transactionLoggingRequest.getMainResponseObject().getResponseCode());
+			paramList.add(transactionLoggingRequest.getMainResponseObject().getResponseDesc());
+			paramList.add(transactionLoggingRequest.getMainResponseObject().getOrders().get(0).getOrderOrgAmount());
+			paramList.add(transactionLoggingRequest.getMainResponseObject().getOrders().get(0).getOrderRtlAmount());
+			paramList.add(transactionLoggingRequest.getMainResponseObject().getOrders().get(0).getOrderCalcDiscount());
+			logger.info(logger.isInfoEnabled() ? "Going to log transaction by using query: " +AbstractTransactionLoggingServiceDao.LOG_TRANSACTION+ " with paramters: "+ paramList: null);
+			AbstractCommonDbMethods.getInstance().update(AbstractTransactionLoggingServiceDao.LOG_TRANSACTION, paramList, connection);
 		}
 	}
 }

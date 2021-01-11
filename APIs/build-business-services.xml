@@ -1,0 +1,17 @@
+<!--
+	@author: Muhammad Noman
+	@creation date: Jan, 11, 2021
+-->
+<project name="build-business-services" default="buildBusinessServices">
+	<target name="buildBusinessServices">
+		<subant target="all">
+			<fileset dir="." includes="user-management-services/build-user-management-services.xml" />
+			<fileset dir="." includes="product-management-services/build-product-management-services.xml"/>
+			<fileset dir="." includes="order-management-services/build-order-management-services.xml"/>
+
+			<!-- Add services above -->
+			<fileset dir="." includes="services-configurator/build-services-configurator.xml"/>
+			<fileset dir="." includes="services-manager/build-services-manager.xml"/>
+		</subant>
+	</target>
+</project>

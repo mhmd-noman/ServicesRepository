@@ -11,7 +11,7 @@ import common.beans.Order;
 import common.beans.Product;
 import common.beans.User;
 import common.request.MainRequestObject;
-import common.response.MainResponseObject;
+import common.response.MainResponseObject;  
 
 public class MyTestService {
 	public static final String dbCode = "MX_FIT";
@@ -21,8 +21,20 @@ public class MyTestService {
 		//addProduct();
 		//deleteProduct();
 		//updateProduct();
-		getOrders();
+		//getOrders();
 		//placeOrder();
+		
+		  
+		// from,password,to,subject,message
+		Mailer.send("lastchance934@gmail.com", "numan41752666", "muhammad.nauman54@outlook.com", "hello javatpoint", "How r u?");
+		// change from, password and to 
+		  
+		
+
+		
+		     
+		
+		
 	}
 	
 	

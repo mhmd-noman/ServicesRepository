@@ -16,6 +16,7 @@ public class MainRequestObject {
 	private String email = null;
 	private String phoneNumber = null;
 	private String dbCode = null;
+	private String serviceId = null;
 	private User userInfo = null;
 	private Order orderInfo = null;
 	private Product productInfo = null;
@@ -83,6 +84,12 @@ public class MainRequestObject {
 	}
 	public void setDbCode(String dbCode) {
 		this.dbCode = dbCode;
+	}
+	public String getServiceId() {
+		return serviceId;
+	}
+	public void setServiceId(String serviceId) {
+		this.serviceId = serviceId;
 	}
 	public Order getOrderInfo() {
 		return orderInfo;
