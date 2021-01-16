@@ -1,0 +1,8 @@
+common\enums\UserManagementServiceAction.class
+common\beans\User.class
+common\enums\OrderManagementServiceAction.class
+common\request\MainRequestObject.class
+common\beans\Order.class
+common\response\MainResponseObject.class
+common\beans\Product.class
+common\enums\ProductManagementServiceAction.class
