@@ -1,0 +1,36 @@
+<configuration debug="false">
+	
+	<property name="DEV_HOME" value="logs" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>
+				 [%date] [%-5level] [%thread] %logger{40} - %message%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="user.management.services" level="INFO" />
+	<logger name="product.management.services" level="INFO" />
+	<logger name="order.management.services" level="INFO" />
+
+	<appender name="user.management.services" class="ch.qos.logback.core.FileAppender">
+		<File>${DEV_HOME}/api.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>
+				[%date] [%-5level] [%thread] %logger{40} - %message%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	
+	<logger name="user.management.services" level="debug"
+		additivity="false">
+		<appender-ref ref="user.management.services" />
+	</logger>
+	
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>

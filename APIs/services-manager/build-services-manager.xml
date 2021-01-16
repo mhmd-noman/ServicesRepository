@@ -5,66 +5,118 @@
 <project name="services-manager" basedir="." default="all">
 
 	<!-- Project settings -->
-    <property name="project.title" value="services-manager"/>
-    <property name="project.distname" value="services-manager"/>
-    <property name="distpath.project" value="../libraries"/>
+	<property name="project.title" value="services-manager" />
+	<property name="project.distname" value="services-manager" />
+	<property name="distpath.project" value="../libraries" />
 
-    <!-- Path settings -->	
-    <property name="doc.path" value="./doc/api"/>
-    <property name="doc.src" value="./src"/>
-	<property name="srcpath.libdir" value="../libraries"/>
-	<property name="classes.dir" value="./classes"/>
+	<!-- Path settings -->
+	<property name="doc.path" value="./doc/api" />
+	<property name="home.dir" value="./" />
+	<property name="doc.src" value="./src" />
+	<property name="srcpath.libdir" value="../libraries" />
+	<property name="srcpath.log4j-libdir" value="../libraries"/>
+	<property name="exepath.libdir" value="../libraries" />
+	<property name="classes.dir" value="./classes" />
 	<property name="build.dir" value="./build" />
-	<property name="libs" value="	
-	${srcpath.libdir}/common-utilities.jar 
-	${srcpath.libdir}/common-beans.jar
-	" />
-    <path id="compile.classpath">
-    	<fileset dir="${srcpath.libdir}">
+	<!-- Final -->
+	<property name="libs" value="${home.dir}
+	${exepath.libdir}/spring-boot-2.4.0-SNAPSHOT.jar
+	${exepath.libdir}/apiguardian-api-1.1.0.jar
+	${exepath.libdir}/junit-jupiter-api-5.6.2.jar
+	${exepath.libdir}/spring-beans-5.3.0-M1.jar
+	${exepath.libdir}/spring-boot-autoconfigure-2.4.0-SNAPSHOT.jar
+	${exepath.libdir}/spring-boot-test-2.4.0-SNAPSHOT.jar
+	${exepath.libdir}/spring-context-5.3.0-M1.jar
+	${exepath.libdir}/spring-core-5.3.0-M1.jar
+	${exepath.libdir}/spring-security-config-5.4.0-M1.jar
+	${exepath.libdir}/spring-security-core-5.4.0-M1.jar
+	${exepath.libdir}/spring-security-web-5.4.0-M1.jar
+	${exepath.libdir}/spring-web-5.3.0-M1.jar
+	${exepath.libdir}/spring-aop-5.3.0-M1.jar
+	${exepath.libdir}/spring-aspects-5.3.0-M1.jar
+	${exepath.libdir}/spring-boot-devtools-2.4.0-SNAPSHOT.jar
+	${exepath.libdir}/spring-boot-starter-2.4.0-SNAPSHOT.jar
+	${exepath.libdir}/spring-boot-starter-security-2.4.0-SNAPSHOT.jar
+	${exepath.libdir}/spring-boot-starter-test-2.4.0-SNAPSHOT.jar
+	${exepath.libdir}/spring-boot-starter-web-2.4.0-SNAPSHOT.jar
+	${exepath.libdir}/spring-boot-starter-web-services-2.4.0-SNAPSHOT.jar
+	${exepath.libdir}/spring-expression-5.3.0-M1.jar
+	${exepath.libdir}/spring-tx-5.3.3.jar
+	${exepath.libdir}/spring-jcl-5.3.0-M1.jar
+	${exepath.libdir}/database-manager.jar
+	${exepath.libdir}/spring-jdbc-5.3.0-M1.jar
+	${exepath.libdir}/spring-security-config-5.4.0-M1.jar
+	${exepath.libdir}/spring-dao-2.0.5.jar
+	${exepath.libdir}/tomcat-embed-core-9.0.36.jar
+	${exepath.libdir}/slf4j-api-1.7.30.jar
+	${exepath.libdir}/mail.jar
+	${exepath.libdir}/jakarta.annotation-api-1.3.5.jar
+	${exepath.libdir}/mysql-connector-java-8.0.22.jar
+	${exepath.libdir}/commons-lang3-3.11.jar
+	${exepath.libdir}/common-utilities.jar
+	${exepath.libdir}/common-beans.jar 
+	${exepath.libdir}/common-exception-handling.jar
+	${exepath.libdir}/services-configurator.jar
+	${exepath.libdir}/order-management-services.jar
+	${exepath.libdir}/product-management-services.jar
+	${exepath.libdir}/user-management-services.jar"/>
+	
+	<path id="compile.classpath">
+		<fileset dir="${srcpath.libdir}">
 	    	<include name="**/*.jar"/>
-    	</fileset>   	       
-    </path><target name="chkBuild"><uptodate property="build.notRequired" targetfile="../dep_lib\${project.distname}.jar"><srcfiles dir="${doc.src}" includes="**/*.java"/></uptodate><echo message="${project.distname}.jar checkUptodate result: ${build.notRequired}"/></target>
+			<include name="./*.properties"/>
+			<exclude name="log4j-1.2.15.jar" />
+    	</fileset>
+		<fileset dir="${srcpath.log4j-libdir}">
+	    	<include name="**/*.jar"/>
+    	</fileset>
+	</path><target name="chkBuild"><uptodate property="build.notRequired" targetfile="../dep_lib\${project.distname}.jar"><srcfiles dir="${doc.src}" includes="**/*.java"/></uptodate><echo message="${project.distname}.jar checkUptodate result: ${build.notRequired}"/></target>
 
-    <!-- Create binary distribution -->
+	 <!-- Create binary distribution -->
     <target unless="build.notRequired" name="dist"
         description="Create binary distribution">
       <mkdir dir="${distpath.project}"/>
-       <jar destfile="${distpath.project}/${project.distname}.jar"
-         basedir="${classes.dir}" >              	       
-       </jar>    	 
+    	<jar destfile="${distpath.project}/${project.distname}.jar"   basedir="${classes.dir}">			
+			<manifest>
+				<attribute name="Main-Class" value="com.services.manager.ServicesManagerApplication" />
+				<attribute name="Class-Path" value="${libs}" />
+			</manifest>
+		</jar>  	 
        <delete dir="${classes.dir}"/>
        <delete dir="${build.dir}"/>	
 	   <copy file="../libraries/${project.distname}.jar" todir="../dep_lib"/>
     </target>
 
-    <!-- Compile Tag -->
-    <target unless="build.notRequired" name="compile" depends="prepare">
-      <echo message="|-- compile classpath"/>
-      <echo message="|   |"/>
-      <echo message="|   |-- ${echo.path.compile}"/>        
-      <echo message=""/>  
-      <mkdir dir="${classes.dir}" />
-      <javac srcdir="${doc.src}" destdir="${classes.dir}" debug="true">
-            <classpath refid="compile.classpath"/>
-        </javac>
-    </target>
+	<!-- Compile Tag -->
+	<target unless="build.notRequired" name="compile" depends="prepare">
+		<echo message="|-- compile classpath" />
+		<echo message="|   |" />
+		<echo message="|   |-- ${echo.path.compile}" />
+		<echo message="" />
+		<mkdir dir="${classes.dir}" />
+		<javac srcdir="${doc.src}" destdir="${classes.dir}" encoding="UTF-8" debug="true">
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
 
 	<!-- Prepare Tag -->
-    <target unless="build.notRequired" name="prepare">
-        <tstamp/>
-    </target>
+	<target unless="build.notRequired" name="prepare">
+		<tstamp />
+	</target>
 
 	<!-- Clean Tag -->
-    <target unless="build.notRequired" name="clean" description="Prepare for clean build">
-      <delete dir="${classes.dir}"/>
-      <delete dir="${build.dir}"/>	
-	  <delete dir="${distpath.project}/${project.distname}"/>        		
-    </target>
+	<target unless="build.notRequired" name="clean" description="Prepare for clean build">
+		<delete dir="${classes.dir}" />
+		<delete dir="${build.dir}" />
+		<delete dir="${distpath.project}/${project.distname}" />
+	</target>
 
 	<!-- Project tag -->
-    <target unless="build.notRequired" name="project" depends="clean,prepare,compile"/>
-
-    <!-- Build project and create distribution-->
+	<target unless="build.notRequired" name="project" depends="clean,prepare,compile" />
+	
+	<!-- Build project and create distribution-->
     <target name="all" depends="chkBuild, project, dist"/>
-
+	
 </project>
+
+
