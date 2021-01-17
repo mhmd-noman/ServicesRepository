@@ -1,0 +1,6 @@
+[2021-01-18 01:12:18,811] [INFO ] [http-nio-8080-exec-1] c.s.configurator.ServicesConfigurator - Going to get connection for database client: [UFN]
+[2021-01-18 01:12:35,366] [INFO ] [http-nio-8080-exec-2] c.s.configurator.ServicesConfigurator - Going to get connection for database client: [UFN]
+[2021-01-18 01:12:40,808] [INFO ] [http-nio-8080-exec-1] c.s.configurator.ServicesConfigurator - Going to make call for getUsers Service with requested content: [common.request.MainRequestObject@1dfd8902]
+[2021-01-18 01:12:44,757] [INFO ] [http-nio-8080-exec-2] c.s.configurator.ServicesConfigurator - Going to make call for getUsers Service with requested content: [common.request.MainRequestObject@2ab758cb]
+[2021-01-18 01:13:32,925] [INFO ] [http-nio-8080-exec-1] c.s.configurator.ServicesConfigurator - Going to get connection for database client: [UFN]
+[2021-01-18 01:13:38,652] [INFO ] [http-nio-8080-exec-1] c.s.configurator.ServicesConfigurator - Going to make call for getUsers Service with requested content: [common.request.MainRequestObject@40137706]

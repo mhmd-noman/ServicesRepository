@@ -1,0 +1,4 @@
+[2021-01-18 01:13:32,935] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-18 01:13:35,986] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-18 01:13:35,993] [INFO ] [http-nio-8080-exec-1] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-18 01:13:36,285] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get connection for UFN database..

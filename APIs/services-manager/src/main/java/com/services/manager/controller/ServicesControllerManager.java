@@ -21,6 +21,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call getUsers Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.getUsers(mainRequestObject);
 		return mainResponseObject;
 	}
@@ -85,6 +86,33 @@ public class ServicesControllerManager {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
 		mainResponseObject = servicesConfigurator.getProducts(mainRequestObject);
+		return mainResponseObject;
+	}
+	
+	@PostMapping("{dbCode}/placeOrder")
+	public MainResponseObject placeOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+		MainResponseObject mainResponseObject = null;
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		mainRequestObject.setDbCode(dbCode);
+		mainResponseObject = servicesConfigurator.placeOrder(mainRequestObject);
+		return mainResponseObject;
+	}
+	
+	@PostMapping("{dbCode}/removeOrder")
+	public MainResponseObject removeOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+		MainResponseObject mainResponseObject = null;
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		mainRequestObject.setDbCode(dbCode);
+		mainResponseObject = servicesConfigurator.removeOrder(mainRequestObject);
+		return mainResponseObject;
+	}
+	
+	@PostMapping("{dbCode}/getOrders")
+	public MainResponseObject getOrders(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+		MainResponseObject mainResponseObject = null;
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		mainRequestObject.setDbCode(dbCode);
+		mainResponseObject = servicesConfigurator.getOrders(mainRequestObject);
 		return mainResponseObject;
 	}
 }

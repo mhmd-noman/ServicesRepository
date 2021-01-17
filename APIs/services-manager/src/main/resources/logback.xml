@@ -9,13 +9,42 @@
 			</pattern>
 		</encoder>
 	</appender>
-
+	
+	<logger name="services.manager" level="INFO" />
+    <logger name="services.configurator" level="INFO" />
 	<logger name="user.management.services" level="INFO" />
 	<logger name="product.management.services" level="INFO" />
 	<logger name="order.management.services" level="INFO" />
-
-	<appender name="user.management.services" class="ch.qos.logback.core.FileAppender">
-		<File>${DEV_HOME}/api.log</File>
+	
+	<appender name="services.manager" class="ch.qos.logback.core.FileAppender">
+		<File>${DEV_HOME}/services-manager.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>
+				[%date] [%-5level] [%thread] %logger{40} - %message%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="services.configurator" class="ch.qos.logback.core.FileAppender">
+		<File>${DEV_HOME}/services-configurator.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>
+				[%date] [%-5level] [%thread] %logger{40} - %message%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="database.manager" class="ch.qos.logback.core.FileAppender">
+		<File>${DEV_HOME}/database-manager.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>
+				[%date] [%-5level] [%thread] %logger{40} - %message%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="business.services" class="ch.qos.logback.core.FileAppender">
+		<File>${DEV_HOME}/business-layer.log</File>
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<pattern>
 				[%date] [%-5level] [%thread] %logger{40} - %message%n
@@ -24,9 +53,49 @@
 	</appender>
 
 	
+	<logger name="com.services.manager" level="debug"
+		additivity="false">
+		<appender-ref ref="services.manager" />
+	</logger>
+	
+	<logger name="com.services.configurator" level="debug"
+		additivity="false">
+		<appender-ref ref="services.configurator" />
+	</logger>
+	
+	<logger name="common.beans" level="debug"
+		additivity="false">
+		<appender-ref ref="business.services" />
+	</logger>
+	
+	<logger name="common.exception.handling" level="debug"
+		additivity="false">
+		<appender-ref ref="business.services" />
+	</logger>
+	
+	<logger name="common.utilities" level="debug"
+		additivity="false">
+		<appender-ref ref="business.services" />
+	</logger>
+	
+	<logger name="database.manager" level="debug"
+		additivity="false">
+		<appender-ref ref="database.manager" />
+	</logger>
+	
 	<logger name="user.management.services" level="debug"
 		additivity="false">
-		<appender-ref ref="user.management.services" />
+		<appender-ref ref="business.services" />
+	</logger>
+	
+	<logger name="product.management.services" level="debug"
+		additivity="false">
+		<appender-ref ref="business.services" />
+	</logger>
+	
+	<logger name="order.management.services" level="debug"
+		additivity="false">
+		<appender-ref ref="business.services" />
 	</logger>
 	
 	<root level="INFO">
