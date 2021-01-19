@@ -20,7 +20,7 @@ public class GetQueries extends AbstractCustomerServicesHandler {
 	public CustomerServicesResponse customerServices(CustomerServicesRequest customerServicesRequest,  Connection connection) {
 		CustomerServicesResponse customerServicesResponse = null;
 		List<Query> queriesList = null;
-
+		
 		customerServicesResponse = new CustomerServicesResponse();
 		queriesList = new ArrayList<>();
 		if (null == customerServicesRequest) {
