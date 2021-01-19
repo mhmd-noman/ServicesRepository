@@ -10,7 +10,7 @@ import java.sql.Connection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import common.utilities.constants.CommonConstants;
+import common.utilities.constants.ResponseCodes;
 import product.management.services.beans.ProductManagementRequest;
 import product.management.services.beans.ProductManagementResponse;
 import product.management.services.bl.AbstractProductManagementServicesHandler;
@@ -21,7 +21,7 @@ public class ProductManagementService {
 	public ProductManagementResponse productManagementService(ProductManagementRequest productManagementRequest, Connection con) {
 		ProductManagementResponse productManagementResponse = new ProductManagementResponse();
 		if (null == productManagementRequest) {
-			productManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);
+			productManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
 			productManagementResponse.setResponseDesc("Product Request Content has been Passed Empty.");
 			return productManagementResponse;
 		}

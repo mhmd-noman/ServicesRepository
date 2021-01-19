@@ -1,0 +1,11 @@
+customer\services\beans\CustomerServicesResponse.class
+customer\services\dao\CustomerServicesDaoImpl.class
+customer\services\bl\ContactUs.class
+customer\services\utils\Constants.class
+customer\services\bl\AbstractCustomerServicesHandler$1.class
+customer\services\beans\CustomerServicesRequest.class
+customer\services\CustomerServices.class
+customer\services\dao\AbstractCustomerServicesDao.class
+customer\services\bl\GetQueries.class
+customer\services\utils\CustomerServicesAction.class
+customer\services\bl\AbstractCustomerServicesHandler.class

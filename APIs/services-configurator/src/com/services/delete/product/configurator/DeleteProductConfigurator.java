@@ -2,6 +2,9 @@ package com.services.delete.product.configurator;
 
 import java.sql.Connection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import common.enums.ProductManagementServiceAction;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
@@ -10,6 +13,8 @@ import product.management.services.beans.ProductManagementRequest;
 import product.management.services.beans.ProductManagementResponse;
 
 public class DeleteProductConfigurator {
+	private static final Logger logger = LoggerFactory.getLogger(DeleteProductConfigurator.class);
+	
 	public MainResponseObject deleteProduct(MainRequestObject mainRequestObject, Connection con) {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		ProductManagementService productManagementService = new ProductManagementService();
@@ -23,12 +28,14 @@ public class DeleteProductConfigurator {
 	
 	private void mapRequest(MainRequestObject mainRequestObject, ProductManagementRequest productManagementRequest) {
 		if (null != mainRequestObject && null != mainRequestObject.getProductInfo()) {
+			logger.info(logger.isInfoEnabled() ? "Requested content recieved for deleteProduct: [" +mainRequestObject+ "]": null);
 			productManagementRequest.setProduct(mainRequestObject.getProductInfo());
 		}
 		productManagementRequest.setProductManagementServiceAction(ProductManagementServiceAction.DELETE_PRODUCT);
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, ProductManagementResponse productManagementResponse) {
+		logger.info(logger.isInfoEnabled() ? "Response recieved for deleteProduct: [" +productManagementResponse+ "]": null);
 		if (null != productManagementResponse) {
 			mainResponseObject.setResponseCode(productManagementResponse.getResponseCode());
 			mainResponseObject.setResponseDesc(productManagementResponse.getResponseDesc());

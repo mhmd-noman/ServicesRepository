@@ -31,6 +31,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call createUser Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.createUser(mainRequestObject);
 		return mainResponseObject;
 	}
@@ -40,6 +41,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call updateUser Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.updateUser(mainRequestObject);
 		return mainResponseObject;
 	}
@@ -49,6 +51,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call deleteUser Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.deleteUser(mainRequestObject);
 		return mainResponseObject;
 	} 
@@ -58,6 +61,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call addProduct Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.addProduct(mainRequestObject);
 		return mainResponseObject;
 	}
@@ -67,6 +71,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call updateProduct Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.updateProduct(mainRequestObject);
 		return mainResponseObject;
 	}
@@ -76,6 +81,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call deleteProduct Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.deleteProduct(mainRequestObject);
 		return mainResponseObject;
 	}
@@ -85,6 +91,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call getProducts Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.getProducts(mainRequestObject);
 		return mainResponseObject;
 	}
@@ -94,6 +101,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call placeOrder Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.placeOrder(mainRequestObject);
 		return mainResponseObject;
 	}
@@ -103,6 +111,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call removeOrder Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.removeOrder(mainRequestObject);
 		return mainResponseObject;
 	}
@@ -112,7 +121,28 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call getOrders Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.getOrders(mainRequestObject);
+		return mainResponseObject;
+	}
+	
+	@PostMapping("{dbCode}/contactUs")
+	public MainResponseObject contactUs(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+		MainResponseObject mainResponseObject = null;
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call contactUs Service with Client[" +dbCode+ "]": null);
+		mainResponseObject = servicesConfigurator.contactUs(mainRequestObject);
+		return mainResponseObject;
+	}
+	
+	@PostMapping("{dbCode}/getQueries")
+	public MainResponseObject getQueries(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+		MainResponseObject mainResponseObject = null;
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call getQueries Service with Client[" +dbCode+ "]": null);
+		mainResponseObject = servicesConfigurator.getQueries(mainRequestObject);
 		return mainResponseObject;
 	}
 }

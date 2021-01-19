@@ -4,6 +4,7 @@ import java.util.List;
 
 import common.beans.Order;
 import common.beans.Product;
+import common.beans.Query;
 import common.beans.User;
 
 public class MainResponseObject {
@@ -12,6 +13,7 @@ public class MainResponseObject {
 	private List<User> users = null;
 	private List<Product> products = null;
 	private List<Order> orders = null;
+	private List<Query> queries = null;
 
 	public String getResponseCode() {
 		return responseCode;
@@ -31,7 +33,6 @@ public class MainResponseObject {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -44,6 +45,12 @@ public class MainResponseObject {
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
+	public List<Query> getQueries() {
+		return queries;
+	}
+	public void setQueries(List<Query> queries) {
+		this.queries = queries;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -53,6 +60,10 @@ public class MainResponseObject {
 		builder.append(responseDesc);
 		builder.append(", users=");
 		builder.append(users);
+		builder.append(", orders=");
+		builder.append(orders);
+		builder.append(", queries=");
+		builder.append(queries);
 		builder.append("]");
 		return builder.toString();
 	}

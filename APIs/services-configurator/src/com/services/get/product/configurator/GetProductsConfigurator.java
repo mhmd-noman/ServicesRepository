@@ -2,6 +2,9 @@ package com.services.get.product.configurator;
 
 import java.sql.Connection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import common.enums.ProductManagementServiceAction;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
@@ -10,6 +13,8 @@ import product.management.services.beans.ProductManagementRequest;
 import product.management.services.beans.ProductManagementResponse;
 
 public class GetProductsConfigurator {
+	private static final Logger logger = LoggerFactory.getLogger(GetProductsConfigurator.class);
+
 	public MainResponseObject getProducts(MainRequestObject mainRequestObject, Connection con) {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		ProductManagementService productManagementService = new ProductManagementService();
@@ -24,6 +29,7 @@ public class GetProductsConfigurator {
 	
 	private void mapRequest(MainRequestObject mainRequestObject, ProductManagementRequest productManagementRequest) {
 		if (null != mainRequestObject) {
+			logger.info(logger.isInfoEnabled() ? "Requested content recieved for getProducts: [" +mainRequestObject+ "]": null);
 			productManagementRequest.setProduct(mainRequestObject.getProductInfo());
 			productManagementRequest.setFetchOutOfStockProducts(mainRequestObject.isFetchOutOfStockProducts());
 			productManagementRequest.setProductIds(mainRequestObject.getIds());
@@ -32,6 +38,7 @@ public class GetProductsConfigurator {
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, ProductManagementResponse productManagementResponse) {
+		logger.info(logger.isInfoEnabled() ? "Response recieved for getProducts: [" +productManagementResponse+ "]": null);
 		if (null != productManagementResponse) {
 			mainResponseObject.setResponseCode(productManagementResponse.getResponseCode());
 			mainResponseObject.setResponseDesc(productManagementResponse.getResponseDesc());

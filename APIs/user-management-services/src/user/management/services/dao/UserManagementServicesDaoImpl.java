@@ -40,7 +40,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 			paramList.add(usersManagementRequest.getLastName());
 		}
 		//if (!Utils.isNullOrEmptyCollection(paramList)) {
-		logger.info(logger.isInfoEnabled() ? "Going to fetch users by using query: " +AbstractUserManagementServicesDao.GET_USERS+ " with paramters: "+ paramList: null);
+		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch users by using query: " +AbstractUserManagementServicesDao.GET_USERS+ " with paramters: "+ paramList: null);
 		usersResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 		//}
 		return prepareUsersData(usersResultSet);
@@ -80,7 +80,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 			paramList.add(usersManagementRequest.getPassword());
 			paramList.add(usersManagementRequest.getPhone());
 			paramList.add(usersManagementRequest.getUsername());
-			logger.info(logger.isInfoEnabled() ? "Going to insert user by using query: " +AbstractUserManagementServicesDao.CREATE_USER+ " with paramters: "+ paramList: null);
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to insert user by using query: " +AbstractUserManagementServicesDao.CREATE_USER+ " with paramters: "+ paramList: null);
 			AbstractCommonDbMethods.getInstance().update(AbstractUserManagementServicesDao.CREATE_USER, paramList, connection);
 		}
 	}
@@ -111,7 +111,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 		
 		if (!Utils.validateIfNullOrEmptyString(updateColumns.toString().toString())) {
 			query = new StringBuilder("update users set " +updateColumns.toString().substring(0, updateColumns.length() - 1)+ " where username = '" +usersManagementRequest.getUsername()+ "'");
-			logger.debug(logger.isDebugEnabled() ? "Going to insert user by using query: " +query.toString()+ " with paramters: "+ paramList: null);
+			logger.debug(logger.isDebugEnabled() ? Constants.SERVICE_NAME + "Going to insert user by using query: " +query.toString()+ " with paramters: "+ paramList: null);
 			AbstractCommonDbMethods.getInstance().update(query.toString(), paramList, connection);	
 		}
 	}
@@ -121,7 +121,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 		if (!Utils.validateIfNullOrEmptyString(usersManagementRequest.getUsername())) {
 			paramList = new ArrayList<>();
 			paramList.add(usersManagementRequest.getUsername());
-			logger.info(logger.isInfoEnabled() ? "Going to delete user by using query: " +AbstractUserManagementServicesDao.DELETE_USER+ " with paramters: "+ paramList: null);
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to delete user by using query: " +AbstractUserManagementServicesDao.DELETE_USER+ " with paramters: "+ paramList: null);
 			AbstractCommonDbMethods.getInstance().update(AbstractUserManagementServicesDao.DELETE_USER, paramList, connection);
 		}
 	}

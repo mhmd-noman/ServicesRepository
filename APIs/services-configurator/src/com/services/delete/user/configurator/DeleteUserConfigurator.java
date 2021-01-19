@@ -2,6 +2,9 @@ package com.services.delete.user.configurator;
 
 import java.sql.Connection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
 import user.management.services.UserManagementService;
@@ -10,6 +13,8 @@ import user.management.services.beans.UsersManagementResponse;
 import user.management.services.utils.UserManagementServiceAction;
 
 public class DeleteUserConfigurator {
+	private static final Logger logger = LoggerFactory.getLogger(DeleteUserConfigurator.class);
+
 	public MainResponseObject deleteUser(MainRequestObject mainRequestObject, Connection con) {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		UserManagementService userManagementService = new UserManagementService();
@@ -23,6 +28,7 @@ public class DeleteUserConfigurator {
 
 	private void mapRequest(MainRequestObject mainRequestObject, UsersManagementRequest usersManagementRequest) {
 		if (null != mainRequestObject && null != mainRequestObject.getUserInfo()) {
+			logger.info(logger.isInfoEnabled() ? "Requested content recieved for deleteUser: [" +mainRequestObject+ "]": null);
 			usersManagementRequest.setEmail(mainRequestObject.getUserInfo().getEmail());
 			usersManagementRequest.setPhone(mainRequestObject.getUserInfo().getPhoneNumber());
 			usersManagementRequest.setUsername(mainRequestObject.getUserInfo().getUsername());
@@ -31,6 +37,7 @@ public class DeleteUserConfigurator {
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, UsersManagementResponse usersManagementResponse) {
+		logger.info(logger.isInfoEnabled() ? "Response recieved for deleteUser: [" +usersManagementResponse+ "]": null);
 		if (null != usersManagementResponse) {
 			mainResponseObject.setResponseCode(usersManagementResponse.getResponseCode());
 			mainResponseObject.setResponseDesc(usersManagementResponse.getResponseDesc());

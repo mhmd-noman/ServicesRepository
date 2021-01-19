@@ -5,8 +5,6 @@ import java.sql.Connection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.services.configurator.ServicesConfigurator;
-
 import common.enums.OrderManagementServiceAction;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
@@ -15,7 +13,8 @@ import order.management.services.beans.OrderManagementRequest;
 import order.management.services.beans.OrderManagementResponse;
 
 public class RemoveOrderConfigurator {
-	private static final Logger logger = LoggerFactory.getLogger(ServicesConfigurator.class);
+	private static final Logger logger = LoggerFactory.getLogger(RemoveOrderConfigurator.class);
+
 	public MainResponseObject removeOrder(MainRequestObject mainRequestObject, Connection con) {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		OrderManagementService orderManagementService = new OrderManagementService();
@@ -29,15 +28,15 @@ public class RemoveOrderConfigurator {
 	
 	private void mapRequest(MainRequestObject mainRequestObject, OrderManagementRequest orderManagementRequest) {
 		if (null != mainRequestObject && null != mainRequestObject.getProductInfo()) {
-			logger.info(logger.isInfoEnabled() ? "Requested content recieved for order removal: [" +mainRequestObject+ "]": null);
+			logger.info(logger.isInfoEnabled() ? "Requested content recieved for removeOrder: [" +mainRequestObject+ "]": null);
 			orderManagementRequest.setOrder(mainRequestObject.getOrderInfo());
 		}
 		orderManagementRequest.setOrderManagementServiceAction(OrderManagementServiceAction.REMOVE_ORDER);
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, OrderManagementResponse orderManagementResponse) {
+		logger.info(logger.isInfoEnabled() ? "Response recieved for removeOrder: [" +orderManagementResponse+ "]": null);
 		if (null != orderManagementResponse) {
-			logger.info(logger.isInfoEnabled() ? "Response recieved for order removal: [" +orderManagementResponse+ "]": null);
 			mainResponseObject.setResponseCode(orderManagementResponse.getResponseCode());
 			mainResponseObject.setResponseDesc(orderManagementResponse.getResponseDesc());
 			mainResponseObject.setOrders(orderManagementResponse.getOrders());

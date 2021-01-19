@@ -15,6 +15,7 @@ import common.utilities.constants.CommonConstants;
 import common.utilities.methods.Utils;
 import database.manager.methods.AbstractCommonDbMethods;
 import product.management.services.beans.ProductManagementRequest;
+import product.management.services.utils.Constants;
 
 public class ProductManagementServicesDaoImpl extends AbstractProductManagementServicesDao {
 	private static final Logger logger = LoggerFactory.getLogger(ProductManagementServicesDaoImpl.class);
@@ -62,7 +63,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 		if (!productsManagementRequest.isFetchOutOfStockProducts()) {
 			query.append(AbstractProductManagementServicesDao.IS_ACTIVE_PRODUCT);
 		}
-		logger.info(logger.isInfoEnabled() ? "Going to fetch products by using query: " +AbstractProductManagementServicesDao.GET_PRODUCTS+ " with paramters: "+ paramList: null);
+		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch products by using query: " +AbstractProductManagementServicesDao.GET_PRODUCTS+ " with paramters: "+ paramList: null);
 		productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);
 		return prepareProductsData(productsResultSet);
 	}
@@ -121,7 +122,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 			paramList.add(productsManagementRequest.getProduct().getDirectiontoUse());
 			paramList.add(productsManagementRequest.getProduct().getDescription());
 			paramList.add(CommonConstants.OPTION_Y.equalsIgnoreCase(productsManagementRequest.getProduct().isActive()) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N);
-			logger.info(logger.isInfoEnabled() ? "Going to insert user by using query: " +AbstractProductManagementServicesDao.ADD_PRODUCT+ " with paramters: "+ paramList: null);
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to insert user by using query: " +AbstractProductManagementServicesDao.ADD_PRODUCT+ " with paramters: "+ paramList: null);
 			AbstractCommonDbMethods.getInstance().update(AbstractProductManagementServicesDao.ADD_PRODUCT, paramList, connection);
 		}
 	}
@@ -183,7 +184,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 		}
 		if (!Utils.validateIfNullOrEmptyString(updateColumns.toString().toString())) {
 			query = new StringBuilder("update products set " +updateColumns.toString().substring(0, updateColumns.length() - 1)+ " where id = '" +productsManagementRequest.getProduct().getId()+ "'");
-			logger.debug(logger.isDebugEnabled() ? "Going to insert user by using query: " +query.toString()+ " with paramters: "+ paramList: null);
+			logger.debug(logger.isDebugEnabled() ? Constants.SERVICE_NAME + "Going to insert user by using query: " +query.toString()+ " with paramters: "+ paramList: null);
 			AbstractCommonDbMethods.getInstance().update(query.toString(), paramList, connection);	
 		}
 	}

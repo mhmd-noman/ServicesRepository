@@ -5,10 +5,11 @@ import java.sql.Connection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import common.utilities.constants.CommonConstants;
+import common.utilities.constants.ResponseCodes;
 import order.management.services.beans.OrderManagementRequest;
 import order.management.services.beans.OrderManagementResponse;
 import order.management.services.dao.AbstractOrderManagementServicesDao;
+import order.management.services.utils.Constants;
 
 public class UpdateOrder extends AbstractOrderManagementServicesHandler {
 	private static final Logger logger = LoggerFactory.getLogger(UpdateOrder.class);
@@ -18,14 +19,14 @@ public class UpdateOrder extends AbstractOrderManagementServicesHandler {
 		
 		orderManagementResponse = new OrderManagementResponse();
 		if (null == orderManagementRequest.getOrder()) {
-			orderManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);
-			orderManagementResponse.setResponseDesc(CommonConstants.INVALID_TRANS_DESCRIPTION);
+			orderManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
+			orderManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
 			return orderManagementResponse;
 		}
-		logger.info(logger.isInfoEnabled() ? "Going to update user for user id: ": null);
+		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to update user for user id: ": null);
 		AbstractOrderManagementServicesDao.getInstance().updateOrder(orderManagementRequest, connection);
-		orderManagementResponse.setResponseCode(CommonConstants.SUCCESS);
-		orderManagementResponse.setResponseDesc(CommonConstants.SUCCESS_DESCRIPTION);
+		orderManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
+		orderManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		return orderManagementResponse;
 	}
 }

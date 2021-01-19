@@ -9,11 +9,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import common.beans.Order;
-import common.utilities.constants.CommonConstants;
+import common.utilities.constants.ResponseCodes;
 import common.utilities.methods.Utils;
 import order.management.services.beans.OrderManagementRequest;
 import order.management.services.beans.OrderManagementResponse;
 import order.management.services.dao.AbstractOrderManagementServicesDao;
+import order.management.services.utils.Constants;
 
 public class GetOrders extends AbstractOrderManagementServicesHandler {
 	private static final Logger logger = LoggerFactory.getLogger(GetOrders.class);
@@ -26,20 +27,20 @@ public class GetOrders extends AbstractOrderManagementServicesHandler {
 		ordersManagementResponse = new OrderManagementResponse();
 		ordersList = new ArrayList<>();
 		
-//		if (null == ordersManagementRequest.getOrder()) {
-//			ordersManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);
-//			ordersManagementResponse.setResponseDesc(CommonConstants.INVALID_TRANS_DESCRIPTION);
-//			return ordersManagementResponse;
-//		}
-		logger.info(logger.isInfoEnabled() ? "Going to create product for username: ": null);
+		if (null == ordersManagementRequest.getOrder()) {
+			ordersManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
+			ordersManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
+			return ordersManagementResponse;
+		}
+		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to create product for username: ": null);
 		ordersMap = AbstractOrderManagementServicesDao.getInstance().getOrders(ordersManagementRequest, connection);
 		
 		if (!Utils.isNullOrEmptyCollection(ordersMap.values())) {
-			logger.info(logger.isInfoEnabled() ? "Retrieved Orders: "+ ordersList: null);
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Retrieved Orders: "+ ordersList: null);
 			ordersManagementResponse.setOrders(new ArrayList<Order>(ordersMap.values()));
 		}
-		ordersManagementResponse.setResponseCode(CommonConstants.SUCCESS);
-		ordersManagementResponse.setResponseDesc(CommonConstants.SUCCESS_DESCRIPTION);
+		ordersManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
+		ordersManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		return ordersManagementResponse;
 	}
 }

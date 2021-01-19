@@ -14,6 +14,7 @@ import user.management.services.utils.UserManagementServiceAction;
 
 public class GetUsersConfigurator {
 	private static final Logger logger = LoggerFactory.getLogger(GetUsersConfigurator.class);
+
 	public MainResponseObject getUsers(MainRequestObject mainRequestObject, Connection con) {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		UserManagementService userManagementService = new UserManagementService();

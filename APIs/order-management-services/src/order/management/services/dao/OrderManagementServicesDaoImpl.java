@@ -18,6 +18,7 @@ import common.utilities.constants.CommonConstants;
 import common.utilities.methods.Utils;
 import database.manager.methods.AbstractCommonDbMethods;
 import order.management.services.beans.OrderManagementRequest;
+import order.management.services.utils.Constants;
 
 public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServicesDao {
 	private static final Logger logger = LoggerFactory.getLogger(OrderManagementServicesDaoImpl.class);
@@ -66,7 +67,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 				paramList.add(productsManagementRequest.getOrder().getCountry());
 			}
 		}
-		logger.info(logger.isInfoEnabled() ? "Going to fetch products by using query: " +query+ " with paramters: "+ paramList: null);
+		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch products by using query: " +query+ " with paramters: "+ paramList: null);
 		productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 		return prepareProductsData(productsResultSet);
 	}
@@ -164,7 +165,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 			paramList.add(new Date(System.currentTimeMillis()));
 			paramList.add(orderManagementRequest.getOrder().getCancelledAt());
 			paramList.add(orderManagementRequest.getOrder().getOrderStatus());
-			logger.info(logger.isInfoEnabled() ? "Going to insert order by using query: " +AbstractOrderManagementServicesDao.PLACE_ORDER+ " with paramters: "+ paramList: null);
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to insert order by using query: " +AbstractOrderManagementServicesDao.PLACE_ORDER+ " with paramters: "+ paramList: null);
 			orderId = AbstractCommonDbMethods.getInstance().updateWithKeyReturn(AbstractOrderManagementServicesDao.PLACE_ORDER, paramList, connection);
 		}
 		orderManagementRequest.getOrder().setOrderId(orderId);
@@ -175,7 +176,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 		List<Object> paramList = null;
 		List<String> queries = new ArrayList<>();
 		paramList = new ArrayList<>();
-		logger.info(logger.isInfoEnabled() ? "Going to add "+order.getOrderedProducts().size()+" products for order: [" +order.getOrderId()+ "]": null);
+		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to add "+order.getOrderedProducts().size()+" products for order: [" +order.getOrderId()+ "]": null);
 		for (Product product : order.getOrderedProducts()) {
 			queries.add(AbstractOrderManagementServicesDao.INSERT_ORDER_PRODUCTS);
 			paramList.add(order.getOrderId());

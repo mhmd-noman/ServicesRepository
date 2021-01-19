@@ -7,11 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import common.beans.Product;
-import common.utilities.constants.CommonConstants;
+import common.utilities.constants.ResponseCodes;
 import common.utilities.methods.Utils;
 import product.management.services.beans.ProductManagementRequest;
 import product.management.services.beans.ProductManagementResponse;
 import product.management.services.dao.AbstractProductManagementServicesDao;
+import product.management.services.utils.Constants;
 
 public class AddProduct extends AbstractProductManagementServicesHandler {
 	private static final Logger logger = LoggerFactory.getLogger(AddProduct.class);
@@ -20,19 +21,19 @@ public class AddProduct extends AbstractProductManagementServicesHandler {
 		ProductManagementResponse productManagementResponse = null;
 		productManagementResponse = new ProductManagementResponse();
 		if (null == productManagementRequest || null == productManagementRequest.getProduct()) {
-			logger.info(logger.isInfoEnabled() ? "Couldn't proceed as product requested content has been passed empty ...": null);
-			productManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);
-			productManagementResponse.setResponseDesc(CommonConstants.INVALID_TRANS_DESCRIPTION);
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Couldn't proceed as product requested content has been passed empty ...": null);
+			productManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
+			productManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
 			return productManagementResponse;
 		}
 		if(ifProductAlreadyExist(productManagementRequest, connection)) {
-			productManagementResponse.setResponseCode(CommonConstants.PRODUCT_ALREADY_EXISTS);
-			productManagementResponse.setResponseDesc(CommonConstants.PRODUCT_ALREADY_EXISTS_DESCRIPTION);
+			productManagementResponse.setResponseCode(ResponseCodes.PRODUCT_ALREADY_EXISTS);
+			productManagementResponse.setResponseDesc(ResponseCodes.PRODUCT_ALREADY_EXISTS_DESCRIPTION);
 			return productManagementResponse;
 		}
 		AbstractProductManagementServicesDao.getInstance().addProduct(productManagementRequest, connection);
-		productManagementResponse.setResponseCode(CommonConstants.SUCCESS);
-		productManagementResponse.setResponseDesc(CommonConstants.SUCCESS_DESCRIPTION);
+		productManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
+		productManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		return productManagementResponse;
 	}
 	

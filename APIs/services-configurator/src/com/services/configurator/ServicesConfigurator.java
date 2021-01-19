@@ -7,11 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.services.add.product.configurator.AddProductConfigurator;
+import com.services.contact.us.configurator.ContactUsConfigurator;
 import com.services.create.user.configurator.CreateUserConfigurator;
 import com.services.delete.product.configurator.DeleteProductConfigurator;
 import com.services.delete.user.configurator.DeleteUserConfigurator;
 import com.services.get.order.configurator.GetOrdersConfigurator;
 import com.services.get.product.configurator.GetProductsConfigurator;
+import com.services.get.queries.configurator.GetQueriesConfigurator;
 import com.services.get.users.configurator.GetUsersConfigurator;
 import com.services.place.order.configurator.PlaceOrderConfigurator;
 import com.services.remove.order.configurator.RemoveOrderConfigurator;
@@ -20,11 +22,12 @@ import com.services.update.user.configurator.UpdateUserConfigurator;
 
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
-import common.utilities.constants.CommonConstants;
+import common.utilities.constants.ResponseCodes;
 import database.manager.handler.DatabaseManager;
 
 public class ServicesConfigurator {
 	private static final Logger logger = LoggerFactory.getLogger(ServicesConfigurator.class);
+	
 	private Connection getConnection(String dbCode) {
 		Connection con = null; 
 		DatabaseManager dbManager = null;
@@ -48,8 +51,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		getUsersConfigurator = new GetUsersConfigurator();
@@ -66,8 +69,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		createUserConfigurator = new CreateUserConfigurator();
@@ -85,8 +88,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		updateUserConfigurator = new UpdateUserConfigurator();
@@ -103,8 +106,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		deleteUserConfigurator = new DeleteUserConfigurator();
@@ -121,8 +124,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		getProductsConfigurator = new GetProductsConfigurator();
@@ -139,8 +142,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		addProductConfigurator = new AddProductConfigurator();
@@ -157,8 +160,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		updateProductConfigurator = new UpdateProductConfigurator();
@@ -175,8 +178,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		deleteProductConfigurator = new DeleteProductConfigurator();
@@ -193,8 +196,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		getOrdersConfigurator = new GetOrdersConfigurator();
@@ -211,8 +214,8 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		placeOrderConfigurator = new PlaceOrderConfigurator();
@@ -229,13 +232,49 @@ public class ServicesConfigurator {
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
 			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
-			mainResponseObject.setResponseCode(CommonConstants.DB_CONNECTION_FAILED);
-			mainResponseObject.setResponseDesc(CommonConstants.DB_CONNECTION_FAILED_DESC);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
 		removeOrderConfigurator = new RemoveOrderConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for removeOrder Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = removeOrderConfigurator.removeOrder(mainRequestObject, con);
+		return mainResponseObject;
+	}
+	
+	public MainResponseObject contactUs(MainRequestObject mainRequestObject) {
+		Connection con = null;
+		MainResponseObject mainResponseObject = null;
+		ContactUsConfigurator contactUsConfigurator = null;
+		mainResponseObject = new MainResponseObject();
+		con = getConnection(mainRequestObject.getDbCode());
+		if (null == con) {
+			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
+			return mainResponseObject;
+		}
+		contactUsConfigurator = new ContactUsConfigurator();
+		logger.info(logger.isInfoEnabled() ? "Going to make call for contactUs Service with requested content: [" +mainRequestObject+ "]": null);
+		mainResponseObject = contactUsConfigurator.contactUs(mainRequestObject, con);
+		return mainResponseObject;
+	}
+	
+	public MainResponseObject getQueries(MainRequestObject mainRequestObject) {
+		Connection con = null;
+		MainResponseObject mainResponseObject = null;
+		GetQueriesConfigurator getQueriesConfigurator = null;
+		mainResponseObject = new MainResponseObject();
+		con = getConnection(mainRequestObject.getDbCode());
+		if (null == con) {
+			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
+			return mainResponseObject;
+		}
+		getQueriesConfigurator = new GetQueriesConfigurator();
+		logger.info(logger.isInfoEnabled() ? "Going to make call for getQueries Service with requested content: [" +mainRequestObject+ "]": null);
+		mainResponseObject = getQueriesConfigurator.getQueries(mainRequestObject, con);
 		return mainResponseObject;
 	}
 }

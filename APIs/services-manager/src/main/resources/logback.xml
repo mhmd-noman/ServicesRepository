@@ -98,6 +98,17 @@
 		<appender-ref ref="business.services" />
 	</logger>
 	
+	<logger name="transaction.logging.service" level="debug"
+		additivity="false">
+		<appender-ref ref="business.services" />
+	</logger>
+	
+	<logger name="customer.services" level="debug"
+		additivity="false">
+		<appender-ref ref="business.services" />
+	</logger>
+	
+	
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />
 	</root>

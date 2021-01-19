@@ -1,6 +1,10 @@
 package com.services.update.user.configurator;
 
 import java.sql.Connection;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
 import user.management.services.UserManagementService;
@@ -9,7 +13,8 @@ import user.management.services.beans.UsersManagementResponse;
 import user.management.services.utils.UserManagementServiceAction;
 
 public class UpdateUserConfigurator {
-	
+	private static final Logger logger = LoggerFactory.getLogger(UpdateUserConfigurator.class);
+
 	public MainResponseObject updateUser(MainRequestObject mainRequestObject, Connection con) {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		UserManagementService userManagementService = new UserManagementService();
@@ -23,6 +28,7 @@ public class UpdateUserConfigurator {
 	
 	private void mapRequest(MainRequestObject mainRequestObject, UsersManagementRequest usersManagementRequest) {
 		if (null != mainRequestObject && null != mainRequestObject.getUserInfo()) {
+			logger.info(logger.isInfoEnabled() ? "Requested content recieved for updateUser: [" +mainRequestObject+ "]": null);
 			usersManagementRequest.setEmail(mainRequestObject.getUserInfo().getEmail());
 			usersManagementRequest.setEnabled(mainRequestObject.getUserInfo().getEnabled());
 			usersManagementRequest.setFirstName(mainRequestObject.getUserInfo().getFirstName());
@@ -35,6 +41,7 @@ public class UpdateUserConfigurator {
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, UsersManagementResponse usersManagementResponse) {
+		logger.info(logger.isInfoEnabled() ? "Response Recieved for updateUser: [" +usersManagementResponse+ "]": null);
 		if (null != usersManagementResponse) {
 			mainResponseObject.setResponseCode(usersManagementResponse.getResponseCode());
 			mainResponseObject.setResponseDesc(usersManagementResponse.getResponseDesc());

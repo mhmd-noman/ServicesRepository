@@ -10,7 +10,7 @@ import java.sql.Connection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import common.utilities.constants.CommonConstants;
+import common.utilities.constants.ResponseCodes;
 import order.management.services.beans.OrderManagementRequest;
 import order.management.services.beans.OrderManagementResponse;
 import order.management.services.bl.AbstractOrderManagementServicesHandler;
@@ -21,7 +21,7 @@ public class OrderManagementService {
 	public OrderManagementResponse orderManagementService(OrderManagementRequest orderManagementRequest, Connection con) {
 		OrderManagementResponse orderManagementResponse = new OrderManagementResponse();
 		if (null == orderManagementRequest) {
-			orderManagementResponse.setResponseCode(CommonConstants.INVALID_TRANS);
+			orderManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
 			orderManagementResponse.setResponseDesc("Product Request Content has been Passed Empty.");
 			return orderManagementResponse;
 		}
