@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>user-management-services</name>
   <description>user-management-services</description>
+ 
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

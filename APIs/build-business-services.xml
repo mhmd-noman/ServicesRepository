@@ -8,6 +8,7 @@
 			<fileset dir="." includes="user-management-services/build-user-management-services.xml" />
 			<fileset dir="." includes="product-management-services/build-product-management-services.xml"/>
 			<fileset dir="." includes="order-management-services/build-order-management-services.xml"/>
+			<fileset dir="." includes="customer-services/build-customer-services.xml"/>
 
 			<!-- Add services above -->
 			<fileset dir="." includes="services-configurator/build-services-configurator.xml"/>

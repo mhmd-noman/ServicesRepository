@@ -8,6 +8,7 @@
 		<version>2.4.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.services.manager</groupId>
 	<artifactId>spring-services</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -15,7 +16,7 @@
 	<description>Services Manager</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>14</java.version>
 		<logback.version>1.2.3</logback.version>
 	</properties>
 

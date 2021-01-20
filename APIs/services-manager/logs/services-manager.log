@@ -25,3 +25,94 @@
 [2021-01-19 06:00:32,555] [DEBUG] [main] c.s.m.ServicesManagerApplicationTests - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
 [2021-01-19 06:00:32,560] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - No active profile set, falling back to default profiles: default
 [2021-01-19 06:00:39,348] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Started ServicesManagerApplicationTests in 7.508 seconds (JVM running for 10.047)
+[2021-01-19 20:37:27,543] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 18056 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:37:27,552] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:37:27,553] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:37:33,196] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 6.577 seconds (JVM running for 16.459)
+[2021-01-19 20:39:52,779] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:40:54,335] [INFO ] [http-nio-8080-exec-2] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:42:17,912] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 18056 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:42:17,912] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:42:17,912] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:42:20,202] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 2.406 seconds (JVM running for 303.466)
+[2021-01-19 20:42:32,507] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 13280 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:42:32,514] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:42:32,515] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:42:37,088] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 5.277 seconds (JVM running for 7.903)
+[2021-01-19 20:42:45,629] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:43:04,652] [INFO ] [http-nio-8080-exec-2] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:44:20,337] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 13280 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:44:20,337] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:44:20,337] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:44:22,222] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 2.059 seconds (JVM running for 113.036)
+[2021-01-19 20:44:46,670] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 13280 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:44:46,670] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:44:46,670] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:44:58,724] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 8696 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:44:58,731] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:44:58,731] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:45:02,932] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.821 seconds (JVM running for 6.437)
+[2021-01-19 20:45:13,995] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:48:00,050] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 8696 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:48:00,050] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:48:00,050] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:48:01,815] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.901 seconds (JVM running for 185.32)
+[2021-01-19 20:48:12,033] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 12604 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:48:12,041] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:48:12,042] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:48:16,602] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 5.177 seconds (JVM running for 6.853)
+[2021-01-19 20:48:21,074] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:48:58,550] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:49:29,922] [INFO ] [http-nio-8080-exec-5] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:49:39,212] [INFO ] [http-nio-8080-exec-6] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:50:02,720] [INFO ] [http-nio-8080-exec-7] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:50:34,761] [INFO ] [http-nio-8080-exec-10] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:52:06,236] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 10508 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:52:06,243] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:52:06,243] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:52:10,368] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.775 seconds (JVM running for 7.299)
+[2021-01-19 20:52:21,181] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:52:41,764] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:53:11,673] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 10508 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:53:11,674] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:53:11,674] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:53:13,499] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.957 seconds (JVM running for 70.429)
+[2021-01-19 20:53:30,533] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 10508 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:53:30,534] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:53:30,534] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:53:32,190] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.775 seconds (JVM running for 89.121)
+[2021-01-19 20:53:41,700] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 5844 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:53:41,707] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:53:41,708] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:53:46,064] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.99 seconds (JVM running for 6.711)
+[2021-01-19 20:53:58,896] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:54:41,269] [INFO ] [http-nio-8080-exec-4] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:54:52,331] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:55:06,150] [INFO ] [http-nio-8080-exec-5] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:55:24,131] [INFO ] [http-nio-8080-exec-6] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:56:08,416] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 5844 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:56:08,416] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:56:08,416] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:56:19,465] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 17096 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 20:56:19,472] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 20:56:19,472] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 20:56:23,731] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.908 seconds (JVM running for 6.76)
+[2021-01-19 20:56:28,479] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-19 20:58:16,334] [INFO ] [http-nio-8080-exec-4] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
+[2021-01-19 20:59:17,904] [INFO ] [http-nio-8080-exec-5] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
+[2021-01-19 21:00:05,985] [INFO ] [http-nio-8080-exec-6] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
+[2021-01-19 21:12:31,379] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 18412 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-19 21:12:31,386] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-19 21:12:31,386] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-19 21:12:35,847] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 5.205 seconds (JVM running for 7.136)
+[2021-01-19 21:12:45,950] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
+[2021-01-19 21:13:04,959] [INFO ] [http-nio-8080-exec-2] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
+[2021-01-19 21:13:14,388] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
+[2021-01-20 01:46:54,436] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Starting ServicesManagerApplicationTests using Java 14 on DESKTOP-S47TOJT with PID 10572 (started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-20 01:46:54,438] [DEBUG] [main] c.s.m.ServicesManagerApplicationTests - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-20 01:46:54,443] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - No active profile set, falling back to default profiles: default
+[2021-01-20 01:47:02,596] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Started ServicesManagerApplicationTests in 8.808 seconds (JVM running for 11.722)
+[2021-01-20 05:29:24,089] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Starting ServicesManagerApplicationTests using Java 14 on DESKTOP-S47TOJT with PID 10908 (started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-20 05:29:24,091] [DEBUG] [main] c.s.m.ServicesManagerApplicationTests - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-20 05:29:24,097] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - No active profile set, falling back to default profiles: default
+[2021-01-20 05:29:35,008] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Started ServicesManagerApplicationTests in 12.234 seconds (JVM running for 15.582)

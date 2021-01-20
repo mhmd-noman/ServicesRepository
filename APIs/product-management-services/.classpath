@@ -9,7 +9,6 @@
 	<classpathentry kind="lib" path="C:/Workspace/Repository/spring-workspace/libs/slf4j-api-1.7.30.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-14">
 		<attributes>
-			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>

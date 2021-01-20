@@ -42,3 +42,103 @@
 [2021-01-19 01:59:35,646] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
 [2021-01-19 01:59:35,646] [INFO ] [http-nio-8080-exec-1] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
 [2021-01-19 01:59:35,901] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:39:52,793] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:39:56,191] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:39:56,274] [INFO ] [http-nio-8080-exec-3] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:39:56,568] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:41:01,388] [INFO ] [http-nio-8080-exec-2] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:41:10,269] [INFO ] [http-nio-8080-exec-2] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:41:10,270] [INFO ] [http-nio-8080-exec-2] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:41:10,532] [INFO ] [http-nio-8080-exec-2] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:42:45,656] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:42:48,492] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:42:48,534] [INFO ] [http-nio-8080-exec-1] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:42:48,819] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:43:04,654] [INFO ] [http-nio-8080-exec-2] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:43:06,869] [INFO ] [http-nio-8080-exec-2] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:43:06,870] [INFO ] [http-nio-8080-exec-2] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:43:07,112] [INFO ] [http-nio-8080-exec-2] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:45:14,012] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:46:04,948] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:46:04,989] [INFO ] [http-nio-8080-exec-1] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:46:05,268] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:48:21,084] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:48:23,926] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:48:23,935] [INFO ] [http-nio-8080-exec-1] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:48:24,217] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:48:58,551] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:49:00,798] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:49:00,798] [INFO ] [http-nio-8080-exec-3] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:49:01,041] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:49:29,922] [INFO ] [http-nio-8080-exec-5] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:49:32,292] [INFO ] [http-nio-8080-exec-5] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:49:32,292] [INFO ] [http-nio-8080-exec-5] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:49:32,548] [INFO ] [http-nio-8080-exec-5] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:49:39,213] [INFO ] [http-nio-8080-exec-6] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:49:41,501] [INFO ] [http-nio-8080-exec-6] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:49:41,501] [INFO ] [http-nio-8080-exec-6] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:49:41,748] [INFO ] [http-nio-8080-exec-6] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:50:02,720] [INFO ] [http-nio-8080-exec-7] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:50:05,038] [INFO ] [http-nio-8080-exec-7] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:50:05,039] [INFO ] [http-nio-8080-exec-7] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:50:05,290] [INFO ] [http-nio-8080-exec-7] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:50:34,761] [INFO ] [http-nio-8080-exec-10] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:50:37,215] [INFO ] [http-nio-8080-exec-10] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:50:37,215] [INFO ] [http-nio-8080-exec-10] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:50:37,482] [INFO ] [http-nio-8080-exec-10] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:52:21,191] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:52:24,126] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:52:24,135] [INFO ] [http-nio-8080-exec-1] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:52:24,413] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:52:41,765] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:52:44,122] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:52:44,123] [INFO ] [http-nio-8080-exec-3] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:52:44,377] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:53:58,909] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:54:01,951] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:54:01,973] [INFO ] [http-nio-8080-exec-1] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:54:02,264] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:54:41,270] [INFO ] [http-nio-8080-exec-4] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:54:43,487] [INFO ] [http-nio-8080-exec-4] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:54:43,488] [INFO ] [http-nio-8080-exec-4] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:54:43,742] [INFO ] [http-nio-8080-exec-4] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:54:52,331] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:54:54,657] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:54:54,658] [INFO ] [http-nio-8080-exec-3] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:54:54,916] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:55:06,150] [INFO ] [http-nio-8080-exec-5] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:55:08,470] [INFO ] [http-nio-8080-exec-5] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:55:08,471] [INFO ] [http-nio-8080-exec-5] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:55:08,722] [INFO ] [http-nio-8080-exec-5] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:55:24,132] [INFO ] [http-nio-8080-exec-6] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:55:26,506] [INFO ] [http-nio-8080-exec-6] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:55:26,506] [INFO ] [http-nio-8080-exec-6] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:55:26,768] [INFO ] [http-nio-8080-exec-6] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:56:28,490] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:56:31,471] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:56:31,479] [INFO ] [http-nio-8080-exec-1] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:56:31,755] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:58:16,334] [INFO ] [http-nio-8080-exec-4] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:58:18,667] [INFO ] [http-nio-8080-exec-4] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:58:18,668] [INFO ] [http-nio-8080-exec-4] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:58:18,917] [INFO ] [http-nio-8080-exec-4] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 20:59:17,904] [INFO ] [http-nio-8080-exec-5] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 20:59:20,245] [INFO ] [http-nio-8080-exec-5] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 20:59:20,245] [INFO ] [http-nio-8080-exec-5] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 20:59:20,494] [INFO ] [http-nio-8080-exec-5] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 21:00:05,985] [INFO ] [http-nio-8080-exec-6] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 21:00:08,281] [INFO ] [http-nio-8080-exec-6] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 21:00:08,281] [INFO ] [http-nio-8080-exec-6] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 21:00:08,528] [INFO ] [http-nio-8080-exec-6] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 21:12:45,959] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 21:12:48,867] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 21:12:48,874] [INFO ] [http-nio-8080-exec-1] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 21:12:49,155] [INFO ] [http-nio-8080-exec-1] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 21:13:04,960] [INFO ] [http-nio-8080-exec-2] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 21:13:07,253] [INFO ] [http-nio-8080-exec-2] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 21:13:07,254] [INFO ] [http-nio-8080-exec-2] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 21:13:07,508] [INFO ] [http-nio-8080-exec-2] database.manager.handler.DatabaseManager - Going to get connection for UFN database..
+[2021-01-19 21:13:14,389] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Connecting to master database..
+[2021-01-19 21:13:18,662] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get database info for UFN database..
+[2021-01-19 21:13:18,662] [INFO ] [http-nio-8080-exec-3] d.manager.methods.CommonDaoMethods - Going to fetch Database by using query: select id, db_code, name, url, user, password from databases_info where db_code = ? with paramters: [UFN]
+[2021-01-19 21:13:18,920] [INFO ] [http-nio-8080-exec-3] database.manager.handler.DatabaseManager - Going to get connection for UFN database..

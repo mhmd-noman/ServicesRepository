@@ -1,1 +1,12 @@
+product\management\services\beans\ProductManagementRequest.class
 product\management\services\bl\AbstractProductManagementServicesHandler$1.class
+product\management\services\bl\GetProducts.class
+product\management\services\bl\AddProduct.class
+product\management\services\bl\UpdateProduct.class
+product\management\services\beans\ProductManagementResponse.class
+product\management\services\ProductManagementService.class
+product\management\services\bl\DeleteProduct.class
+product\management\services\dao\AbstractProductManagementServicesDao.class
+product\management\services\dao\ProductManagementServicesDaoImpl.class
+product\management\services\utils\Constants.class
+product\management\services\bl\AbstractProductManagementServicesHandler.class

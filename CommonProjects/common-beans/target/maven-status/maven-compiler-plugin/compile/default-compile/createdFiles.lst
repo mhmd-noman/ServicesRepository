@@ -1,4 +1,5 @@
 common\enums\UserManagementServiceAction.class
+common\beans\Query.class
 common\beans\User.class
 common\enums\OrderManagementServiceAction.class
 common\request\MainRequestObject.class

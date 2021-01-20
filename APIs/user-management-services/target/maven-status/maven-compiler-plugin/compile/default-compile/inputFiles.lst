@@ -1,0 +1,12 @@
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\UserManagementService.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\bl\UpdateUser.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\bl\CreateUser.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\beans\UsersManagementResponse.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\bl\DeleteUser.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\dao\UserManagementServicesDaoImpl.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\utils\Constants.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\bl\AbstractUserManagementServicesHandler.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\utils\UserManagementServiceAction.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\dao\AbstractUserManagementServicesDao.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\beans\UsersManagementRequest.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\user-management-services\src\user\management\services\bl\GetUsers.java

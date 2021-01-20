@@ -1,12 +1,12 @@
-order\management\services\OrderManagementService.class
-order\management\services\bl\PlaceOrder.class
-order\management\services\bl\RemoveOrder.class
-order\management\services\bl\AbstractOrderManagementServicesHandler$1.class
 order\management\services\bl\UpdateOrder.class
 order\management\services\beans\OrderManagementRequest.class
 order\management\services\dao\OrderManagementServicesDaoImpl.class
+order\management\services\OrderManagementService.class
 order\management\services\dao\AbstractOrderManagementServicesDao.class
 order\management\services\bl\AbstractOrderManagementServicesHandler.class
+order\management\services\bl\PlaceOrder.class
+order\management\services\bl\RemoveOrder.class
 order\management\services\beans\OrderManagementResponse.class
+order\management\services\bl\AbstractOrderManagementServicesHandler$1.class
 order\management\services\bl\GetOrders.class
 order\management\services\utils\Constants.class

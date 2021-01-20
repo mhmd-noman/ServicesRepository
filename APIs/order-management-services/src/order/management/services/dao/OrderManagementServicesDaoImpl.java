@@ -67,7 +67,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 				paramList.add(productsManagementRequest.getOrder().getCountry());
 			}
 		}
-		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch products by using query: " +query+ " with paramters: "+ paramList: null);
+		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch orders by using query: " +query+ " with paramters: "+ paramList: null);
 		productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 		return prepareProductsData(productsResultSet);
 	}
