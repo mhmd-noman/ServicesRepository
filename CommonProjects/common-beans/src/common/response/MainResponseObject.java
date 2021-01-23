@@ -10,6 +10,7 @@ import common.beans.User;
 public class MainResponseObject {
 	private String responseCode = null;
 	private String responseDesc = null;
+	private String token = null; 
 	private List<User> users = null;
 	private List<Product> products = null;
 	private List<Order> orders = null;
@@ -26,6 +27,12 @@ public class MainResponseObject {
 	}
 	public void setResponseDesc(String responseDesc) {
 		this.responseDesc = responseDesc;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
 	}
 	public List<User> getUsers() {
 		return users;

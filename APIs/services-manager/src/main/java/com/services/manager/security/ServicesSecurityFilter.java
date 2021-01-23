@@ -1,16 +1,22 @@
-package com.services.manager.security;
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+// Basic Auth - It was implemented before the implementation of oauth2 //
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 
-import org.springframework.web.filter.GenericFilterBean;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import java.io.IOException;
-
-public class ServicesSecurityFilter extends GenericFilterBean {
-	@Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        chain.doFilter(request, response);
-    }
-}
+//package com.services.manager.security;
+//
+//import org.springframework.web.filter.GenericFilterBean;
+//
+//import javax.servlet.FilterChain;
+//import javax.servlet.ServletException;
+//import javax.servlet.ServletRequest;
+//import javax.servlet.ServletResponse;
+//import java.io.IOException;
+//
+//public class ServicesSecurityFilter extends GenericFilterBean {
+//	@Override
+//    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+//        chain.doFilter(request, response);
+//    }
+//}

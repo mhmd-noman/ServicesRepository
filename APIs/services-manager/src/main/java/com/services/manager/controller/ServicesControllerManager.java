@@ -16,7 +16,13 @@ import common.response.MainResponseObject;
 @RestController
 public class ServicesControllerManager {
 	private static final Logger logger = LoggerFactory.getLogger(ServicesControllerManager.class);
-	@PostMapping(path = "{dbCode}/getUsers")
+	
+	@PostMapping(path = "iteam/services")
+	public String welcomeToEServices() throws BaseException {
+		return "Welcome to E-Services - Powered by iTeam.\nDeveloped by: Muhammad Noman\niTeam provides E-Services to support E Commerce Systems.";
+	}
+	
+	@PostMapping(path = "iteam/services/{dbCode}/getUsers")
 	public MainResponseObject getUsers(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -26,7 +32,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/createUser")
+	@PostMapping("iteam/services/{dbCode}/createUser")
 	public MainResponseObject createUser(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -36,7 +42,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/updateUser")
+	@PostMapping("iteam/services/{dbCode}/updateUser")
 	public MainResponseObject updateUser(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -46,7 +52,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/deleteUser")
+	@PostMapping("iteam/services/{dbCode}/deleteUser")
 	public MainResponseObject deleteUser(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -56,7 +62,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	} 
 	
-	@PostMapping("{dbCode}/addProduct")
+	@PostMapping("iteam/services/{dbCode}/addProduct")
 	public MainResponseObject addProduct(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -66,7 +72,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/updateProduct")
+	@PostMapping("iteam/services/{dbCode}/updateProduct")
 	public MainResponseObject updateProduct(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -76,7 +82,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/deleteProduct")
+	@PostMapping("iteam/services/{dbCode}/deleteProduct")
 	public MainResponseObject deleteProduct(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -86,7 +92,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/getProducts")
+	@PostMapping("iteam/services/{dbCode}/getProducts")
 	public MainResponseObject getProducts(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -96,7 +102,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/placeOrder")
+	@PostMapping("iteam/services/{dbCode}/placeOrder")
 	public MainResponseObject placeOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -106,7 +112,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/removeOrder")
+	@PostMapping("iteam/services/{dbCode}/removeOrder")
 	public MainResponseObject removeOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -116,7 +122,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/getOrders")
+	@PostMapping("iteam/services/{dbCode}/getOrders")
 	public MainResponseObject getOrders(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -126,7 +132,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/contactUs")
+	@PostMapping("iteam/services/{dbCode}/contactUs")
 	public MainResponseObject contactUs(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
@@ -136,7 +142,7 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("{dbCode}/getQueries")
+	@PostMapping("iteam/services/{dbCode}/getQueries")
 	public MainResponseObject getQueries(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();

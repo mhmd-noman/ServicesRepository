@@ -1,0 +1,10 @@
+[2021-01-23 23:38:07,375] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Starting ServicesManagerApplicationTests using Java 14 on DESKTOP-S47TOJT with PID 4116 (started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:38:07,376] [DEBUG] [main] c.s.m.ServicesManagerApplicationTests - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:38:07,380] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - No active profile set, falling back to default profiles: default
+[2021-01-23 23:38:10,668] [INFO ] [main] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:38:13,065] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Started ServicesManagerApplicationTests in 6.365 seconds (JVM running for 9.078)
+[2021-01-23 23:39:10,483] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Starting ServicesManagerApplicationTests using Java 14 on DESKTOP-S47TOJT with PID 6672 (started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:39:10,484] [DEBUG] [main] c.s.m.ServicesManagerApplicationTests - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:39:10,497] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - No active profile set, falling back to default profiles: default
+[2021-01-23 23:39:13,744] [INFO ] [main] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:39:15,888] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Started ServicesManagerApplicationTests in 6.108 seconds (JVM running for 8.521)

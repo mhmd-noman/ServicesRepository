@@ -9,4 +9,6 @@ public class ResponseCodes {
 	  public static final String INVALID_TRANS_DESCRIPTION = "Invalid Transaction!";
 	  public static final String PRODUCT_ALREADY_EXISTS = "PA";
 	  public static final String PRODUCT_ALREADY_EXISTS_DESCRIPTION = "Product Already Exists!";
+	  public static final String INVALID_CREDENTIALS = "IC";
+	  public static final String INVALID_CREDENTIALS_DESCRIPTION = "Invalid Credentials Provided!";
 }

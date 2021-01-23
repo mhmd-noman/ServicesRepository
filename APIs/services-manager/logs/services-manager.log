@@ -1,118 +1,318 @@
-[2021-01-18 01:12:11,069] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 9004 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-18 01:12:11,076] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-18 01:12:11,077] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-18 01:12:15,065] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.581 seconds (JVM running for 6.102)
-[2021-01-18 01:12:18,809] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getUsers Service with Client[UFN]
-[2021-01-18 01:12:35,366] [INFO ] [http-nio-8080-exec-2] c.s.m.c.ServicesControllerManager - Going to call getUsers Service with Client[UFN]
-[2021-01-18 01:13:20,000] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 14896 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-18 01:13:20,007] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-18 01:13:20,007] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-18 01:13:24,000] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.596 seconds (JVM running for 6.15)
-[2021-01-18 01:13:32,924] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getUsers Service with Client[UFN]
-[2021-01-18 01:18:14,085] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 14896 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-18 01:18:14,085] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-18 01:18:14,086] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-18 01:18:15,936] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 2.054 seconds (JVM running for 298.085)
-[2021-01-19 01:49:56,482] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 11452 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 01:49:56,491] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 01:49:56,491] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 01:50:01,964] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 6.418 seconds (JVM running for 9.12)
-[2021-01-19 01:54:09,868] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getUsers Service with Client[UFN]
-[2021-01-19 02:03:31,210] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 11452 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 02:03:31,210] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 02:03:31,211] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 06:00:32,553] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Starting ServicesManagerApplicationTests using Java 14 on DESKTOP-S47TOJT with PID 17208 (started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 06:00:32,555] [DEBUG] [main] c.s.m.ServicesManagerApplicationTests - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 06:00:32,560] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - No active profile set, falling back to default profiles: default
-[2021-01-19 06:00:39,348] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Started ServicesManagerApplicationTests in 7.508 seconds (JVM running for 10.047)
-[2021-01-19 20:37:27,543] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 18056 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:37:27,552] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:37:27,553] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:37:33,196] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 6.577 seconds (JVM running for 16.459)
-[2021-01-19 20:39:52,779] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:40:54,335] [INFO ] [http-nio-8080-exec-2] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:42:17,912] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 18056 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:42:17,912] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:42:17,912] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:42:20,202] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 2.406 seconds (JVM running for 303.466)
-[2021-01-19 20:42:32,507] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 13280 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:42:32,514] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:42:32,515] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:42:37,088] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 5.277 seconds (JVM running for 7.903)
-[2021-01-19 20:42:45,629] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:43:04,652] [INFO ] [http-nio-8080-exec-2] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:44:20,337] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 13280 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:44:20,337] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:44:20,337] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:44:22,222] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 2.059 seconds (JVM running for 113.036)
-[2021-01-19 20:44:46,670] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 13280 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:44:46,670] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:44:46,670] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:44:58,724] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 8696 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:44:58,731] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:44:58,731] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:45:02,932] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.821 seconds (JVM running for 6.437)
-[2021-01-19 20:45:13,995] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:48:00,050] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 8696 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:48:00,050] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:48:00,050] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:48:01,815] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.901 seconds (JVM running for 185.32)
-[2021-01-19 20:48:12,033] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 12604 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:48:12,041] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:48:12,042] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:48:16,602] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 5.177 seconds (JVM running for 6.853)
-[2021-01-19 20:48:21,074] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:48:58,550] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:49:29,922] [INFO ] [http-nio-8080-exec-5] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:49:39,212] [INFO ] [http-nio-8080-exec-6] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:50:02,720] [INFO ] [http-nio-8080-exec-7] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:50:34,761] [INFO ] [http-nio-8080-exec-10] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:52:06,236] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 10508 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:52:06,243] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:52:06,243] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:52:10,368] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.775 seconds (JVM running for 7.299)
-[2021-01-19 20:52:21,181] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:52:41,764] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:53:11,673] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 10508 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:53:11,674] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:53:11,674] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:53:13,499] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.957 seconds (JVM running for 70.429)
-[2021-01-19 20:53:30,533] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 10508 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:53:30,534] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:53:30,534] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:53:32,190] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.775 seconds (JVM running for 89.121)
-[2021-01-19 20:53:41,700] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 5844 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:53:41,707] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:53:41,708] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:53:46,064] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.99 seconds (JVM running for 6.711)
-[2021-01-19 20:53:58,896] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:54:41,269] [INFO ] [http-nio-8080-exec-4] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:54:52,331] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:55:06,150] [INFO ] [http-nio-8080-exec-5] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:55:24,131] [INFO ] [http-nio-8080-exec-6] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:56:08,416] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 5844 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:56:08,416] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:56:08,416] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:56:19,465] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 17096 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 20:56:19,472] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 20:56:19,472] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 20:56:23,731] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.908 seconds (JVM running for 6.76)
-[2021-01-19 20:56:28,479] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
-[2021-01-19 20:58:16,334] [INFO ] [http-nio-8080-exec-4] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
-[2021-01-19 20:59:17,904] [INFO ] [http-nio-8080-exec-5] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
-[2021-01-19 21:00:05,985] [INFO ] [http-nio-8080-exec-6] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
-[2021-01-19 21:12:31,379] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 18412 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-19 21:12:31,386] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-19 21:12:31,386] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
-[2021-01-19 21:12:35,847] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 5.205 seconds (JVM running for 7.136)
-[2021-01-19 21:12:45,950] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
-[2021-01-19 21:13:04,959] [INFO ] [http-nio-8080-exec-2] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
-[2021-01-19 21:13:14,388] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call contactUs Service with Client[UFN]
-[2021-01-20 01:46:54,436] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Starting ServicesManagerApplicationTests using Java 14 on DESKTOP-S47TOJT with PID 10572 (started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-20 01:46:54,438] [DEBUG] [main] c.s.m.ServicesManagerApplicationTests - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-20 01:46:54,443] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - No active profile set, falling back to default profiles: default
-[2021-01-20 01:47:02,596] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Started ServicesManagerApplicationTests in 8.808 seconds (JVM running for 11.722)
-[2021-01-20 05:29:24,089] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Starting ServicesManagerApplicationTests using Java 14 on DESKTOP-S47TOJT with PID 10908 (started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
-[2021-01-20 05:29:24,091] [DEBUG] [main] c.s.m.ServicesManagerApplicationTests - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
-[2021-01-20 05:29:24,097] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - No active profile set, falling back to default profiles: default
-[2021-01-20 05:29:35,008] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Started ServicesManagerApplicationTests in 12.234 seconds (JVM running for 15.582)
+[2021-01-21 03:26:15,629] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 5660 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-21 03:26:15,640] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-21 03:26:15,641] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-21 03:26:20,115] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 5.297 seconds (JVM running for 7.66)
+[2021-01-21 03:26:30,741] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-21 04:57:35,124] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 5660 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-21 04:57:35,129] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-21 04:57:35,130] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-21 04:57:38,744] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 3.932 seconds (JVM running for 5486.29)
+[2021-01-23 21:29:57,120] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 9528 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:29:57,128] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:29:57,129] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 21:30:42,385] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 6748 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:30:42,394] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:30:42,395] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 21:30:45,225] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+[2021-01-23 21:34:28,849] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - Starting ServicesManagerApplicationTests using Java 14 on DESKTOP-S47TOJT with PID 3196 (started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:34:28,850] [DEBUG] [main] c.s.m.ServicesManagerApplicationTests - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:34:28,860] [INFO ] [main] c.s.m.ServicesManagerApplicationTests - No active profile set, falling back to default profiles: default
+[2021-01-23 21:35:51,617] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 13008 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:35:51,627] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:35:51,627] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 21:35:54,432] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+[2021-01-23 21:37:15,278] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 2684 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:37:15,284] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:37:15,286] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 21:37:18,111] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+[2021-01-23 21:38:05,450] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 6096 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:38:05,457] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:38:05,457] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 21:38:08,046] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+[2021-01-23 21:38:35,786] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 8972 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:38:35,793] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:38:35,795] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 21:38:38,423] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+[2021-01-23 21:40:41,124] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 14448 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:40:41,132] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:40:41,132] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 21:40:43,816] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+[2021-01-23 21:40:44,969] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.484 seconds (JVM running for 6.0)
+[2021-01-23 21:40:52,617] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JWTRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 21:41:07,845] [WARN ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JWTRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 21:41:30,719] [WARN ] [http-nio-8080-exec-3] c.s.m.o.jwt.security.JWTRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 21:42:44,540] [WARN ] [http-nio-8080-exec-5] c.s.m.o.jwt.security.JWTRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 21:43:57,068] [WARN ] [http-nio-8080-exec-6] c.s.m.o.jwt.security.JWTRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 21:44:05,473] [WARN ] [http-nio-8080-exec-7] c.s.m.o.jwt.security.JWTRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 21:45:14,809] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 14448 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:45:14,809] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:45:14,810] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 21:45:15,768] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+[2021-01-23 21:45:23,582] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 8.934 seconds (JVM running for 284.614)
+[2021-01-23 21:47:23,260] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 3936 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 21:47:23,267] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 21:47:23,267] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 21:47:25,852] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+[2021-01-23 21:47:27,034] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.409 seconds (JVM running for 5.991)
+[2021-01-23 21:47:32,909] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JWTRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:10:56,748] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 6136 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:10:56,755] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:10:56,755] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:10:59,538] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:11:00,816] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.684 seconds (JVM running for 6.264)
+[2021-01-23 22:11:11,631] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:11:53,058] [WARN ] [http-nio-8080-exec-3] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:12:10,262] [WARN ] [http-nio-8080-exec-4] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:12:25,055] [WARN ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:12:58,858] [INFO ] [http-nio-8080-exec-5] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-23 22:20:47,459] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 6136 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:20:47,459] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:20:47,459] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:28:26,513] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 2276 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:28:26,520] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:28:26,520] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:28:29,348] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:28:30,722] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.85 seconds (JVM running for 6.502)
+[2021-01-23 22:28:52,161] [WARN ] [http-nio-8080-exec-3] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:28:56,807] [WARN ] [http-nio-8080-exec-4] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:29:50,282] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 2276 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:29:50,283] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:29:50,283] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:29:51,423] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:29:51,860] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.72 seconds (JVM running for 87.64)
+[2021-01-23 22:30:03,545] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 2276 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:30:03,545] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:30:03,545] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:30:04,427] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:30:04,857] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.479 seconds (JVM running for 100.637)
+[2021-01-23 22:30:17,776] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 15500 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:30:17,784] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:30:17,784] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:30:20,409] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:30:21,569] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.458 seconds (JVM running for 6.162)
+[2021-01-23 22:30:46,733] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:31:10,243] [WARN ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:31:24,148] [WARN ] [http-nio-8080-exec-4] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:31:27,957] [WARN ] [http-nio-8080-exec-3] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:31:34,949] [INFO ] [http-nio-8080-exec-5] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-23 22:31:53,569] [WARN ] [http-nio-8080-exec-6] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:31:57,829] [WARN ] [http-nio-8080-exec-7] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:33:42,313] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 15500 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:33:42,313] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:33:42,314] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:33:43,391] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:33:43,890] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.721 seconds (JVM running for 208.482)
+[2021-01-23 22:33:52,922] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 14948 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:33:52,928] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:33:52,929] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:33:55,555] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:33:56,700] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.369 seconds (JVM running for 5.956)
+[2021-01-23 22:34:05,668] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:34:08,763] [WARN ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:35:23,025] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 14948 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:35:23,025] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:35:23,026] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:35:23,961] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:35:24,395] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.505 seconds (JVM running for 93.652)
+[2021-01-23 22:36:42,994] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 16312 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:36:43,001] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:36:43,001] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:36:45,656] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:36:46,810] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.414 seconds (JVM running for 6.083)
+[2021-01-23 22:37:05,814] [WARN ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:39:38,459] [INFO ] [http-nio-8080-exec-3] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-23 22:40:19,379] [WARN ] [http-nio-8080-exec-4] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:40:30,299] [WARN ] [http-nio-8080-exec-5] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:46:11,135] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 14032 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:46:11,141] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:46:11,142] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:46:14,100] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:46:15,025] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.486 seconds (JVM running for 6.061)
+[2021-01-23 22:46:28,587] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:47:08,779] [WARN ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 22:47:20,796] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 14032 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 22:47:20,797] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 22:47:20,797] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 22:47:21,790] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 22:47:22,143] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.462 seconds (JVM running for 73.179)
+[2021-01-23 23:07:36,726] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 6268 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:07:36,733] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:07:36,733] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:07:39,585] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:07:39,742] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:07:40,527] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.406 seconds (JVM running for 5.936)
+[2021-01-23 23:08:43,840] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 14532 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:08:43,847] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:08:43,848] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:08:46,665] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:08:46,821] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:08:47,689] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.451 seconds (JVM running for 6.095)
+[2021-01-23 23:08:50,829] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:08:50,829] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:08:56,652] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:08:56,652] [WARN ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:08:56,668] [WARN ] [http-nio-8080-exec-2] c.s.m.o.j.s.JwtAuthenticationEntryPoint - Decline due to Unauthorized User ...
+[2021-01-23 23:09:15,098] [INFO ] [http-nio-8080-exec-3] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:09:15,098] [WARN ] [http-nio-8080-exec-3] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:09:15,099] [WARN ] [http-nio-8080-exec-3] c.s.m.o.j.s.JwtAuthenticationEntryPoint - Decline due to Unauthorized User ...
+[2021-01-23 23:09:35,110] [INFO ] [http-nio-8080-exec-4] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:09:35,110] [WARN ] [http-nio-8080-exec-4] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:09:35,111] [WARN ] [http-nio-8080-exec-4] c.s.m.o.j.s.JwtAuthenticationEntryPoint - Decline due to Unauthorized User ...
+[2021-01-23 23:10:02,557] [INFO ] [http-nio-8080-exec-5] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:10:02,558] [WARN ] [http-nio-8080-exec-5] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:10:02,559] [WARN ] [http-nio-8080-exec-5] c.s.m.o.j.s.JwtAuthenticationEntryPoint - Decline due to Unauthorized User ...
+[2021-01-23 23:11:10,246] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 15684 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:11:10,253] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:11:10,254] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:11:13,422] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:11:13,592] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:11:14,471] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 5.021 seconds (JVM running for 6.754)
+[2021-01-23 23:11:18,109] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:11:18,110] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:11:18,286] [INFO ] [http-nio-8080-exec-1] c.s.m.o.j.s.JwtAuthenticationController - Going to authenticate for requested User: [mnoman]
+[2021-01-23 23:11:18,515] [INFO ] [http-nio-8080-exec-1] c.s.m.o.j.security.JwtUserDetailsService - Going to load user username from user service for username:[mnoman]
+[2021-01-23 23:11:22,925] [INFO ] [http-nio-8080-exec-1] c.s.m.o.j.s.JwtAuthenticationController - Going to load user with requested username: [mnoman]
+[2021-01-23 23:11:22,925] [INFO ] [http-nio-8080-exec-1] c.s.m.o.j.security.JwtUserDetailsService - Going to load user username from user service for username:[mnoman]
+[2021-01-23 23:11:23,095] [INFO ] [http-nio-8080-exec-1] c.s.m.o.j.s.JwtAuthenticationController - User found successfully against username: [mnoman]
+[2021-01-23 23:11:23,096] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Going to generate token ...
+[2021-01-23 23:20:27,846] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 15684 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:20:27,846] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:20:27,847] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:20:29,016] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:20:29,048] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:20:37,499] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 9704 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:20:37,509] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:20:37,510] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:20:40,676] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:20:40,824] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:20:41,688] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.85 seconds (JVM running for 6.502)
+[2021-01-23 23:20:45,013] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:20:45,013] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Going to get username from token ...
+[2021-01-23 23:20:45,014] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting username from token ...
+[2021-01-23 23:20:45,016] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting claim from token ...
+[2021-01-23 23:20:45,016] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting all claim from token ...
+[2021-01-23 23:20:45,159] [INFO ] [http-nio-8080-exec-2] c.s.m.o.j.security.JwtUserDetailsService - Going to load user username from user service for username:[mnoman]
+[2021-01-23 23:20:45,345] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Going to validate token ...
+[2021-01-23 23:20:45,345] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Going to validate token for user details ...
+[2021-01-23 23:20:45,345] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting username from token ...
+[2021-01-23 23:20:45,345] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting claim from token ...
+[2021-01-23 23:20:45,345] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting all claim from token ...
+[2021-01-23 23:20:45,347] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Going to validate if token is expired ...
+[2021-01-23 23:20:45,347] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting expiration date from token ...
+[2021-01-23 23:20:45,347] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting claim from token ...
+[2021-01-23 23:20:45,347] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting all claim from token ...
+[2021-01-23 23:20:45,349] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Token validated Successfully!!!
+[2021-01-23 23:20:52,041] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:20:52,041] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to get username from token ...
+[2021-01-23 23:20:52,041] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting username from token ...
+[2021-01-23 23:20:52,041] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting claim from token ...
+[2021-01-23 23:20:52,042] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting all claim from token ...
+[2021-01-23 23:20:52,045] [INFO ] [http-nio-8080-exec-1] c.s.m.o.j.security.JwtUserDetailsService - Going to load user username from user service for username:[mnoman]
+[2021-01-23 23:20:52,213] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to validate token ...
+[2021-01-23 23:20:52,213] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Going to validate token for user details ...
+[2021-01-23 23:20:52,213] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting username from token ...
+[2021-01-23 23:20:52,213] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting claim from token ...
+[2021-01-23 23:20:52,213] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting all claim from token ...
+[2021-01-23 23:20:52,223] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Going to validate if token is expired ...
+[2021-01-23 23:20:52,224] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting expiration date from token ...
+[2021-01-23 23:20:52,224] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting claim from token ...
+[2021-01-23 23:20:52,224] [INFO ] [http-nio-8080-exec-1] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting all claim from token ...
+[2021-01-23 23:20:52,225] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Token validated Successfully!!!
+[2021-01-23 23:20:52,321] [INFO ] [http-nio-8080-exec-1] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-23 23:23:20,604] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 9704 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:23:20,604] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:23:20,604] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:23:21,819] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:23:21,857] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:23:22,205] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.718 seconds (JVM running for 167.019)
+[2021-01-23 23:28:20,614] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 4032 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:28:20,622] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:28:20,623] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:28:23,508] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:28:23,651] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:28:24,488] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.77 seconds (JVM running for 6.842)
+[2021-01-23 23:28:40,119] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:28:40,119] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:28:40,145] [WARN ] [http-nio-8080-exec-1] c.s.m.o.j.s.JwtAuthenticationEntryPoint - Decline due to Unauthorized User ...
+[2021-01-23 23:29:41,263] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 4032 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:29:41,264] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:29:41,264] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:29:42,370] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:29:42,412] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:29:42,815] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.67 seconds (JVM running for 85.169)
+[2021-01-23 23:29:51,361] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 10384 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:29:51,367] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:29:51,368] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:29:54,261] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:29:54,400] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:29:55,224] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.463 seconds (JVM running for 6.036)
+[2021-01-23 23:29:59,110] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:29:59,111] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:29:59,133] [WARN ] [http-nio-8080-exec-1] c.s.m.o.j.s.JwtAuthenticationEntryPoint - Decline due to Unauthorized User ...
+[2021-01-23 23:30:00,654] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:30:00,654] [WARN ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:30:00,655] [WARN ] [http-nio-8080-exec-2] c.s.m.o.j.s.JwtAuthenticationEntryPoint - Decline due to Unauthorized User ...
+[2021-01-23 23:30:18,510] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 11448 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:30:18,516] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:30:18,517] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:30:22,064] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:30:22,253] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:30:23,103] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 5.188 seconds (JVM running for 6.809)
+[2021-01-23 23:30:29,929] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:30:29,929] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:31:42,886] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 11448 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:31:42,887] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:31:42,887] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:31:43,948] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:31:43,981] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:31:54,263] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 1544 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:31:54,269] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:31:54,270] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:31:57,029] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:31:57,185] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:31:57,976] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.313 seconds (JVM running for 5.867)
+[2021-01-23 23:32:05,538] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:32:05,538] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:32:29,115] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 1544 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:32:29,115] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:32:29,116] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:32:30,179] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:32:30,212] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:32:30,533] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 1.543 seconds (JVM running for 38.424)
+[2021-01-23 23:32:43,223] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 15760 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:32:43,229] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:32:43,230] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:32:46,023] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:32:46,167] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:32:46,961] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.356 seconds (JVM running for 5.901)
+[2021-01-23 23:33:53,687] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 15760 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:33:53,688] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:33:53,689] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:34:03,262] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Starting ServicesManagerApplication using Java 14 on DESKTOP-S47TOJT with PID 9236 (C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager\target\classes started by Muhammad Nauman in C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\services-manager)
+[2021-01-23 23:34:03,269] [DEBUG] [restartedMain] c.s.manager.ServicesManagerApplication - Running with Spring Boot v2.4.0-SNAPSHOT, Spring v5.3.1
+[2021-01-23 23:34:03,269] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - No active profile set, falling back to default profiles: default
+[2021-01-23 23:34:06,174] [DEBUG] [restartedMain] c.s.m.o.jwt.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+[2021-01-23 23:34:06,317] [INFO ] [restartedMain] c.s.m.o.j.security.JwtUserDetailsService - Going to set configurations for incomings ...
+[2021-01-23 23:34:07,128] [INFO ] [restartedMain] c.s.manager.ServicesManagerApplication - Started ServicesManagerApplication in 4.532 seconds (JVM running for 6.134)
+[2021-01-23 23:34:10,019] [INFO ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:34:10,020] [WARN ] [http-nio-8080-exec-1] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:34:32,258] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:34:32,259] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Going to get username from token ...
+[2021-01-23 23:34:32,260] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting username from token ...
+[2021-01-23 23:34:32,262] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting claim from token ...
+[2021-01-23 23:34:32,262] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting all claim from token ...
+[2021-01-23 23:34:32,423] [INFO ] [http-nio-8080-exec-2] c.s.m.o.j.security.JwtUserDetailsService - Going to load user username from user service for username:[mnoman]
+[2021-01-23 23:34:32,615] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Going to validate token ...
+[2021-01-23 23:34:32,615] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Going to validate token for user details ...
+[2021-01-23 23:34:32,615] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting username from token ...
+[2021-01-23 23:34:32,616] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting claim from token ...
+[2021-01-23 23:34:32,616] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting all claim from token ...
+[2021-01-23 23:34:32,617] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Going to validate if token is expired ...
+[2021-01-23 23:34:32,617] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting expiration date from token ...
+[2021-01-23 23:34:32,618] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting claim from token ...
+[2021-01-23 23:34:32,618] [INFO ] [http-nio-8080-exec-2] c.s.m.oauth2.jwt.security.JwtTokenUtils - Getting all claim from token ...
+[2021-01-23 23:34:32,619] [INFO ] [http-nio-8080-exec-2] c.s.m.o.jwt.security.JwtRequestFilter - Token validated Successfully!!!
+[2021-01-23 23:34:32,742] [INFO ] [http-nio-8080-exec-2] c.s.m.c.ServicesControllerManager - Going to call getQueries Service with Client[UFN]
+[2021-01-23 23:34:50,284] [INFO ] [http-nio-8080-exec-3] c.s.m.o.jwt.security.JwtRequestFilter - Going to verify if sent header starts with 'Bearer' keyword ...
+[2021-01-23 23:34:50,284] [WARN ] [http-nio-8080-exec-3] c.s.m.o.jwt.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+[2021-01-23 23:34:50,303] [WARN ] [http-nio-8080-exec-3] c.s.m.o.j.s.JwtAuthenticationEntryPoint - Decline due to Unauthorized User ...
