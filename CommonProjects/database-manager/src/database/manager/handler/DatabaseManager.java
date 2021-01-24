@@ -2,6 +2,7 @@ package database.manager.handler;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,8 +19,8 @@ public class DatabaseManager {
 		// STEP 2: Register JDBC driver
 		Class.forName(Constants.JDBC_DRIVER);
 		// STEP 3: Open a connection
-		logger.info(logger.isInfoEnabled() ? "Connecting to master database..": null);
-		conn = DriverManager.getConnection(Constants.MDB_URL, Constants.USER, Constants.PASS);
+		logger.info(logger.isInfoEnabled() ? "Connecting to Master database..": null);
+		conn = DriverManager.getConnection(Constants.MASTER_DATEBASE_URL, Constants.USER, Constants.PASS);
 		return conn;
 	}
 	
@@ -29,9 +30,16 @@ public class DatabaseManager {
 		DatabaseInfo dbInfo = null;
 		// STEP 2: Register JDBC driver
 		Class.forName(Constants.JDBC_DRIVER);
+		
 		// STEP 3: Open a connection
+		logger.info(logger.isInfoEnabled() ? "Going to get Master database connection ...": null);
 		conn = getMDBConnection();
-		logger.info(logger.isInfoEnabled() ? "Going to get database info for "+dbCode+" database..": null);
+		if (Constants.MASTER_DATEBASE.equalsIgnoreCase(dbCode)) {
+			logger.info(logger.isInfoEnabled() ? "No Need to further fetch any instance for database connection as this call was supposed to be executed on Master database instance ...": null);
+			return conn;
+		}
+		
+		logger.info(logger.isInfoEnabled() ? "Going to get database info for "+dbCode+" from Master database..": null);
 		dbInfo = AbstractCommonDbMethods.getInstance().getDatabaseInfo(dbCode, conn);
 		logger.info(logger.isInfoEnabled() ? "Going to get connection for "+dbCode+" database..": null);
 		if (null == dbInfo) {

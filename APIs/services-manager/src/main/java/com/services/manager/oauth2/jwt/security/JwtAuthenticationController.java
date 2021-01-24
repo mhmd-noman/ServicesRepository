@@ -10,6 +10,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,12 +28,17 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 
-	@RequestMapping(value = "/iteam/services/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+	@RequestMapping(value = "/iteam/services/{dbCode}/authenticate", method = RequestMethod.POST)
+	public ResponseEntity<?> createAuthenticationToken(@PathVariable("dbCode") String dbCode, @RequestBody JwtRequest authenticationRequest) throws Exception {
 		logger.info(logger.isInfoEnabled() ? "Going to authenticate for requested User: [" +authenticationRequest.getUsername()+ "]": null);
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 		logger.info(logger.isInfoEnabled() ? "Going to load user with requested username: [" +authenticationRequest.getUsername()+ "]": null);
+		
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+		
+		// Following call can be uncommented in future(having skip above call) if somehow we need to maintain admin persons from database ...
+		// final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername(), dbCode);
+		
 		logger.info(logger.isInfoEnabled() ? "User found successfully against username: [" +authenticationRequest.getUsername()+ "]": null);
 		final String token = jwtTokenUtil.generateToken(userDetails);
 		return ResponseEntity.ok(new JwtResponse(token));
