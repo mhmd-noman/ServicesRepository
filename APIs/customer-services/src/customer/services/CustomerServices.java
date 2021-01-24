@@ -10,21 +10,27 @@ import java.sql.Connection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import customer.services.utils.Constants;
+import common.exception.handling.BaseException;
 import customer.services.beans.CustomerServicesRequest;
 import customer.services.beans.CustomerServicesResponse;
 import customer.services.bl.AbstractCustomerServicesHandler;
+import customer.services.utils.Constants;
 
 public class CustomerServices {
 	private static final Logger logger = LoggerFactory.getLogger(CustomerServices.class);
 	
-	public CustomerServicesResponse customerServices(CustomerServicesRequest customerServicesRequest, Connection con) {
+	public CustomerServicesResponse customerServices(CustomerServicesRequest customerServicesRequest, Connection con) throws BaseException {
 		CustomerServicesResponse customerServicesResponse = null;
-		if (null == customerServicesRequest) {
-			return customerServicesResponse;
+		try {
+			if (null == customerServicesRequest) {
+				return customerServicesResponse;
+			}
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to call CustomerServices ...": null);
+			customerServicesResponse = AbstractCustomerServicesHandler.getInstance(customerServicesRequest.getCustomerServicesAction()).customerServices(customerServicesRequest, con);
+		} catch (Exception ex) {
+			logger.warn("##Exception## while getting queries ...");
+			throw new BaseException(ex);
 		}
-		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to call CustomerServices ...": null);
-		customerServicesResponse = AbstractCustomerServicesHandler.getInstance(customerServicesRequest.getCustomerServicesAction()).customerServices(customerServicesRequest, con);
 		return customerServicesResponse;
 	}
 }

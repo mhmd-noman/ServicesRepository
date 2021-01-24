@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import com.mysql.jdbc.Statement;
 
+import common.exception.handling.BaseException;
 import common.utilities.methods.Utils;
 import database.manager.beans.DatabaseInfo;
 
@@ -110,18 +111,22 @@ public class CommonDaoMethods extends AbstractCommonDbMethods {
 	}
 
 	@Override
-	public DatabaseInfo getDatabaseInfo(String dbCode, Connection connection) {
+	public DatabaseInfo getDatabaseInfo(String dbCode, Connection connection) throws BaseException {
 		List<Object> paramList = null;
 		List<Map<Integer, Object>> dbResultSet = null;
-
-		paramList = new ArrayList<>();		
-		if (Utils.validateIfNullOrEmptyString(dbCode)) {
-			logger.info(logger.isInfoEnabled() ? "DbCode has been provided null/empty!": null);
-			return null;
+		try {
+			paramList = new ArrayList<>();		
+			if (Utils.validateIfNullOrEmptyString(dbCode)) {
+				logger.info(logger.isInfoEnabled() ? "DbCode has been provided null/empty!": null);
+				return null;
+			}
+			paramList.add(dbCode);
+			logger.info(logger.isInfoEnabled() ? "Going to fetch Database by using query: " +AbstractCommonDbMethods.FETCH_DATABASE+ " with paramters: "+ paramList: null);
+			dbResultSet = select(AbstractCommonDbMethods.FETCH_DATABASE, paramList, connection);
+		} catch (Exception ex) {
+			logger.warn("##Exception## while deleting product ...");
+			throw new BaseException(ex);
 		}
-		paramList.add(dbCode);
-		logger.info(logger.isInfoEnabled() ? "Going to fetch Database by using query: " +AbstractCommonDbMethods.FETCH_DATABASE+ " with paramters: "+ paramList: null);
-		dbResultSet = select(AbstractCommonDbMethods.FETCH_DATABASE, paramList, connection);	
 		return prepareDbData(dbResultSet);
 	}
 	

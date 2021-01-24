@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.Map;
 
 import common.beans.Order;
+import common.exception.handling.BaseException;
 import order.management.services.beans.OrderManagementRequest;
 
 public abstract class AbstractOrderManagementServicesDao {
@@ -21,11 +22,11 @@ public abstract class AbstractOrderManagementServicesDao {
 	public static final String ORDER_STATE           = "and o.state = ? ";
 	public static final String ORDER_COUNTRY         = "and o.country = ? ";
 
-	public static AbstractOrderManagementServicesDao getInstance() {
+	public static AbstractOrderManagementServicesDao getInstance() throws BaseException {
 		return new OrderManagementServicesDaoImpl();
 	}
-	public abstract Map<Integer, Order> getOrders(OrderManagementRequest orderManagementRequest, Connection connection);
-	public abstract void placeOrder(OrderManagementRequest orderManagementRequest, Connection connection);
-	public abstract void updateOrder(OrderManagementRequest orderManagementRequest, Connection connection);
-	public abstract void removeOrder(OrderManagementRequest orderManagementRequest, Connection connection);
+	public abstract Map<Integer, Order> getOrders(OrderManagementRequest orderManagementRequest, Connection connection) throws BaseException;
+	public abstract void placeOrder(OrderManagementRequest orderManagementRequest, Connection connection) throws BaseException;
+	public abstract void updateOrder(OrderManagementRequest orderManagementRequest, Connection connection) throws BaseException;
+	public abstract void removeOrder(OrderManagementRequest orderManagementRequest, Connection connection) throws BaseException;
 }

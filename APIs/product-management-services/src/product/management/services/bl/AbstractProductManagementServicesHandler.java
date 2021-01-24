@@ -3,15 +3,16 @@ package product.management.services.bl;
 import java.sql.Connection;
 
 import common.enums.ProductManagementServiceAction;
+import common.exception.handling.BaseException;
 import product.management.services.beans.ProductManagementRequest;
 import product.management.services.beans.ProductManagementResponse;
 
 public abstract class AbstractProductManagementServicesHandler {
-	public static AbstractProductManagementServicesHandler getInstance() {
+	public static AbstractProductManagementServicesHandler getInstance() throws BaseException {
 		return new GetProducts();
 	}
 
-	public static AbstractProductManagementServicesHandler getInstance(ProductManagementServiceAction productManagementServiceAction) {
+	public static AbstractProductManagementServicesHandler getInstance(ProductManagementServiceAction productManagementServiceAction) throws BaseException {
 		AbstractProductManagementServicesHandler abstractManagementProductsHandler = null;
 		switch(productManagementServiceAction) {
 		case GET_PRODUCTS:
@@ -33,5 +34,5 @@ public abstract class AbstractProductManagementServicesHandler {
 		return abstractManagementProductsHandler;
 	}
 
-	public abstract ProductManagementResponse productManagementService(ProductManagementRequest usersManagementRequest,  Connection connection);
+	public abstract ProductManagementResponse productManagementService(ProductManagementRequest usersManagementRequest,  Connection connection) throws BaseException;
 }

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import common.beans.Query;
+import common.exception.handling.BaseException;
 import customer.services.beans.CustomerServicesRequest;
 
 public abstract class AbstractCustomerServicesDao {
@@ -14,9 +15,9 @@ public abstract class AbstractCustomerServicesDao {
 	public static final String EMAIL         = "and email = ? ";
 	public static final String PHONE         = "and phone = ? ";
 	
-	public static AbstractCustomerServicesDao getInstance() {
+	public static AbstractCustomerServicesDao getInstance() throws BaseException {
 		return new CustomerServicesDaoImpl();
 	}
-	public abstract void contactUs(CustomerServicesRequest customerServicesRequest, Connection connection);
-	public abstract List<Query> getQueries(CustomerServicesRequest customerServicesRequest, Connection connection);
+	public abstract void contactUs(CustomerServicesRequest customerServicesRequest, Connection connection) throws BaseException;
+	public abstract List<Query> getQueries(CustomerServicesRequest customerServicesRequest, Connection connection) throws BaseException;
 }

@@ -5,6 +5,7 @@ import java.sql.Connection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import common.exception.handling.BaseException;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
 import customer.services.CustomerServices;
@@ -15,7 +16,7 @@ import customer.services.utils.CustomerServicesAction;
 public class GetQueriesConfigurator {
 	private static final Logger logger = LoggerFactory.getLogger(GetQueriesConfigurator.class);
 
-	public MainResponseObject getQueries(MainRequestObject mainRequestObject, Connection con) {
+	public MainResponseObject getQueries(MainRequestObject mainRequestObject, Connection con) throws BaseException {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		CustomerServices customerServices = new CustomerServices();
 		CustomerServicesRequest customerServicesRequest = new CustomerServicesRequest();
@@ -32,6 +33,7 @@ public class GetQueriesConfigurator {
 			customerServicesRequest.setQuery(mainRequestObject.getQueryInfo());
 		}
 		customerServicesRequest.setCustomerServicesAction(CustomerServicesAction.GET_QUERIES);
+		mainRequestObject.setServiceId(CustomerServicesAction.GET_QUERIES.toString());
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, CustomerServicesResponse customerServicesResponse) {

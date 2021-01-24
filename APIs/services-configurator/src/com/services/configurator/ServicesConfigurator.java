@@ -17,9 +17,11 @@ import com.services.get.queries.configurator.GetQueriesConfigurator;
 import com.services.get.users.configurator.GetUsersConfigurator;
 import com.services.place.order.configurator.PlaceOrderConfigurator;
 import com.services.remove.order.configurator.RemoveOrderConfigurator;
+import com.services.transaction.logging.TransactionLoggingConfigurator;
 import com.services.update.product.configurator.UpdateProductConfigurator;
 import com.services.update.user.configurator.UpdateUserConfigurator;
 
+import common.exception.handling.BaseException;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
 import common.utilities.constants.ResponseCodes;
@@ -28,7 +30,7 @@ import database.manager.handler.DatabaseManager;
 public class ServicesConfigurator {
 	private static final Logger logger = LoggerFactory.getLogger(ServicesConfigurator.class);
 	
-	private Connection getConnection(String dbCode) {
+	private Connection getConnection(String dbCode) throws BaseException {
 		Connection con = null; 
 		DatabaseManager dbManager = null;
 		try {
@@ -43,7 +45,7 @@ public class ServicesConfigurator {
 		return con;
 	}
 	
-	public MainResponseObject getUsers(MainRequestObject mainRequestObject) {
+	public MainResponseObject getUsers(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		GetUsersConfigurator getUsersConfigurator = null;
@@ -58,10 +60,12 @@ public class ServicesConfigurator {
 		getUsersConfigurator = new GetUsersConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for getUsers Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = getUsersConfigurator.getUsers(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject createUser(MainRequestObject mainRequestObject) {
+	public MainResponseObject createUser(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		CreateUserConfigurator createUserConfigurator = null;
@@ -76,11 +80,13 @@ public class ServicesConfigurator {
 		createUserConfigurator = new CreateUserConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for createUser Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = createUserConfigurator.createUser(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
 	
-	public MainResponseObject updateUser(MainRequestObject mainRequestObject) {
+	public MainResponseObject updateUser(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		UpdateUserConfigurator updateUserConfigurator = null;
@@ -95,10 +101,12 @@ public class ServicesConfigurator {
 		updateUserConfigurator = new UpdateUserConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for updateUser Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = updateUserConfigurator.updateUser(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject deleteUser(MainRequestObject mainRequestObject) {
+	public MainResponseObject deleteUser(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		DeleteUserConfigurator deleteUserConfigurator = null;
@@ -113,10 +121,12 @@ public class ServicesConfigurator {
 		deleteUserConfigurator = new DeleteUserConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for deleteUser Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = deleteUserConfigurator.deleteUser(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject getProducts(MainRequestObject mainRequestObject) {
+	public MainResponseObject getProducts(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		GetProductsConfigurator getProductsConfigurator = null;
@@ -131,10 +141,12 @@ public class ServicesConfigurator {
 		getProductsConfigurator = new GetProductsConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for getProducts Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = getProductsConfigurator.getProducts(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject addProduct(MainRequestObject mainRequestObject) {
+	public MainResponseObject addProduct(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		AddProductConfigurator addProductConfigurator = null;
@@ -149,10 +161,12 @@ public class ServicesConfigurator {
 		addProductConfigurator = new AddProductConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for addProduct Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = addProductConfigurator.addProduct(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject updateProduct(MainRequestObject mainRequestObject) {
+	public MainResponseObject updateProduct(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		UpdateProductConfigurator updateProductConfigurator = null;
@@ -167,10 +181,12 @@ public class ServicesConfigurator {
 		updateProductConfigurator = new UpdateProductConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for updateProduct Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = updateProductConfigurator.updateProduct(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject deleteProduct(MainRequestObject mainRequestObject) {
+	public MainResponseObject deleteProduct(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		DeleteProductConfigurator deleteProductConfigurator = null;
@@ -185,10 +201,12 @@ public class ServicesConfigurator {
 		deleteProductConfigurator = new DeleteProductConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for deleteProduct Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = deleteProductConfigurator.deleteProduct(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject getOrders(MainRequestObject mainRequestObject) {
+	public MainResponseObject getOrders(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		GetOrdersConfigurator getOrdersConfigurator = null;
@@ -203,10 +221,12 @@ public class ServicesConfigurator {
 		getOrdersConfigurator = new GetOrdersConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for getOrders Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = getOrdersConfigurator.getOrders(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject placeOrder(MainRequestObject mainRequestObject) {
+	public MainResponseObject placeOrder(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		PlaceOrderConfigurator placeOrderConfigurator = null;
@@ -221,10 +241,12 @@ public class ServicesConfigurator {
 		placeOrderConfigurator = new PlaceOrderConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for placeOrder Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = placeOrderConfigurator.placeOrder(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject removeOrder(MainRequestObject mainRequestObject) {
+	public MainResponseObject removeOrder(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		RemoveOrderConfigurator removeOrderConfigurator = null;
@@ -239,10 +261,12 @@ public class ServicesConfigurator {
 		removeOrderConfigurator = new RemoveOrderConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for removeOrder Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = removeOrderConfigurator.removeOrder(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject contactUs(MainRequestObject mainRequestObject) {
+	public MainResponseObject contactUs(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		ContactUsConfigurator contactUsConfigurator = null;
@@ -257,10 +281,12 @@ public class ServicesConfigurator {
 		contactUsConfigurator = new ContactUsConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for contactUs Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = contactUsConfigurator.contactUs(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject getQueries(MainRequestObject mainRequestObject) {
+	public MainResponseObject getQueries(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
 		GetQueriesConfigurator getQueriesConfigurator = null;
@@ -275,6 +301,15 @@ public class ServicesConfigurator {
 		getQueriesConfigurator = new GetQueriesConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for getQueries Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = getQueriesConfigurator.getQueries(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
+		return mainResponseObject;
+	}
+	
+	public MainResponseObject logTransaction(MainRequestObject mainRequestObject, MainResponseObject mainResponseObject, Connection con) throws BaseException {
+		TransactionLoggingConfigurator transactionLoggingConfigurator = new TransactionLoggingConfigurator();
+		logger.info(logger.isInfoEnabled() ? "Going to Log Service with evaluated request content: [" +mainRequestObject+ "] and response: [" +mainResponseObject+ "]": null);
+		mainResponseObject = transactionLoggingConfigurator.logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
 	}
 }

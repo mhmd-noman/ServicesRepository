@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import common.enums.ProductManagementServiceAction;
+import common.exception.handling.BaseException;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
 import product.management.services.ProductManagementService;
@@ -15,7 +16,7 @@ import product.management.services.beans.ProductManagementResponse;
 public class GetProductsConfigurator {
 	private static final Logger logger = LoggerFactory.getLogger(GetProductsConfigurator.class);
 
-	public MainResponseObject getProducts(MainRequestObject mainRequestObject, Connection con) {
+	public MainResponseObject getProducts(MainRequestObject mainRequestObject, Connection con) throws BaseException {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		ProductManagementService productManagementService = new ProductManagementService();
 		ProductManagementRequest productManagementRequest = new ProductManagementRequest();
@@ -35,6 +36,7 @@ public class GetProductsConfigurator {
 			productManagementRequest.setProductIds(mainRequestObject.getIds());
 		}
 		productManagementRequest.setProductManagementServiceAction(ProductManagementServiceAction.GET_PRODUCTS);
+		mainRequestObject.setServiceId(ProductManagementServiceAction.GET_PRODUCTS.toString());
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, ProductManagementResponse productManagementResponse) {

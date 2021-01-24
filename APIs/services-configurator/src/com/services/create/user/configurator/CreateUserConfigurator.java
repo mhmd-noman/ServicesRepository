@@ -4,6 +4,7 @@ import java.sql.Connection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import common.exception.handling.BaseException;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
 import user.management.services.UserManagementService;
@@ -13,7 +14,7 @@ import user.management.services.utils.UserManagementServiceAction;
 public class CreateUserConfigurator {
 	private static final Logger logger = LoggerFactory.getLogger(CreateUserConfigurator.class);
 	
-	public MainResponseObject createUser(MainRequestObject mainRequestObject, Connection con) {
+	public MainResponseObject createUser(MainRequestObject mainRequestObject, Connection con) throws BaseException {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		UserManagementService userManagementService = new UserManagementService();
 		UsersManagementRequest usersManagementRequest = new UsersManagementRequest();
@@ -35,6 +36,7 @@ public class CreateUserConfigurator {
 			usersManagementRequest.setPhone(mainRequestObject.getUserInfo().getPhoneNumber());
 			usersManagementRequest.setUsername(mainRequestObject.getUserInfo().getUsername());
 			usersManagementRequest.setUserManagementServiceAction(UserManagementServiceAction.CREATE_USER);
+			mainRequestObject.setServiceId(UserManagementServiceAction.CREATE_USER.toString());
 		}
 	}
 	

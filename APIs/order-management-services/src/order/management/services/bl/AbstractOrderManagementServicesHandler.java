@@ -3,15 +3,16 @@ package order.management.services.bl;
 import java.sql.Connection;
 
 import common.enums.OrderManagementServiceAction;
+import common.exception.handling.BaseException;
 import order.management.services.beans.OrderManagementRequest;
 import order.management.services.beans.OrderManagementResponse;
 
 public abstract class AbstractOrderManagementServicesHandler {
-	public static AbstractOrderManagementServicesHandler getInstance() {
+	public static AbstractOrderManagementServicesHandler getInstance() throws BaseException {
 		return new GetOrders();
 	}
 
-	public static AbstractOrderManagementServicesHandler getInstance(OrderManagementServiceAction orderManagementServiceAction) {
+	public static AbstractOrderManagementServicesHandler getInstance(OrderManagementServiceAction orderManagementServiceAction) throws BaseException {
 		AbstractOrderManagementServicesHandler abstractManagementOrdersHandler = null;
 		switch(orderManagementServiceAction) {
 		case GET_ORDERS:
@@ -33,5 +34,5 @@ public abstract class AbstractOrderManagementServicesHandler {
 		return abstractManagementOrdersHandler;
 	}
 
-	public abstract OrderManagementResponse orderManagementService(OrderManagementRequest ordersManagementRequest,  Connection connection);
+	public abstract OrderManagementResponse orderManagementService(OrderManagementRequest ordersManagementRequest,  Connection connection) throws BaseException;
 }

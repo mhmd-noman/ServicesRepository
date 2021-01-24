@@ -33,7 +33,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/createUser")
-	public MainResponseObject createUser(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject createUser(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -43,7 +43,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/updateUser")
-	public MainResponseObject updateUser(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject updateUser(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -53,7 +53,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/deleteUser")
-	public MainResponseObject deleteUser(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject deleteUser(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -63,7 +63,7 @@ public class ServicesControllerManager {
 	} 
 	
 	@PostMapping("iteam/services/{dbCode}/addProduct")
-	public MainResponseObject addProduct(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject addProduct(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -73,7 +73,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/updateProduct")
-	public MainResponseObject updateProduct(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject updateProduct(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -83,7 +83,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/deleteProduct")
-	public MainResponseObject deleteProduct(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject deleteProduct(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -93,7 +93,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/getProducts")
-	public MainResponseObject getProducts(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject getProducts(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -103,7 +103,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/placeOrder")
-	public MainResponseObject placeOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject placeOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -113,7 +113,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/removeOrder")
-	public MainResponseObject removeOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject removeOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -123,7 +123,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/getOrders")
-	public MainResponseObject getOrders(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject getOrders(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -133,7 +133,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/contactUs")
-	public MainResponseObject contactUs(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject contactUs(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
@@ -143,7 +143,7 @@ public class ServicesControllerManager {
 	}
 	
 	@PostMapping("iteam/services/{dbCode}/getQueries")
-	public MainResponseObject getQueries(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) {
+	public MainResponseObject getQueries(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);

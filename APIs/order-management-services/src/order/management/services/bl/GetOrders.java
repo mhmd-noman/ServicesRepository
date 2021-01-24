@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import common.beans.Order;
+import common.exception.handling.BaseException;
 import common.utilities.constants.ResponseCodes;
 import common.utilities.methods.Utils;
 import order.management.services.beans.OrderManagementRequest;
@@ -19,28 +20,32 @@ import order.management.services.utils.Constants;
 public class GetOrders extends AbstractOrderManagementServicesHandler {
 	private static final Logger logger = LoggerFactory.getLogger(GetOrders.class);
 
-	public OrderManagementResponse orderManagementService(OrderManagementRequest ordersManagementRequest,  Connection connection) {
+	public OrderManagementResponse orderManagementService(OrderManagementRequest ordersManagementRequest,  Connection connection) throws BaseException {
 		OrderManagementResponse ordersManagementResponse = null;
 		Map<Integer, Order> ordersMap = null;
 		List<Order> ordersList = null;
-
-		ordersManagementResponse = new OrderManagementResponse();
-		ordersList = new ArrayList<>();
-		
-		if (null == ordersManagementRequest.getOrder()) {
-			ordersManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
-			ordersManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
-			return ordersManagementResponse;
+		try {
+			ordersManagementResponse = new OrderManagementResponse();
+			ordersList = new ArrayList<>();
+			
+			if (null == ordersManagementRequest.getOrder()) {
+				ordersManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
+				ordersManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
+				return ordersManagementResponse;
+			}
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to create product for username: ": null);
+			ordersMap = AbstractOrderManagementServicesDao.getInstance().getOrders(ordersManagementRequest, connection);
+			
+			if (!Utils.isNullOrEmptyCollection(ordersMap.values())) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Retrieved Orders: "+ ordersList: null);
+				ordersManagementResponse.setOrders(new ArrayList<Order>(ordersMap.values()));
+			}
+			ordersManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
+			ordersManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
+		} catch (Exception ex) {
+			logger.warn("##Exception## while getting orders ...");
+			throw new BaseException(ex);
 		}
-		logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to create product for username: ": null);
-		ordersMap = AbstractOrderManagementServicesDao.getInstance().getOrders(ordersManagementRequest, connection);
-		
-		if (!Utils.isNullOrEmptyCollection(ordersMap.values())) {
-			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Retrieved Orders: "+ ordersList: null);
-			ordersManagementResponse.setOrders(new ArrayList<Order>(ordersMap.values()));
-		}
-		ordersManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
-		ordersManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		return ordersManagementResponse;
 	}
 }

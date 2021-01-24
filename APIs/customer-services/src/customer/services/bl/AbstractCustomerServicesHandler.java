@@ -2,16 +2,17 @@ package customer.services.bl;
 
 import java.sql.Connection;
 
+import common.exception.handling.BaseException;
 import customer.services.beans.CustomerServicesRequest;
 import customer.services.beans.CustomerServicesResponse;
 import customer.services.utils.CustomerServicesAction;
 
 public abstract class AbstractCustomerServicesHandler {
-	public static AbstractCustomerServicesHandler getInstance() {
+	public static AbstractCustomerServicesHandler getInstance() throws BaseException {
 		return new GetQueries();
 	}
 
-	public static AbstractCustomerServicesHandler getInstance(CustomerServicesAction customerServicesAction) {
+	public static AbstractCustomerServicesHandler getInstance(CustomerServicesAction customerServicesAction) throws BaseException {
 		AbstractCustomerServicesHandler abstractCustomerServicesHandler = null;
 		switch(customerServicesAction) {
 		case CONTACT_US:
@@ -27,5 +28,5 @@ public abstract class AbstractCustomerServicesHandler {
 		return abstractCustomerServicesHandler;
 	}
 
-	public abstract CustomerServicesResponse customerServices(CustomerServicesRequest customerServicesRequest,  Connection connection);
+	public abstract CustomerServicesResponse customerServices(CustomerServicesRequest customerServicesRequest,  Connection connection) throws BaseException;
 }

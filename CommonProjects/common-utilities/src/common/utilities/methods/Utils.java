@@ -6,6 +6,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import common.beans.Order;
+
 public class Utils {
 	public static boolean isNullOrEmptyCollection(final Collection<?> c ) {
 	    return c == null || c.isEmpty();
@@ -80,5 +82,42 @@ public class Utils {
 			return price;
 		}
 		return (price * quantity);
+	}
+	
+	public static Double getTotalOrgAmountFromOrder(List<Order> orders) {
+		if (!Utils.isNullOrEmptyCollection(orders)) {
+			Double orgAmount = 0.0;
+			for (Order order : orders) {
+				orgAmount = orgAmount + order.getOrderOrgAmount();
+			}
+			return orgAmount;
+		} else {
+			return 0.0;
+		}
+	}
+	
+	public static Double getTotalRtlAmountFromOrder(List<Order> orders) {
+		if (!Utils.isNullOrEmptyCollection(orders)) {
+			Double orgAmount = 0.0;
+			for (Order order : orders) {
+				orgAmount = orgAmount + order.getOrderRtlAmount();
+			}
+			return orgAmount;
+		} else {
+			return 0.0;
+		}
+	}
+	
+	public static Double getOverallDiscountFromOrder(List<Order> orders) {
+		if (!Utils.isNullOrEmptyCollection(orders)) {
+			Double discount = 0.0;
+			for (Order order : orders) {
+				discount = discount + order.getOrderCalcDiscount();
+			}
+			discount = discount / orders.size();
+			return discount;
+		} else {
+			return 0.0;
+		}
 	}
 }

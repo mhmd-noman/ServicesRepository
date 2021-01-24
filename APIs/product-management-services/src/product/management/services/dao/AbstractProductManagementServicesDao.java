@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import common.beans.Product;
+import common.exception.handling.BaseException;
 import product.management.services.beans.ProductManagementRequest;
 
 public abstract class AbstractProductManagementServicesDao {
@@ -20,11 +21,11 @@ public abstract class AbstractProductManagementServicesDao {
 	public static final String PRODUCT_SERVING   = "and servings = ? ";
 	public static final String IS_ACTIVE_PRODUCT = "and is_active = 'Y'";
 
-	public static AbstractProductManagementServicesDao getInstance() {
+	public static AbstractProductManagementServicesDao getInstance() throws BaseException {
 		return new ProductManagementServicesDaoImpl();
 	}
-	public abstract List<Product> getProducts(ProductManagementRequest productManagementRequest, Connection connection);
-	public abstract void addProduct(ProductManagementRequest productManagementRequest, Connection connection);
-	public abstract void updateProduct(ProductManagementRequest productManagementRequest, Connection connection);
-	public abstract void deleteProduct(ProductManagementRequest productManagementRequest, Connection connection);
+	public abstract List<Product> getProducts(ProductManagementRequest productManagementRequest, Connection connection) throws BaseException;
+	public abstract void addProduct(ProductManagementRequest productManagementRequest, Connection connection) throws BaseException;
+	public abstract void updateProduct(ProductManagementRequest productManagementRequest, Connection connection) throws BaseException;
+	public abstract void deleteProduct(ProductManagementRequest productManagementRequest, Connection connection) throws BaseException;
 }

@@ -69,5 +69,10 @@
   		<artifactId>customer-services</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+  		<groupId>transaction-logging-service</groupId>
+  		<artifactId>transaction-logging-service</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
 </project>

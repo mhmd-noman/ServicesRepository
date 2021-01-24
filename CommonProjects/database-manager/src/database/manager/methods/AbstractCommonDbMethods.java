@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
+import common.exception.handling.BaseException;
 import database.manager.beans.DatabaseInfo;
 
 public abstract class AbstractCommonDbMethods {
@@ -11,12 +12,12 @@ public abstract class AbstractCommonDbMethods {
 	
 	AbstractCommonDbMethods() {
 	}
-	public static AbstractCommonDbMethods getInstance() {
+	public static AbstractCommonDbMethods getInstance()  throws BaseException {
 		return new CommonDaoMethods();
 	}
-	public abstract List<Map<Integer, Object>> select(String query, List<Object> parameters, Connection con);
-	public abstract Integer update(String query, List<Object> parameters, Connection con);
-	public abstract Integer updateWithKeyReturn(String query, List<Object> parameters, Connection con);
-	public abstract DatabaseInfo getDatabaseInfo(String dbCode, Connection connection);
-	public abstract int executeBatch(List<String> queries, List<Object> parameters, Connection con);
+	public abstract List<Map<Integer, Object>> select(String query, List<Object> parameters, Connection con)  throws BaseException;
+	public abstract Integer update(String query, List<Object> parameters, Connection con)  throws BaseException;
+	public abstract Integer updateWithKeyReturn(String query, List<Object> parameters, Connection con)  throws BaseException;
+	public abstract DatabaseInfo getDatabaseInfo(String dbCode, Connection connection)  throws BaseException;
+	public abstract int executeBatch(List<String> queries, List<Object> parameters, Connection con)  throws BaseException;
 }

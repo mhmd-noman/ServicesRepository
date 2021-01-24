@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import common.beans.User;
+import common.exception.handling.BaseException;
 import user.management.services.beans.UsersManagementRequest;
 
 public abstract class AbstractUserManagementServicesDao {
@@ -18,8 +19,8 @@ public abstract class AbstractUserManagementServicesDao {
 	public static AbstractUserManagementServicesDao getInstance() {
 		return new UserManagementServicesDaoImpl();
 	}
-	public abstract List<User> getUsers(UsersManagementRequest usersManagementRequest, Connection connection);
-	public abstract void createUser(UsersManagementRequest usersManagementRequest, Connection connection);
-	public abstract void updateUser(UsersManagementRequest usersManagementRequest, Connection connection);
-	public abstract void deleteUser(UsersManagementRequest usersManagementRequest, Connection connection);
+	public abstract List<User> getUsers(UsersManagementRequest usersManagementRequest, Connection connection) throws BaseException;
+	public abstract void createUser(UsersManagementRequest usersManagementRequest, Connection connection) throws BaseException;
+	public abstract void updateUser(UsersManagementRequest usersManagementRequest, Connection connection) throws BaseException;
+	public abstract void deleteUser(UsersManagementRequest usersManagementRequest, Connection connection) throws BaseException;
 }

@@ -10,6 +10,7 @@ import com.services.configurator.ServicesConfigurator;
 import common.beans.Order;
 import common.beans.Product;
 import common.beans.User;
+import common.exception.handling.BaseException;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;  
 
@@ -39,7 +40,7 @@ public class MyTestService {
 	
 	
 	
-	public static void placeOrder() {
+	public static void placeOrder() throws BaseException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -92,7 +93,7 @@ public class MyTestService {
 		System.out.println("Response Desc: "+ mainResponseObject.getResponseDesc());
 	}
 	
-	public static void getOrders() {
+	public static void getOrders() throws BaseException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -109,7 +110,7 @@ public class MyTestService {
 		}
 	}
 	
-	public static void getUsers() {
+	public static void getUsers() throws BaseException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -124,7 +125,7 @@ public class MyTestService {
 		}
 	}
 	
-	public static void getProducts() {
+	public static void getProducts() throws BaseException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -144,7 +145,7 @@ public class MyTestService {
 		}
 	}
 	
-	public static void addProduct() {
+	public static void addProduct() throws BaseException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -185,7 +186,7 @@ public class MyTestService {
 		System.out.println("Response Desc: "+ mainResponseObject.getResponseDesc());
 	}
 	
-	public static void deleteProduct() {
+	public static void deleteProduct() throws BaseException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -200,7 +201,7 @@ public class MyTestService {
 		
 	}
 	
-	public static void updateProduct() {
+	public static void updateProduct() throws BaseException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;

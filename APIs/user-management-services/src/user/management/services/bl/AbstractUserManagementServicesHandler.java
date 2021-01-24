@@ -2,16 +2,17 @@ package user.management.services.bl;
 
 import java.sql.Connection;
 
+import common.exception.handling.BaseException;
 import user.management.services.beans.UsersManagementRequest;
 import user.management.services.beans.UsersManagementResponse;
 import user.management.services.utils.UserManagementServiceAction;
 
 public abstract class AbstractUserManagementServicesHandler {
-	public static AbstractUserManagementServicesHandler getInstance() {
+	public static AbstractUserManagementServicesHandler getInstance() throws BaseException {
 		return new GetUsers();
 	}
 
-	public static AbstractUserManagementServicesHandler getInstance(UserManagementServiceAction userManagementServiceAction) {
+	public static AbstractUserManagementServicesHandler getInstance(UserManagementServiceAction userManagementServiceAction)  throws BaseException {
 		AbstractUserManagementServicesHandler abstractManagementUsersHandler = null;
 		switch(userManagementServiceAction) {
 		case GET_USERS:
@@ -33,5 +34,5 @@ public abstract class AbstractUserManagementServicesHandler {
 		return abstractManagementUsersHandler;
 	}
 
-	public abstract UsersManagementResponse userManagementService(UsersManagementRequest usersManagementRequest,  Connection connection);
+	public abstract UsersManagementResponse userManagementService(UsersManagementRequest usersManagementRequest,  Connection connection)  throws BaseException;
 }

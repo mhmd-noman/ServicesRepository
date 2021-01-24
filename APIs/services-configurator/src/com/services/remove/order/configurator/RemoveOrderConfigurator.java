@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import common.enums.OrderManagementServiceAction;
+import common.exception.handling.BaseException;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
 import order.management.services.OrderManagementService;
@@ -15,7 +16,7 @@ import order.management.services.beans.OrderManagementResponse;
 public class RemoveOrderConfigurator {
 	private static final Logger logger = LoggerFactory.getLogger(RemoveOrderConfigurator.class);
 
-	public MainResponseObject removeOrder(MainRequestObject mainRequestObject, Connection con) {
+	public MainResponseObject removeOrder(MainRequestObject mainRequestObject, Connection con) throws BaseException {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		OrderManagementService orderManagementService = new OrderManagementService();
 		OrderManagementRequest orderManagementRequest = new OrderManagementRequest();
@@ -32,6 +33,7 @@ public class RemoveOrderConfigurator {
 			orderManagementRequest.setOrder(mainRequestObject.getOrderInfo());
 		}
 		orderManagementRequest.setOrderManagementServiceAction(OrderManagementServiceAction.REMOVE_ORDER);
+		mainRequestObject.setServiceId(OrderManagementServiceAction.REMOVE_ORDER.toString());
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, OrderManagementResponse orderManagementResponse) {
