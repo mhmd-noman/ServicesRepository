@@ -32,7 +32,6 @@ public class GetUsersConfigurator {
 		logger.info(logger.isInfoEnabled() ? "Requested Content for getUsers: [" +usersManagementRequest+ "]": null);
 		if (null != mainRequestObject) {
 			usersManagementRequest.setEmail(mainRequestObject.getEmail());
-			usersManagementRequest.setEnabled(mainRequestObject.getEnabled());
 			usersManagementRequest.setFirstName(mainRequestObject.getFirstName());
 			usersManagementRequest.setLastName(mainRequestObject.getLastName());
 			usersManagementRequest.setPassword(mainRequestObject.getPassword());

@@ -21,7 +21,7 @@ public class JwtTokenUtils implements Serializable {
 	
 	private static final long serialVersionUID = -2550185165626007486L;
 	private static final Logger logger = LoggerFactory.getLogger(JwtTokenUtils.class);
-	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+	public static final long JWT_TOKEN_VALIDITY = 7 * 24 * 60 * 60;
 
 	@Value("${spring.security.user.password")
 	private String secret;

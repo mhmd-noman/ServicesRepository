@@ -15,7 +15,8 @@ public abstract class AbstractProductManagementServicesDao {
 	public static final String PRODUCT_IDS       = "and id in (@product_ids) ";
 	public static final String PRODUCT_ID        = "and id = ? ";
 	public static final String PRODUCT_NAME      = "and name = ? ";
-	public static final String PRODUCT_COMPANY   = "and name = ? ";
+	public static final String PRODUCT_FLAVOUR      = "and flavour = ? ";
+	public static final String PRODUCT_COMPANY   = "and company = ? ";
 	public static final String PRODUCT_PRICE     = "and price = ? ";
 	public static final String PRODUCT_WEIGHT    = "and weight = ? ";
 	public static final String PRODUCT_SERVING   = "and servings = ? ";

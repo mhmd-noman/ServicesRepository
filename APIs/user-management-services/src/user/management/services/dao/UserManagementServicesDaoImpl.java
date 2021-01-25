@@ -40,6 +40,14 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 				query.append(AbstractUserManagementServicesDao.LAST_NAME);
 				paramList.add(usersManagementRequest.getLastName());
 			}
+			if (!Utils.validateIfNullOrEmptyString(usersManagementRequest.getPhone())) {
+				query.append(AbstractUserManagementServicesDao.PHONE_NUMBER);
+				paramList.add(usersManagementRequest.getPhone());
+			}
+			if (!Utils.validateIfNullOrEmptyString(usersManagementRequest.getEmail())) {
+				query.append(AbstractUserManagementServicesDao.EMAIL);
+				paramList.add(usersManagementRequest.getEmail());
+			}
 			//if (!Utils.isNullOrEmptyCollection(paramList)) {
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch users by using query: " +AbstractUserManagementServicesDao.GET_USERS+ " with paramters: "+ paramList: null);
 			usersResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
@@ -136,6 +144,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 		}	
 	}
 
+	@Override
 	public void deleteUser(UsersManagementRequest usersManagementRequest, Connection connection) throws BaseException {
 		List<Object> paramList = null;
 		try {
@@ -147,6 +156,35 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 			}
 		} catch (Exception ex) {
 			logger.warn("##Exception## while deleting user ...");
+			throw new BaseException(ex);
+		}
+	}
+	
+	@Override
+	public List<User> getUserIfUserAlreadyExists(String username, String phone, String email, Connection connection) throws BaseException {
+		List<Object> paramList = null;
+		List<Map<Integer, Object>> usersResultSet = null;
+		StringBuilder query = null;
+		try {
+			paramList = new ArrayList<>();
+			query = new StringBuilder(AbstractUserManagementServicesDao.VALIDATE_IF_USER_ALREADY_EXISTS);
+			if (!Utils.validateIfNullOrEmptyString(username)) {
+				paramList.add(username);
+			}
+			if (!Utils.validateIfNullOrEmptyString(phone)) {
+				query.append(AbstractUserManagementServicesDao.OR_PHONE_NUMBER);
+				paramList.add(phone);
+			}
+			if (!Utils.validateIfNullOrEmptyString(email)) {
+				query.append(AbstractUserManagementServicesDao.OR_EMAIL);
+				paramList.add(email);
+			}
+			//if (!Utils.isNullOrEmptyCollection(paramList)) {
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch users by using query: " +AbstractUserManagementServicesDao.VALIDATE_IF_USER_ALREADY_EXISTS+ " with paramters: "+ paramList: null);
+			usersResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
+			return prepareUsersData(usersResultSet);
+		} catch (Exception ex) {
+			logger.warn("##Exception## while getting users data ...");
 			throw new BaseException(ex);
 		}
 	}

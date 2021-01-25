@@ -112,12 +112,12 @@ public class ServicesControllerManager {
 		return mainResponseObject;
 	}
 	
-	@PostMapping("iteam/services/{dbCode}/removeOrder")
-	public MainResponseObject removeOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
+	@PostMapping("iteam/services/{dbCode}/cancelOrder")
+	public MainResponseObject cancelOrder(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
-		logger.info(logger.isInfoEnabled() ? "Going to call removeOrder Service with Client[" +dbCode+ "]": null);
+		logger.info(logger.isInfoEnabled() ? "Going to call cancelOrder Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.removeOrder(mainRequestObject);
 		return mainResponseObject;
 	}

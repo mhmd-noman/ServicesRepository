@@ -26,8 +26,8 @@ public class TransactionLoggingImpl extends AbstractTransactionLoggingServiceHan
 			transactionLoggingResponse = new TransactionLoggingResponse();
 			logger.info(logger.isInfoEnabled() ? "Going to log transaction ... ": null);
 			AbstractTransactionLoggingServiceDao.getInstance().logTransaction(transactionLoggingRequest, connection);
-			transactionLoggingResponse.setResponseCode(ResponseCodes.SUCCESS);
-			transactionLoggingResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
+			transactionLoggingResponse.setResponseCode(transactionLoggingRequest.getMainResponseObject().getResponseCode());
+			transactionLoggingResponse.setResponseDesc(transactionLoggingRequest.getMainResponseObject().getResponseDesc());
 		} catch (Exception ex) {
 			logger.warn("##Exception## while logging transaction ...");
 			throw new BaseException(ex);

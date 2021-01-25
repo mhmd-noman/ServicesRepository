@@ -48,12 +48,8 @@ select * from roles
 select * from user_roles 
 
 
-INSERT INTO  maximafitness . users  ( id ,  email ,  enabled ,  first_name ,  last_name ,  password ,  phone ,  username ) VALUES ('1', 'damon@gmail.com', 1 , 'Damon', 'Darek', 'Temp/123', '03214556987', 'damon');
-INSERT INTO  maximafitness . users  ( id ,  email ,  enabled ,  first_name ,  last_name ,  password ,  phone ,  username ) VALUES ('2', 'stefen@gmail.com', 1 , 'Stefen', 'Darek', 'Temp/321', '03214556999', 'stefen');
-INSERT INTO  maximafitness . users  ( id ,  email ,  enabled ,  first_name ,  last_name ,  password ,  phone ,  username ) VALUES ('3', 'kathryne@gmail.com', 1 , 'Kathryne', 'Willic', 'Temp/123', '03214551122', 'kathryne');
+select * from users where username = 'ahassan';
 
-INSERT INTO  maximafitness . roles  ( role_id ,  name ) VALUES ('1', 'admin');
-INSERT INTO  maximafitness . roles  ( role_id ,  name ) VALUES ('2', 'guest');
-INSERT INTO  maximafitness . roles  ( role_id ,  name ) VALUES ('3', 'customer');
+select id from users where username is not null and username = 'mikhalaq' and phone = '01112112233' and email = 'mikhalaq@gmail.com' 
 
-INSERT INTO  maximafitness . user_roles  ( user_role_id, role_id, user_id) VALUES ('1', 1, 1);
+[mikhalaq, 01112112233, mikhalaq@gmail.com]

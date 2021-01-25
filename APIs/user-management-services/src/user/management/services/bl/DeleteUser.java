@@ -21,10 +21,18 @@ public class DeleteUser extends AbstractUserManagementServicesHandler {
 		UsersManagementResponse usersManagementResponse = null;
 		try {
 			usersManagementResponse = new UsersManagementResponse();
-			if (!Utils.validateIfNullOrEmptyString(usersManagementRequest.getUsername())) {
-				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to delete user for user id: ": null);
+			if (null == usersManagementRequest) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Can't proceed as no request content has been passed for deleteUser ... ": null);
+				usersManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
+				usersManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
+				return usersManagementResponse;
 			}
-			
+			if (Utils.validateIfNullOrEmptyString(usersManagementRequest.getUsername())) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Username can't be null/empty in request of deleteUser ... ": null);
+				usersManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
+				usersManagementResponse.setResponseDesc("Username cannot be null/empty.");
+				return usersManagementResponse;
+			}
 			AbstractUserManagementServicesDao.getInstance().deleteUser(usersManagementRequest, connection);
 			usersManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			usersManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);

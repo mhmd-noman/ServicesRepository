@@ -44,6 +44,10 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					query.append(AbstractProductManagementServicesDao.PRODUCT_NAME);
 					paramList.add(productsManagementRequest.getProduct().getName());
 				}
+				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getFlavour())) {
+					query.append(AbstractProductManagementServicesDao.PRODUCT_FLAVOUR);
+					paramList.add(productsManagementRequest.getProduct().getFlavour());
+				}
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getCompany())) {
 					query.append(AbstractProductManagementServicesDao.PRODUCT_COMPANY);
 					paramList.add(productsManagementRequest.getProduct().getCompany());

@@ -26,9 +26,11 @@ public class GetUsers extends AbstractUserManagementServicesHandler {
 		try {
 			usersManagementResponse = new UsersManagementResponse();
 			usersList = new ArrayList<>();
-			if (!Utils.validateIfNullOrEmptyString(usersManagementRequest.getUsername())) {
-				usersManagementResponse = new UsersManagementResponse();
-				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to create user for username: ": null);
+			if (null == usersManagementRequest) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Can't proceed as no request content has been passed for getUsers ... ": null);
+				usersManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
+				usersManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
+				return usersManagementResponse;
 			}
 			usersList = AbstractUserManagementServicesDao.getInstance().getUsers(usersManagementRequest, connection);
 			if (!Utils.isNullOrEmptyCollection(usersList)) {
