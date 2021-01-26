@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import common.exception.handling.BaseException;
 import common.utilities.constants.ResponseCodes;
+import common.utilities.methods.Utils;
 import product.management.services.utils.Constants;
 import product.management.services.beans.ProductManagementRequest;
 import product.management.services.beans.ProductManagementResponse;
@@ -23,6 +24,12 @@ public class DeleteProduct extends AbstractProductManagementServicesHandler {
 				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Couldn't proceed as product requested content has been passed empty ...": null);
 				productManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
 				productManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
+				return productManagementResponse;
+			}
+			if (Utils.validateIfNullOrInvalidInteger(productManagementRequest.getProduct().getId())) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Couldn't proceed as product id has been passed empty ...": null);
+				productManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
+				productManagementResponse.setResponseDesc("Product id can't be null.");
 				return productManagementResponse;
 			}
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to delete product for user id: ": null);

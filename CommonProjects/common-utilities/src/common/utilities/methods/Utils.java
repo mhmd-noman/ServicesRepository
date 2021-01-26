@@ -2,7 +2,9 @@ package common.utilities.methods;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -119,5 +121,10 @@ public class Utils {
 		} else {
 			return 0.0;
 		}
+	}
+	
+	public static String formatDate(Date date, String format) {
+	    SimpleDateFormat formatter = new SimpleDateFormat(format);  
+	    return formatter.format(date);    
 	}
 }

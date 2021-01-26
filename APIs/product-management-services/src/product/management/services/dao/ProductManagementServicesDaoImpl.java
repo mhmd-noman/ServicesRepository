@@ -40,9 +40,16 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					query.append(AbstractProductManagementServicesDao.PRODUCT_ID);
 					paramList.add(productsManagementRequest.getProduct().getId());
 				}
-				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getName())) {
-					query.append(AbstractProductManagementServicesDao.PRODUCT_NAME);
-					paramList.add(productsManagementRequest.getProduct().getName());
+				if (productsManagementRequest.isIfCallingFromAddProduct()) {
+					if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getName())) {
+						query.append(AbstractProductManagementServicesDao.PRODUCT_NAME);
+						paramList.add(productsManagementRequest.getProduct().getName());
+					}
+				} else {
+					if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getName())) {
+						query.append(AbstractProductManagementServicesDao.PRODUCT_NAME_RESPONSIVE);
+						query = new StringBuilder(query.toString().replace("@name", productsManagementRequest.getProduct().getName()));
+					}
 				}
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getFlavour())) {
 					query.append(AbstractProductManagementServicesDao.PRODUCT_FLAVOUR);
@@ -157,7 +164,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					updateColumns.append("name = '" +productsManagementRequest.getProduct().getName()+ "',");
 				}
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getCompany())) {
-					updateColumns.append("company = " +productsManagementRequest.getProduct().getCompany()+ ",");
+					updateColumns.append("company = '" +productsManagementRequest.getProduct().getCompany()+ "',");
 				}
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getCategory())) {
 					updateColumns.append("category = '" +productsManagementRequest.getProduct().getCategory()+ "',");
@@ -184,10 +191,10 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					updateColumns.append("discount = '" +productsManagementRequest.getProduct().getDiscount()+ "',");
 				}
 				if (null != productsManagementRequest.getProduct().getMfgDate()) {
-					updateColumns.append("mfg_date = '" +productsManagementRequest.getProduct().getMfgDate()+ "',");
+					updateColumns.append("mfg_date = '" +Utils.formatDate(productsManagementRequest.getProduct().getMfgDate(), CommonConstants.DATE_FORMAT_HIPHENS_YYYY_M_MDD)+ "',");
 				}
 				if (null != productsManagementRequest.getProduct().getExpiryDate()) {
-					updateColumns.append("expiry_date = '" +productsManagementRequest.getProduct().getExpiryDate()+ "',");
+					updateColumns.append("expiry_date = '" +Utils.formatDate(productsManagementRequest.getProduct().getExpiryDate(), CommonConstants.DATE_FORMAT_HIPHENS_YYYY_M_MDD)+ "',");
 				}
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getBarCode())) {
 					updateColumns.append("bar_code = '" +productsManagementRequest.getProduct().getBarCode()+ "',");

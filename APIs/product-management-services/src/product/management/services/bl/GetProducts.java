@@ -32,11 +32,10 @@ public class GetProducts extends AbstractProductManagementServicesHandler {
 				productsManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
 				return productsManagementResponse;
 			}
-	
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to create product for username: ": null);
 			productsList = AbstractProductManagementServicesDao.getInstance().getProducts(productsManagementRequest, connection);
 			if (!Utils.isNullOrEmptyCollection(productsList)) {
-				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Retrieved Users: "+ productsList: null);
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Retrieved Products: "+ productsList: null);
 				productsManagementResponse.setProducts(productsList);
 			}
 			productsManagementResponse.setResponseCode(ResponseCodes.SUCCESS);

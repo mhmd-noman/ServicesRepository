@@ -32,6 +32,7 @@ public class AddProductConfigurator {
 			logger.info(logger.isInfoEnabled() ? "Requested content recieved for addProduct: [" +mainRequestObject+ "]": null);
 			productManagementRequest.setProduct(mainRequestObject.getProductInfo());
 		}
+		productManagementRequest.setFetchOutOfStockProducts(mainRequestObject.isFetchOutOfStockProducts());
 		productManagementRequest.setProductManagementServiceAction(ProductManagementServiceAction.ADD_PRODUCT);
 		mainRequestObject.setServiceId(ProductManagementServiceAction.ADD_PRODUCT.toString());
 	}
