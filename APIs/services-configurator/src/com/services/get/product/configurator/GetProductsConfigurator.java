@@ -32,11 +32,14 @@ public class GetProductsConfigurator {
 		if (null != mainRequestObject) {
 			logger.info(logger.isInfoEnabled() ? "Requested content recieved for getProducts: [" +mainRequestObject+ "]": null);
 			productManagementRequest.setProduct(mainRequestObject.getProductInfo());
-			productManagementRequest.setFetchOutOfStockProducts(mainRequestObject.isFetchOutOfStockProducts());
 			productManagementRequest.setProductIds(mainRequestObject.getIds());
+			productManagementRequest.setFetchOutOfStockProducts(mainRequestObject.isFetchOutOfStockProducts());
+			productManagementRequest.setFetchProductsWithDiscountOnly(mainRequestObject.isFetchProductsWithDiscountOnly());
+			productManagementRequest.setPageNo(mainRequestObject.getPageNo());
+			productManagementRequest.setPageSize(mainRequestObject.getPageSize());
+			mainRequestObject.setServiceId(ProductManagementServiceAction.GET_PRODUCTS.toString());
 		}
 		productManagementRequest.setProductManagementServiceAction(ProductManagementServiceAction.GET_PRODUCTS);
-		mainRequestObject.setServiceId(ProductManagementServiceAction.GET_PRODUCTS.toString());
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, ProductManagementResponse productManagementResponse) {

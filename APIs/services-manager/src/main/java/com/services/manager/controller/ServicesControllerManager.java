@@ -2,6 +2,7 @@ package com.services.manager.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,7 @@ import common.response.MainResponseObject;
 public class ServicesControllerManager {
 	private static final Logger logger = LoggerFactory.getLogger(ServicesControllerManager.class);
 	
-	@PostMapping(path = "iteam/services")
+	@GetMapping(path = "iteam/services")
 	public String welcomeToEServices() throws BaseException {
 		return "Welcome to E-Services - Powered by iTeam.\nDeveloped by: Muhammad Noman\niTeam provides E-Services to support E Commerce Systems.";
 	}

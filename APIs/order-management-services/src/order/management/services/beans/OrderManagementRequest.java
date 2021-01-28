@@ -8,6 +8,8 @@ import common.enums.OrderManagementServiceAction;
 public class OrderManagementRequest {
 	private List<Integer> orderIds = null;
 	private Order order = null;
+	private Integer pageNo = null;
+	private Integer pageSize = null;
 	private OrderManagementServiceAction orderManagementServiceAction = null;
 	public List<Integer> getOrderIds() {
 		return orderIds;
@@ -21,6 +23,18 @@ public class OrderManagementRequest {
 	public void setOrder(Order order) {
 		this.order = order;
 	}
+	public Integer getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(Integer pageNo) {
+		this.pageNo = pageNo;
+	}
+	public Integer getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
 	public OrderManagementServiceAction getOrderManagementServiceAction() {
 		return orderManagementServiceAction;
 	}
@@ -31,8 +45,14 @@ public class OrderManagementRequest {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("OrderManagementRequest [order=");
+		builder.append("OrderManagementRequest [orderIds=");
+		builder.append(orderIds);
+		builder.append(", order=");
 		builder.append(order);
+		builder.append(", pageNo=");
+		builder.append(pageNo);
+		builder.append(", pageSize=");
+		builder.append(pageSize);
 		builder.append(", orderManagementServiceAction=");
 		builder.append(orderManagementServiceAction);
 		builder.append("]");

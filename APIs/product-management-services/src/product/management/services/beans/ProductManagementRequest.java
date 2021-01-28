@@ -8,7 +8,10 @@ import common.enums.ProductManagementServiceAction;
 public class ProductManagementRequest {
 	private Product product = null;
 	private List<Integer> productIds = null;
+	private Integer pageNo   = null;
+	private Integer pageSize = null;
 	private boolean fetchOutOfStockProducts = false;
+	private boolean fetchProductsWithDiscountOnly = false;
 	private boolean ifCallingFromAddProductService = false;
 	private ProductManagementServiceAction productManagementServiceAction = null;
 
@@ -27,11 +30,29 @@ public class ProductManagementRequest {
 	public void setProductIds(List<Integer> ids) {
 		this.productIds = ids;
 	}
+	public Integer getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(Integer pageNo) {
+		this.pageNo = pageNo;
+	}
+	public Integer getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
 	public boolean isFetchOutOfStockProducts() {
 		return fetchOutOfStockProducts;
 	}
 	public void setFetchOutOfStockProducts(boolean fetchOutOfStockProducts) {
 		this.fetchOutOfStockProducts = fetchOutOfStockProducts;
+	}
+	public boolean isFetchProductsWithDiscountOnly() {
+		return fetchProductsWithDiscountOnly;
+	}
+	public void setFetchProductsWithDiscountOnly(boolean fetchProductsWithDiscountOnly) {
+		this.fetchProductsWithDiscountOnly = fetchProductsWithDiscountOnly;
 	}
 	public boolean isIfCallingFromAddProduct() {
 		return ifCallingFromAddProductService;
@@ -50,8 +71,14 @@ public class ProductManagementRequest {
 		builder.append(product);
 		builder.append(", productIds=");
 		builder.append(productIds);
+		builder.append(", pageNo=");
+		builder.append(pageNo);
+		builder.append(", pageSize=");
+		builder.append(pageSize);
 		builder.append(", fetchOutOfStockProducts=");
 		builder.append(fetchOutOfStockProducts);
+		builder.append(", fetchProductsWithDiscountOnly=");
+		builder.append(fetchProductsWithDiscountOnly);
 		builder.append(", ifCallingFromAddProductService=");
 		builder.append(ifCallingFromAddProductService);
 		builder.append(", productManagementServiceAction=");

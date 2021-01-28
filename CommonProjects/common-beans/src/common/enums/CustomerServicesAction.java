@@ -1,4 +1,4 @@
-package customer.services.utils;
+package common.enums;
 
 public enum CustomerServicesAction {
 	CONTACT_US,

@@ -21,6 +21,7 @@ public abstract class AbstractOrderManagementServicesDao {
 	public static final String ORDER_CITY            = "and o.city = ? ";
 	public static final String ORDER_STATE           = "and o.state = ? ";
 	public static final String ORDER_COUNTRY         = "and o.country = ? ";
+	public static final String ORDER_PAGINATION_SUPPORT    = "limit ? , ? ";
 
 	public static AbstractOrderManagementServicesDao getInstance() throws BaseException {
 		return new OrderManagementServicesDaoImpl();

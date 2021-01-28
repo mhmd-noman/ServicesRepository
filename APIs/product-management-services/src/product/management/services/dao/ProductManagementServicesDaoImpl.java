@@ -55,6 +55,10 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					query.append(AbstractProductManagementServicesDao.PRODUCT_FLAVOUR);
 					paramList.add(productsManagementRequest.getProduct().getFlavour());
 				}
+				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getCategory())) {
+					query.append(AbstractProductManagementServicesDao.PRODUCT_CATEGORY);
+					paramList.add(productsManagementRequest.getProduct().getCategory());
+				}
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getCompany())) {
 					query.append(AbstractProductManagementServicesDao.PRODUCT_COMPANY);
 					paramList.add(productsManagementRequest.getProduct().getCompany());
@@ -71,9 +75,52 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					query.append(AbstractProductManagementServicesDao.PRODUCT_WEIGHT);
 					paramList.add(productsManagementRequest.getProduct().getWeight());
 				}
+				if (!Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getDiscount())) {
+					query.append(AbstractProductManagementServicesDao.PRODUCTS_WITH_DISCOUNT);
+					paramList.add(productsManagementRequest.getProduct().getDiscount());
+				}
+				
+				if (!Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getFromOrgPrice())
+						&& Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getToOrgPrice())) {
+					query.append(AbstractProductManagementServicesDao.FROM_PRODUCT_PRICE);
+					paramList.add(productsManagementRequest.getProduct().getFromOrgPrice());
+				} else if (Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getFromOrgPrice())
+						&& !Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getToOrgPrice())) {
+					query.append(AbstractProductManagementServicesDao.TO_PRODUCT_PRICE);
+					paramList.add(productsManagementRequest.getProduct().getToOrgPrice());
+				} else if (!Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getFromOrgPrice())
+						&& !Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getToOrgPrice())) {
+					query.append(AbstractProductManagementServicesDao.PRODUCT_PRICE_RANGE);
+					paramList.add(productsManagementRequest.getProduct().getFromOrgPrice());
+					paramList.add(productsManagementRequest.getProduct().getToOrgPrice());
+				}
+				
+				if (!Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getFromDiscount())
+						&& Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getToDiscount())) {
+					query.append(AbstractProductManagementServicesDao.PRODUCTS_WITH_DISCOUNT_FROM);
+					paramList.add(productsManagementRequest.getProduct().getFromDiscount());
+				} else if (Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getFromDiscount())
+						&& !Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getToDiscount())) {
+					query.append(AbstractProductManagementServicesDao.PRODUCTS_WITH_DISCOUNT_TO);
+					paramList.add(productsManagementRequest.getProduct().getToDiscount());
+				} else if (!Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getFromDiscount())
+						&& !Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getToDiscount())) {
+					query.append(AbstractProductManagementServicesDao.PRODUCTS_WITH_DISCOUNT_RANGE);
+					paramList.add(productsManagementRequest.getProduct().getFromDiscount());
+					paramList.add(productsManagementRequest.getProduct().getToDiscount());
+				}
+			}
+			if (productsManagementRequest.isFetchProductsWithDiscountOnly()) {
+				query.append(AbstractProductManagementServicesDao.PRODUCTS_WITH_DISCOUNT_ONLY);
 			}
 			if (!productsManagementRequest.isFetchOutOfStockProducts()) {
 				query.append(AbstractProductManagementServicesDao.IS_ACTIVE_PRODUCT);
+			}
+			if (!Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getPageNo()) && !Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getPageSize())) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch orders as pageNo:[" +productsManagementRequest.getPageNo()+ "] and pageSize:[" +productsManagementRequest.getPageSize()+"]": null);
+				query.append(AbstractProductManagementServicesDao.PRODUCT_PAGINATION_SUPPORT);
+				paramList.add(((productsManagementRequest.getPageNo() - 1) * productsManagementRequest.getPageSize()));
+				paramList.add(productsManagementRequest.getPageSize());
 			}
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch products by using query: " +AbstractProductManagementServicesDao.GET_PRODUCTS+ " with paramters: "+ paramList: null);
 			productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);

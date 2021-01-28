@@ -18,12 +18,15 @@ public class MainRequestObject {
 	private String phoneNumber = null;
 	private String dbCode = null;
 	private String serviceId = null;
+	private Integer pageNo = null;
+	private Integer pageSize = null;
 	private User userInfo = null;
 	private Order orderInfo = null;
 	private Product productInfo = null;
 	private Query queryInfo = null;
 	private List<Integer> ids = null;
 	private boolean fetchOutOfStockProducts = false;
+	private boolean fetchProductsWithDiscountOnly = false;
 	String enabled = null;
 	private UserManagementServiceAction userManagementServiceAction = null;
 
@@ -93,6 +96,18 @@ public class MainRequestObject {
 	public void setServiceId(String serviceId) {
 		this.serviceId = serviceId;
 	}
+	public Integer getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(Integer pageNo) {
+		this.pageNo = pageNo;
+	}
+	public Integer getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
 	public Order getOrderInfo() {
 		return orderInfo;
 	}
@@ -130,6 +145,12 @@ public class MainRequestObject {
 		this.fetchOutOfStockProducts = fetchOutOfStockProducts;
 	}
 
+	public boolean isFetchProductsWithDiscountOnly() {
+		return fetchProductsWithDiscountOnly;
+	}
+	public void setFetchProductsWithDiscountOnly(boolean fetchProductsWithDiscountOnly) {
+		this.fetchProductsWithDiscountOnly = fetchProductsWithDiscountOnly;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -151,6 +172,10 @@ public class MainRequestObject {
 		builder.append(dbCode);
 		builder.append(", serviceId=");
 		builder.append(serviceId);
+		builder.append(", pageNo=");
+		builder.append(pageNo);
+		builder.append(", pageSize=");
+		builder.append(pageSize);
 		builder.append(", userInfo=");
 		builder.append(userInfo);
 		builder.append(", orderInfo=");
@@ -163,6 +188,8 @@ public class MainRequestObject {
 		builder.append(ids);
 		builder.append(", fetchOutOfStockProducts=");
 		builder.append(fetchOutOfStockProducts);
+		builder.append(", fetchProductsWithDiscountOnly=");
+		builder.append(fetchProductsWithDiscountOnly);
 		builder.append(", enabled=");
 		builder.append(enabled);
 		builder.append(", userManagementServiceAction=");

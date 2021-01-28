@@ -1,7 +1,7 @@
 package customer.services.beans;
 
 import common.beans.Query;
-import customer.services.utils.CustomerServicesAction;
+import common.enums.CustomerServicesAction;
 
 public class CustomerServicesRequest {
 	private Query query = null;

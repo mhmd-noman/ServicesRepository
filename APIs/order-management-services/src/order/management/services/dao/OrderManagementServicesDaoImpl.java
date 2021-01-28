@@ -25,7 +25,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 	private static final Logger logger = LoggerFactory.getLogger(OrderManagementServicesDaoImpl.class);
 	
 	@Override
-	public Map<Integer, Order> getOrders(OrderManagementRequest productsManagementRequest, Connection connection) throws BaseException {
+	public Map<Integer, Order> getOrders(OrderManagementRequest orderManagementRequest, Connection connection) throws BaseException {
 		List<Object> paramList = null;
 		List<Map<Integer, Object>> productsResultSet = null;
 		StringBuilder query = null;
@@ -33,41 +33,49 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 			paramList = new ArrayList<>();
 			query = new StringBuilder(AbstractOrderManagementServicesDao.GET_ORDERS);
 			
-			if (!Utils.isNullOrEmptyCollection(productsManagementRequest.getOrderIds())) {
+			if (!Utils.isNullOrEmptyCollection(orderManagementRequest.getOrderIds())) {
 				query = new StringBuilder(AbstractOrderManagementServicesDao.GET_ORDERS);
 				query.append(AbstractOrderManagementServicesDao.ORDER_IDs);
-				query = new StringBuilder(query.toString().replace("@order_ids", Utils.prepareInClauseString(productsManagementRequest.getOrderIds())));
+				query = new StringBuilder(query.toString().replace("@order_ids", Utils.prepareInClauseString(orderManagementRequest.getOrderIds())));
 			} else {
 				query = new StringBuilder(AbstractOrderManagementServicesDao.GET_ORDERS);
 			}
 			
-			if (null != productsManagementRequest.getOrder()) {
-				if (!Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getOrder().getOrderId())) {
+			if (null != orderManagementRequest.getOrder()) {
+				if (!Utils.validateIfNullOrInvalidInteger(orderManagementRequest.getOrder().getOrderId())) {
 					query.append(AbstractOrderManagementServicesDao.ORDER_ID);
 					//query.replace("@orders_ids", );
-					paramList.add(productsManagementRequest.getOrder().getOrderId());
+					paramList.add(orderManagementRequest.getOrder().getOrderId());
 				}
-				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getCustName())) {
+				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getCustName())) {
 					query.append(AbstractOrderManagementServicesDao.CUSTOMER_NAME);
-					paramList.add(productsManagementRequest.getOrder().getCustName());
+					paramList.add(orderManagementRequest.getOrder().getCustName());
 				}
-				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getArea())) {
+				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getArea())) {
 					query.append(AbstractOrderManagementServicesDao.ORDER_AREA);
-					paramList.add(productsManagementRequest.getOrder().getArea());
+					paramList.add(orderManagementRequest.getOrder().getArea());
 				}
-				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getCity())) {
+				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getCity())) {
 					query.append(AbstractOrderManagementServicesDao.ORDER_CITY);
-					paramList.add(productsManagementRequest.getOrder().getCity());
+					paramList.add(orderManagementRequest.getOrder().getCity());
 				}
-				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getState())) {
+				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getState())) {
 					query.append(AbstractOrderManagementServicesDao.ORDER_STATE);
-					paramList.add(productsManagementRequest.getOrder().getState());
+					paramList.add(orderManagementRequest.getOrder().getState());
 				}
-				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getOrder().getCountry())) {
+				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getCountry())) {
 					query.append(AbstractOrderManagementServicesDao.ORDER_COUNTRY);
-					paramList.add(productsManagementRequest.getOrder().getCountry());
+					paramList.add(orderManagementRequest.getOrder().getCountry());
 				}
 			}
+			
+			if (!Utils.validateIfNullOrInvalidInteger(orderManagementRequest.getPageNo()) && !Utils.validateIfNullOrInvalidInteger(orderManagementRequest.getPageSize())) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch orders as pageNo:[" +orderManagementRequest.getPageNo()+ "] and pageSize:[" +orderManagementRequest.getPageSize()+"]": null);
+				query.append(AbstractOrderManagementServicesDao.ORDER_PAGINATION_SUPPORT);
+				paramList.add(((orderManagementRequest.getPageNo() - 1) * orderManagementRequest.getPageSize()));
+				paramList.add(orderManagementRequest.getPageSize());
+			}
+
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch orders by using query: " +query+ " with paramters: "+ paramList: null);
 			productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 		} catch (Exception ex) {

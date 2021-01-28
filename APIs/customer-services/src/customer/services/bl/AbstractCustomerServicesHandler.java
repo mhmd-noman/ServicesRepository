@@ -2,10 +2,10 @@ package customer.services.bl;
 
 import java.sql.Connection;
 
+import common.enums.CustomerServicesAction;
 import common.exception.handling.BaseException;
 import customer.services.beans.CustomerServicesRequest;
 import customer.services.beans.CustomerServicesResponse;
-import customer.services.utils.CustomerServicesAction;
 
 public abstract class AbstractCustomerServicesHandler {
 	public static AbstractCustomerServicesHandler getInstance() throws BaseException {

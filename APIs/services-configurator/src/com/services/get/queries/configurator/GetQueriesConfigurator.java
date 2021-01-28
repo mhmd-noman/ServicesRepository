@@ -5,13 +5,13 @@ import java.sql.Connection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import common.enums.CustomerServicesAction;
 import common.exception.handling.BaseException;
 import common.request.MainRequestObject;
 import common.response.MainResponseObject;
 import customer.services.CustomerServices;
 import customer.services.beans.CustomerServicesRequest;
 import customer.services.beans.CustomerServicesResponse;
-import customer.services.utils.CustomerServicesAction;
 
 public class GetQueriesConfigurator {
 	private static final Logger logger = LoggerFactory.getLogger(GetQueriesConfigurator.class);

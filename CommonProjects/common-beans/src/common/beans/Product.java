@@ -15,8 +15,12 @@ public class Product {
 	private String servingSize = null;
 	private Double rtlPrice = null;
 	private Double orgPrice = null;
+	private Double fromOrgPrice = null;
+	private Double toOrgPrice = null;
 	private Double netPrice = null;
 	private Double discount = null;
+	private Double fromDiscount = null;
+	private Double toDiscount = null;
 	private Double discountWhenOrdered = null;
 	private String directiontoUse = null;
 	private String description = null;
@@ -99,6 +103,18 @@ public class Product {
 	public void setOrgPrice(Double orgPrice) {
 		this.orgPrice = orgPrice;
 	}
+	public Double getFromOrgPrice() {
+		return fromOrgPrice;
+	}
+	public void setFromOrgPrice(Double fromOrgPrice) {
+		this.fromOrgPrice = fromOrgPrice;
+	}
+	public Double getToOrgPrice() {
+		return toOrgPrice;
+	}
+	public void setToOrgPrice(Double toOrgPrice) {
+		this.toOrgPrice = toOrgPrice;
+	}
 	public Double getNetPrice() {
 		return netPrice;
 	}
@@ -110,6 +126,18 @@ public class Product {
 	}
 	public void setDiscount(Double discount) {
 		this.discount = discount;
+	}
+	public Double getFromDiscount() {
+		return fromDiscount;
+	}
+	public void setFromDiscount(Double fromDiscount) {
+		this.fromDiscount = fromDiscount;
+	}
+	public Double getToDiscount() {
+		return toDiscount;
+	}
+	public void setToDiscount(Double toDiscount) {
+		this.toDiscount = toDiscount;
 	}
 	public Double getDiscountWhenOrdered() {
 		return discountWhenOrdered;
@@ -193,10 +221,18 @@ public class Product {
 		builder.append(rtlPrice);
 		builder.append(", orgPrice=");
 		builder.append(orgPrice);
+		builder.append(", fromOrgPrice=");
+		builder.append(fromOrgPrice);
+		builder.append(", toOrgPrice=");
+		builder.append(toOrgPrice);
 		builder.append(", netPrice=");
 		builder.append(netPrice);
 		builder.append(", discount=");
 		builder.append(discount);
+		builder.append(", fromDiscount=");
+		builder.append(fromDiscount);
+		builder.append(", toDiscount=");
+		builder.append(toDiscount);
 		builder.append(", discountWhenOrdered=");
 		builder.append(discountWhenOrdered);
 		builder.append(", directiontoUse=");
