@@ -54,3 +54,9 @@ INSERT INTO products (id, name, company, category, flavour, quantity, weight, se
 select * from order_products
 
 select id, name, company, category, flavour, quantity, weight, servings, serving_size, price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, created_on, last_updated_on, is_active from products where is_active = 'Y' and name = ? and price = ? and servings = ? and weight = ? 
+
+select id, name, company, category, flavour, quantity, weight, servings, serving_size, price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, created_on, last_updated_on, is_active from products where id is not null and is_active = 'Y' limit 5, 5
+
+select id, name, company, category, flavour, quantity, weight, servings, serving_size, price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, created_on, last_updated_on, is_active from products where id is not null and is_active = 'Y' limit ? , ? 
+
+select * from products

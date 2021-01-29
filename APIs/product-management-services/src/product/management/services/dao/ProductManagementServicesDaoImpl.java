@@ -157,6 +157,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					product.setDescription(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setCreatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
 					product.setLastUpdatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
+					product.setImagePath(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setIsActive(null != productRow.get(++index) ? (CommonConstants.OPTION_Y.equalsIgnoreCase((String)productRow.get(index)) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N): null);
 					products.add(product);
 					index = 0;
@@ -190,6 +191,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 				paramList.add(productsManagementRequest.getProduct().getBarCode());
 				paramList.add(productsManagementRequest.getProduct().getDirectiontoUse());
 				paramList.add(productsManagementRequest.getProduct().getDescription());
+				paramList.add(productsManagementRequest.getProduct().getImagePath());
 				paramList.add(CommonConstants.OPTION_Y.equalsIgnoreCase(productsManagementRequest.getProduct().isActive()) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N);
 				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to insert user by using query: " +AbstractProductManagementServicesDao.ADD_PRODUCT+ " with paramters: "+ paramList: null);
 				AbstractCommonDbMethods.getInstance().update(AbstractProductManagementServicesDao.ADD_PRODUCT, paramList, connection);
@@ -251,6 +253,9 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 				}
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getDescription())) {
 					updateColumns.append("description = '" +productsManagementRequest.getProduct().getDescription()+ "',");
+				}
+				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getImagePath())) {
+					updateColumns.append("image = '" +productsManagementRequest.getProduct().getImagePath()+ "',");
 				}
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().isActive())) {
 					updateColumns.append("is_active = '" + (CommonConstants.OPTION_Y.equalsIgnoreCase(productsManagementRequest.getProduct().isActive()) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N)+ "',");

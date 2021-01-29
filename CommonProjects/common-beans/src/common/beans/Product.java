@@ -29,6 +29,7 @@ public class Product {
 	private Date expiryDate = null;
 	private Date createdOn = null;
 	private Date lastUpdatedOn = null;
+	private String imagePath = null;
 	private String isActive = null;
 
 	public Integer getId() {
@@ -187,6 +188,12 @@ public class Product {
 	public void setLastUpdatedOn(Date lastUpdatedOn) {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 	public String isActive() {
 		return isActive;
 	}
@@ -249,6 +256,8 @@ public class Product {
 		builder.append(createdOn);
 		builder.append(", lastUpdatedOn=");
 		builder.append(lastUpdatedOn);
+		builder.append(", imagePath=");
+		builder.append(imagePath);
 		builder.append(", isActive=");
 		builder.append(isActive);
 		builder.append("]");
