@@ -1,6 +1,5 @@
 com\services\get\order\configurator\GetOrdersConfigurator.class
 com\services\get\queries\configurator\GetQueriesConfigurator.class
-com\services\remove\order\configurator\RemoveOrderConfigurator.class
 com\services\get\users\configurator\GetUsersConfigurator.class
 com\services\create\user\configurator\CreateUserConfigurator.class
 com\services\delete\product\configurator\DeleteProductConfigurator.class

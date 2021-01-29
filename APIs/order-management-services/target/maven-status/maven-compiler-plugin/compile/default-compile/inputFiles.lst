@@ -3,9 +3,9 @@ C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\orde
 C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\beans\OrderManagementRequest.java
 C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\bl\UpdateOrder.java
 C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\beans\OrderManagementResponse.java
+C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\bl\CancelOrder.java
 C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\dao\AbstractOrderManagementServicesDao.java
 C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\utils\Constants.java
-C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\bl\RemoveOrder.java
 C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\dao\OrderManagementServicesDaoImpl.java
 C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\bl\PlaceOrder.java
 C:\Users\Muhammad Nauman\Desktop\ServicesRepository\ServicesRepository\APIs\order-management-services\src\order\management\services\OrderManagementService.java
