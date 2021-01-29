@@ -16,7 +16,7 @@ import com.services.get.product.configurator.GetProductsConfigurator;
 import com.services.get.queries.configurator.GetQueriesConfigurator;
 import com.services.get.users.configurator.GetUsersConfigurator;
 import com.services.place.order.configurator.PlaceOrderConfigurator;
-import com.services.remove.order.configurator.RemoveOrderConfigurator;
+import com.services.remove.order.configurator.CancelOrderConfigurator;
 import com.services.transaction.logging.TransactionLoggingConfigurator;
 import com.services.update.product.configurator.UpdateProductConfigurator;
 import com.services.update.user.configurator.UpdateUserConfigurator;
@@ -246,10 +246,10 @@ public class ServicesConfigurator {
 		return mainResponseObject;
 	}
 	
-	public MainResponseObject removeOrder(MainRequestObject mainRequestObject) throws BaseException {
+	public MainResponseObject cancelOrder(MainRequestObject mainRequestObject) throws BaseException {
 		Connection con = null;
 		MainResponseObject mainResponseObject = null;
-		RemoveOrderConfigurator removeOrderConfigurator = null;
+		CancelOrderConfigurator removeOrderConfigurator = null;
 		mainResponseObject = new MainResponseObject();
 		con = getConnection(mainRequestObject.getDbCode());
 		if (null == con) {
@@ -258,9 +258,9 @@ public class ServicesConfigurator {
 			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
 			return mainResponseObject;
 		}
-		removeOrderConfigurator = new RemoveOrderConfigurator();
+		removeOrderConfigurator = new CancelOrderConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for removeOrder Service with requested content: [" +mainRequestObject+ "]": null);
-		mainResponseObject = removeOrderConfigurator.removeOrder(mainRequestObject, con);
+		mainResponseObject = removeOrderConfigurator.cancelOrder(mainRequestObject, con);
 		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
 		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;

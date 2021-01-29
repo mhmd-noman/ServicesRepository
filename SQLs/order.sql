@@ -20,7 +20,16 @@ CREATE TABLE orders (
     PRIMARY KEY (order_id)
 );
 
+CREATE INDEX idx_created_on ON orders (created_on);
 CREATE INDEX idx_cust_name ON orders (cust_name);
+CREATE INDEX idx_cust_phone ON orders (cust_phone);
+CREATE INDEX idx_cust_email ON orders (cust_email);
+CREATE INDEX idx_order_org_amount ON orders (order_org_amount);
+CREATE INDEX idx_order_rtl_amount ON orders (order_rtl_amount);
+CREATE INDEX idx_order_calc_discount ON orders (order_calc_discount);
+
+
+
 
 CREATE TABLE order_products (
     order_id INT,

@@ -31,9 +31,12 @@ public class GetOrdersConfigurator {
 		if (null != mainRequestObject && null != mainRequestObject.getOrderInfo()) {
 			logger.info(logger.isInfoEnabled() ? "Requested content recieved for getOrders: [" +mainRequestObject+ "]": null);
 			orderManagementRequest.setOrder(mainRequestObject.getOrderInfo());
+			orderManagementRequest.setPageNo(mainRequestObject.getPageNo());
+			orderManagementRequest.setPageSize(mainRequestObject.getPageSize());
+			mainRequestObject.setServiceId(OrderManagementServiceAction.GET_ORDERS.toString());
 		}
 		orderManagementRequest.setOrderManagementServiceAction(OrderManagementServiceAction.GET_ORDERS);
-		mainRequestObject.setServiceId(OrderManagementServiceAction.GET_ORDERS.toString());
+		
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, OrderManagementResponse orderManagementResponse) {

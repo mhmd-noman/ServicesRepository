@@ -13,8 +13,8 @@ import order.management.services.beans.OrderManagementResponse;
 import order.management.services.dao.AbstractOrderManagementServicesDao;
 import order.management.services.utils.Constants;
 
-public class RemoveOrder extends AbstractOrderManagementServicesHandler {
-	private static final Logger logger = LoggerFactory.getLogger(RemoveOrder.class);
+public class CancelOrder extends AbstractOrderManagementServicesHandler {
+	private static final Logger logger = LoggerFactory.getLogger(CancelOrder.class);
 
 	public OrderManagementResponse orderManagementService(OrderManagementRequest ordersManagementRequest, Connection connection) throws BaseException {
 		OrderManagementResponse orderManagementResponse = null;
@@ -22,12 +22,14 @@ public class RemoveOrder extends AbstractOrderManagementServicesHandler {
 			orderManagementResponse = new OrderManagementResponse();
 			if (null == ordersManagementRequest.getOrder()
 					|| Utils.validateIfNullOrInvalidInteger(ordersManagementRequest.getOrder().getOrderId())) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Cannot proceed cancelOrder call as order info in request has been passed empty/null.": null);
 				orderManagementResponse = new OrderManagementResponse();
 				orderManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
 				orderManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
+				return orderManagementResponse;
 			}
-			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to delete product for user id: ": null);
-			AbstractOrderManagementServicesDao.getInstance().removeOrder(ordersManagementRequest, connection);
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to cancel order for order id: [" +ordersManagementRequest.getOrder().getOrderId()+ "]": null);
+			AbstractOrderManagementServicesDao.getInstance().cancelOrder(ordersManagementRequest, connection);
 			orderManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			orderManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {

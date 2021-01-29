@@ -24,8 +24,8 @@ public abstract class AbstractOrderManagementServicesHandler {
 		case UPDATE_ORDER:
 			abstractManagementOrdersHandler = new UpdateOrder();
 			break;
-		case REMOVE_ORDER:
-			abstractManagementOrdersHandler = new RemoveOrder();
+		case CANCEL_ORDER:
+			abstractManagementOrdersHandler = new CancelOrder();
 			break;
 		default:
 			abstractManagementOrdersHandler = new GetOrders();

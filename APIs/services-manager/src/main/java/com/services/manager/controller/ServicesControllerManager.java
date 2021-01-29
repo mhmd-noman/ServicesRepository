@@ -20,7 +20,7 @@ public class ServicesControllerManager {
 	
 	@GetMapping(path = "iteam/services")
 	public String welcomeToEServices() throws BaseException {
-		return "Welcome to E-Services - Powered by iTeam.\nDeveloped by: Muhammad Noman\niTeam provides E-Services to support E Commerce Systems.";
+		return "Welcome to <b>E-Services</b> - Powered by iTeam.<br>\nDeveloped by: <b>Muhammad Noman</b><br>\niTeam provides E-Services to support E Commerce Systems.";
 	}
 	
 	@PostMapping(path = "iteam/services/{dbCode}/getUsers")
@@ -119,7 +119,7 @@ public class ServicesControllerManager {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
 		logger.info(logger.isInfoEnabled() ? "Going to call cancelOrder Service with Client[" +dbCode+ "]": null);
-		mainResponseObject = servicesConfigurator.removeOrder(mainRequestObject);
+		mainResponseObject = servicesConfigurator.cancelOrder(mainRequestObject);
 		return mainResponseObject;
 	}
 	

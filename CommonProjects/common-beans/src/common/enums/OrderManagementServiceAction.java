@@ -4,5 +4,5 @@ public enum OrderManagementServiceAction {
 	GET_ORDERS, 
 	PLACE_ORDER,
 	UPDATE_ORDER,
-	REMOVE_ORDER;
+	CANCEL_ORDER;
 }

@@ -33,10 +33,10 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 			paramList = new ArrayList<>();
 			query = new StringBuilder(AbstractOrderManagementServicesDao.GET_ORDERS);
 			
-			if (!Utils.isNullOrEmptyCollection(orderManagementRequest.getOrderIds())) {
+			if (!Utils.isNullOrEmptyCollection(orderManagementRequest.getOrder().getOrderIds())) {
 				query = new StringBuilder(AbstractOrderManagementServicesDao.GET_ORDERS);
 				query.append(AbstractOrderManagementServicesDao.ORDER_IDs);
-				query = new StringBuilder(query.toString().replace("@order_ids", Utils.prepareInClauseString(orderManagementRequest.getOrderIds())));
+				query = new StringBuilder(query.toString().replace("@orders_ids", Utils.prepareInClauseString(orderManagementRequest.getOrder().getOrderIds())));
 			} else {
 				query = new StringBuilder(AbstractOrderManagementServicesDao.GET_ORDERS);
 			}
@@ -49,7 +49,16 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 				}
 				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getCustName())) {
 					query.append(AbstractOrderManagementServicesDao.CUSTOMER_NAME);
+					query = new StringBuilder(query.toString().replace("@custName", orderManagementRequest.getOrder().getCustName()));
 					paramList.add(orderManagementRequest.getOrder().getCustName());
+				}
+				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getCustPhone())) {
+					query.append(AbstractOrderManagementServicesDao.CUSTOMER_PHONE_1);
+					paramList.add(orderManagementRequest.getOrder().getCustPhone());
+				}
+				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getCustPhone2())) {
+					query.append(AbstractOrderManagementServicesDao.CUSTOMER_PHONE_2);
+					paramList.add(orderManagementRequest.getOrder().getCustPhone2());
 				}
 				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getArea())) {
 					query.append(AbstractOrderManagementServicesDao.ORDER_AREA);
@@ -67,6 +76,76 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 					query.append(AbstractOrderManagementServicesDao.ORDER_COUNTRY);
 					paramList.add(orderManagementRequest.getOrder().getCountry());
 				}
+
+				if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderOrgAmount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_ORG_AMOUNT);
+					paramList.add(orderManagementRequest.getOrder().getOrderOrgAmount());
+				}
+				if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderFromOrgAmount())
+						&& Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderToOrgAmount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_FROM_ORG_AMOUNT);
+					paramList.add(orderManagementRequest.getOrder().getOrderFromOrgAmount());
+				} else if (Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderFromOrgAmount())
+						&& !Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderToOrgAmount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_TO_ORG_AMOUNT);
+					paramList.add(orderManagementRequest.getOrder().getOrderToOrgAmount());
+				} else if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderFromOrgAmount())
+						&& !Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderToOrgAmount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_ORG_AMOUNT_RANGE);
+					paramList.add(orderManagementRequest.getOrder().getOrderFromOrgAmount());
+					paramList.add(orderManagementRequest.getOrder().getOrderToOrgAmount());
+				}
+
+				if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderRtlAmount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_RTL_AMOUNT);
+					paramList.add(orderManagementRequest.getOrder().getOrderRtlAmount());
+				}
+				if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderFromRtlAmount())
+						&& Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderToRtlAmount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_FROM_RTL_AMOUNT);
+					paramList.add(orderManagementRequest.getOrder().getOrderFromRtlAmount());
+				} else if (Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderFromRtlAmount())
+						&& !Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderToRtlAmount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_TO_RTL_AMOUNT);
+					paramList.add(orderManagementRequest.getOrder().getOrderToRtlAmount());
+				} else if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderFromRtlAmount())
+						&& !Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderToRtlAmount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_RTL_AMOUNT_RANGE);
+					paramList.add(orderManagementRequest.getOrder().getOrderFromRtlAmount());
+					paramList.add(orderManagementRequest.getOrder().getOrderToRtlAmount());
+				}
+
+				if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderCalcDiscount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_DISCOUNT);
+					paramList.add(orderManagementRequest.getOrder().getOrderCalcDiscount());
+				}
+				if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderFromCalcDiscount())
+						&& Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderToCalcDiscount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_FROM_DISCOUNT);
+					paramList.add(orderManagementRequest.getOrder().getOrderFromCalcDiscount());
+				} else if (Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderFromCalcDiscount())
+						&& !Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderToCalcDiscount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_TO_DISCOUNT);
+					paramList.add(orderManagementRequest.getOrder().getOrderToCalcDiscount());
+				} else if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderFromCalcDiscount())
+						&& !Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderToCalcDiscount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_DISCOUNT_RANGE);
+					paramList.add(orderManagementRequest.getOrder().getOrderFromCalcDiscount());
+					paramList.add(orderManagementRequest.getOrder().getOrderToCalcDiscount());
+				}
+			}
+			
+			if (orderManagementRequest.isFetchCompletedOrdersOnly()) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch completed orders as isFetchCompletedOrdersOnly:[" +orderManagementRequest.isFetchCompletedOrdersOnly()+ "]": null);
+				query.append(AbstractOrderManagementServicesDao.FETCH_COMPLETED_ORDERS);
+			}
+			if (orderManagementRequest.isFetchCencelledOrdersOnly()) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch cencelled orders as isFetchCencelledOrdersOnly:[" +orderManagementRequest.isFetchCencelledOrdersOnly()+ "]": null);
+				query.append(AbstractOrderManagementServicesDao.FETCH_CANCELLED_ORDERS);
+			}
+			if (orderManagementRequest.isFetchInProgressOrdersOnly()) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch inprogress orders as isFetchInProgressOrdersOnly:[" +orderManagementRequest.isFetchInProgressOrdersOnly()+ "]": null);
+				query.append(AbstractOrderManagementServicesDao.FETCH_INPROGRESS_ORDERS);
 			}
 			
 			if (!Utils.validateIfNullOrInvalidInteger(orderManagementRequest.getPageNo()) && !Utils.validateIfNullOrInvalidInteger(orderManagementRequest.getPageSize())) {
@@ -76,6 +155,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 				paramList.add(orderManagementRequest.getPageSize());
 			}
 
+			query.append(AbstractOrderManagementServicesDao.ORDER_BY_CREATED_ON);
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch orders by using query: " +query+ " with paramters: "+ paramList: null);
 			productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 		} catch (Exception ex) {
@@ -257,7 +337,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 					updateColumns.append("state = '" +orderManagementRequest.getOrder().getState()+ "',");
 				}
 				if (!Utils.validateIfNullOrEmptyString(orderManagementRequest.getOrder().getCountry())) {
-					updateColumns.append("country = '" +orderManagementRequest.getOrder().getMfgDate()+ "',");
+					updateColumns.append("country = '" +orderManagementRequest.getOrder().getCountry()+ "',");
 				}
 				if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderOrgAmount())) {
 					updateColumns.append("order_org_amount = '" +orderManagementRequest.getOrder().getOrderOrgAmount()+ "',");
@@ -286,15 +366,15 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 		}
 	}
 
-	public void removeOrder(OrderManagementRequest productsManagementRequest, Connection connection) throws BaseException {
+	public void cancelOrder(OrderManagementRequest productsManagementRequest, Connection connection) throws BaseException {
 		List<Object> paramList = null;
 		try {
 			if (null != productsManagementRequest.getOrder()
 					&& !Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getOrder().getOrderId())) {
 				paramList = new ArrayList<>();
 				paramList.add(productsManagementRequest.getOrder().getOrderId());
-				logger.info(logger.isInfoEnabled() ? "Going to remove order by using query: " +AbstractOrderManagementServicesDao.REMOVE_ORDER+ " with paramters: "+ paramList: null);
-				AbstractCommonDbMethods.getInstance().update(AbstractOrderManagementServicesDao.REMOVE_ORDER, paramList, connection);
+				logger.info(logger.isInfoEnabled() ? "Going to cancel order by using query: " +AbstractOrderManagementServicesDao.CANCEL_ORDER+ " with paramters: "+ paramList: null);
+				AbstractCommonDbMethods.getInstance().update(AbstractOrderManagementServicesDao.CANCEL_ORDER, paramList, connection);
 			}
 		} catch (Exception ex) {
 			logger.warn("##Exception## while removing product ...");

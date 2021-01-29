@@ -1,22 +1,17 @@
 package order.management.services.beans;
 
-import java.util.List;
-
 import common.beans.Order;
 import common.enums.OrderManagementServiceAction;
 
 public class OrderManagementRequest {
-	private List<Integer> orderIds = null;
 	private Order order = null;
 	private Integer pageNo = null;
 	private Integer pageSize = null;
+	private boolean fetchCompletedOrdersOnly = false;
+	private boolean fetchCencelledOrdersOnly = false;
+	private boolean fetchInProgressOrdersOnly = false;
 	private OrderManagementServiceAction orderManagementServiceAction = null;
-	public List<Integer> getOrderIds() {
-		return orderIds;
-	}
-	public void setOrderIds(List<Integer> orderIds) {
-		this.orderIds = orderIds;
-	}
+	
 	public Order getOrder() {
 		return order;
 	}
@@ -35,6 +30,24 @@ public class OrderManagementRequest {
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
 	}
+	public boolean isFetchCompletedOrdersOnly() {
+		return fetchCompletedOrdersOnly;
+	}
+	public void setFetchCompletedOrdersOnly(boolean fetchCompletedOrdersOnly) {
+		this.fetchCompletedOrdersOnly = fetchCompletedOrdersOnly;
+	}
+	public boolean isFetchCencelledOrdersOnly() {
+		return fetchCencelledOrdersOnly;
+	}
+	public void setFetchCencelledOrdersOnly(boolean fetchCencelledOrdersOnly) {
+		this.fetchCencelledOrdersOnly = fetchCencelledOrdersOnly;
+	}
+	public boolean isFetchInProgressOrdersOnly() {
+		return fetchInProgressOrdersOnly;
+	}
+	public void setFetchInProgressOrdersOnly(boolean fetchInProgressOrdersOnly) {
+		this.fetchInProgressOrdersOnly = fetchInProgressOrdersOnly;
+	}
 	public OrderManagementServiceAction getOrderManagementServiceAction() {
 		return orderManagementServiceAction;
 	}
@@ -45,14 +58,18 @@ public class OrderManagementRequest {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("OrderManagementRequest [orderIds=");
-		builder.append(orderIds);
-		builder.append(", order=");
+		builder.append("OrderManagementRequest [order=");
 		builder.append(order);
 		builder.append(", pageNo=");
 		builder.append(pageNo);
 		builder.append(", pageSize=");
 		builder.append(pageSize);
+		builder.append(", fetchCompletedOrdersOnly=");
+		builder.append(fetchCompletedOrdersOnly);
+		builder.append(", fetchCencelledOrdersOnly=");
+		builder.append(fetchCencelledOrdersOnly);
+		builder.append(", fetchInProgressOrdersOnly=");
+		builder.append(fetchInProgressOrdersOnly);
 		builder.append(", orderManagementServiceAction=");
 		builder.append(orderManagementServiceAction);
 		builder.append("]");

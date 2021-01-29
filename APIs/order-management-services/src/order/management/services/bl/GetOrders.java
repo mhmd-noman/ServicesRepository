@@ -33,7 +33,7 @@ public class GetOrders extends AbstractOrderManagementServicesHandler {
 				ordersManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
 				return ordersManagementResponse;
 			}
-			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to create product for username: ": null);
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to get orders ... ": null);
 			ordersMap = AbstractOrderManagementServicesDao.getInstance().getOrders(ordersManagementRequest, connection);
 			
 			if (!Utils.isNullOrEmptyCollection(ordersMap.values())) {

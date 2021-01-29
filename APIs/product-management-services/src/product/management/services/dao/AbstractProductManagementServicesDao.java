@@ -19,15 +19,18 @@ public abstract class AbstractProductManagementServicesDao {
 	public static final String PRODUCT_COMPANY   = "and company = ? ";
 	public static final String PRODUCT_WEIGHT         = "and weight = ? ";
 	public static final String PRODUCT_SERVING        = "and servings = ? ";
+	
 	public static final String PRODUCT_PRICE          = "and price = ? ";
 	public static final String FROM_PRODUCT_PRICE     = "and price >= ? ";
 	public static final String TO_PRODUCT_PRICE       = "and price <= ? ";
 	public static final String PRODUCT_PRICE_RANGE    = "and price between ? and ? ";
+	
 	public static final String PRODUCTS_WITH_DISCOUNT        = "and discount = ? ";
 	public static final String PRODUCTS_WITH_DISCOUNT_ONLY   = "and discount is not null ";
 	public static final String PRODUCTS_WITH_DISCOUNT_FROM   = "and discount >= ? ";
 	public static final String PRODUCTS_WITH_DISCOUNT_TO     = "and discount <= ? ";
 	public static final String PRODUCTS_WITH_DISCOUNT_RANGE  = "and discount between ? and ? ";
+	
 	public static final String PRODUCT_NAME_RESPONSIVE       = "and name like '%@name%' ";
 	public static final String PRODUCT_PAGINATION_SUPPORT    = "limit ? , ? ";
 	//public static final String PRODUCT_PAGINATION_SUPPORT  = "limit (page no * page size) , (page_size) ";

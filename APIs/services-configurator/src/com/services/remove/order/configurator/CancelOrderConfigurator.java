@@ -13,10 +13,10 @@ import order.management.services.OrderManagementService;
 import order.management.services.beans.OrderManagementRequest;
 import order.management.services.beans.OrderManagementResponse;
 
-public class RemoveOrderConfigurator {
-	private static final Logger logger = LoggerFactory.getLogger(RemoveOrderConfigurator.class);
+public class CancelOrderConfigurator {
+	private static final Logger logger = LoggerFactory.getLogger(CancelOrderConfigurator.class);
 
-	public MainResponseObject removeOrder(MainRequestObject mainRequestObject, Connection con) throws BaseException {
+	public MainResponseObject cancelOrder(MainRequestObject mainRequestObject, Connection con) throws BaseException {
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		OrderManagementService orderManagementService = new OrderManagementService();
 		OrderManagementRequest orderManagementRequest = new OrderManagementRequest();
@@ -28,16 +28,16 @@ public class RemoveOrderConfigurator {
 	}
 	
 	private void mapRequest(MainRequestObject mainRequestObject, OrderManagementRequest orderManagementRequest) {
-		if (null != mainRequestObject && null != mainRequestObject.getProductInfo()) {
-			logger.info(logger.isInfoEnabled() ? "Requested content recieved for removeOrder: [" +mainRequestObject+ "]": null);
+		if (null != mainRequestObject && null != mainRequestObject.getOrderInfo()) {
+			logger.info(logger.isInfoEnabled() ? "Requested content recieved for cancelOrder: [" +mainRequestObject+ "]": null);
 			orderManagementRequest.setOrder(mainRequestObject.getOrderInfo());
+			mainRequestObject.setServiceId(OrderManagementServiceAction.CANCEL_ORDER.toString());
 		}
-		orderManagementRequest.setOrderManagementServiceAction(OrderManagementServiceAction.REMOVE_ORDER);
-		mainRequestObject.setServiceId(OrderManagementServiceAction.REMOVE_ORDER.toString());
+		orderManagementRequest.setOrderManagementServiceAction(OrderManagementServiceAction.CANCEL_ORDER);
 	}
 	
 	private void mapResponse(MainResponseObject mainResponseObject, OrderManagementResponse orderManagementResponse) {
-		logger.info(logger.isInfoEnabled() ? "Response recieved for removeOrder: [" +orderManagementResponse+ "]": null);
+		logger.info(logger.isInfoEnabled() ? "Response recieved for cancelOrder: [" +orderManagementResponse+ "]": null);
 		if (null != orderManagementResponse) {
 			mainResponseObject.setResponseCode(orderManagementResponse.getResponseCode());
 			mainResponseObject.setResponseDesc(orderManagementResponse.getResponseDesc());

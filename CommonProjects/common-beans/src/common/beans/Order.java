@@ -17,14 +17,19 @@ public class Order {
 	private String state = null;
 	private String country = null;
 	private Double orderOrgAmount = null;
+	private Double orderFromOrgAmount = null;
+	private Double orderToOrgAmount = null;
 	private Double orderRtlAmount = null;
+	private Double orderFromRtlAmount = null;
+	private Double orderToRtlAmount = null;
 	private Double orderCalcDiscount = null;
-	private Date mfgDate = null;
-	private Date expiryDate = null;
+	private Double orderFromCalcDiscount = null;
+	private Double orderToCalcDiscount = null;
 	private Date createdOn = null;
 	private Date cancelledAt = null;
 	private String orderStatus = null;
-	List<Product> orderedProducts = null;
+	private List<Integer> orderIds = null;
+	private List<Product> orderedProducts = null;
 
 	public Integer getOrderId() {
 		return orderId;
@@ -104,11 +109,35 @@ public class Order {
 	public void setOrderOrgAmount(Double orderOrgAmount) {
 		this.orderOrgAmount = orderOrgAmount;
 	}
+	public Double getOrderFromOrgAmount() {
+		return orderFromOrgAmount;
+	}
+	public void setOrderFromOrgAmount(Double orderFromOrgAmount) {
+		this.orderFromOrgAmount = orderFromOrgAmount;
+	}
+	public Double getOrderToOrgAmount() {
+		return orderToOrgAmount;
+	}
+	public void setOrderToOrgAmount(Double orderToOrgAmount) {
+		this.orderToOrgAmount = orderToOrgAmount;
+	}
 	public Double getOrderRtlAmount() {
 		return orderRtlAmount;
 	}
 	public void setOrderRtlAmount(Double orderRtlAmount) {
 		this.orderRtlAmount = orderRtlAmount;
+	}
+	public Double getOrderFromRtlAmount() {
+		return orderFromRtlAmount;
+	}
+	public void setOrderFromRtlAmount(Double orderFromRtlAmount) {
+		this.orderFromRtlAmount = orderFromRtlAmount;
+	}
+	public Double getOrderToRtlAmount() {
+		return orderToRtlAmount;
+	}
+	public void setOrderToRtlAmount(Double orderToRtlAmount) {
+		this.orderToRtlAmount = orderToRtlAmount;
 	}
 	public Double getOrderCalcDiscount() {
 		return orderCalcDiscount;
@@ -116,17 +145,17 @@ public class Order {
 	public void setOrderCalcDiscount(Double orderCalcDiscount) {
 		this.orderCalcDiscount = orderCalcDiscount;
 	}
-	public Date getMfgDate() {
-		return mfgDate;
+	public Double getOrderFromCalcDiscount() {
+		return orderFromCalcDiscount;
 	}
-	public void setMfgDate(Date mfgDate) {
-		this.mfgDate = mfgDate;
+	public void setOrderFromCalcDiscount(Double orderFromCalcDiscount) {
+		this.orderFromCalcDiscount = orderFromCalcDiscount;
 	}
-	public Date getExpiryDate() {
-		return expiryDate;
+	public Double getOrderToCalcDiscount() {
+		return orderToCalcDiscount;
 	}
-	public void setExpiryDate(Date expiryDate) {
-		this.expiryDate = expiryDate;
+	public void setOrderToCalcDiscount(Double orderToCalcDiscount) {
+		this.orderToCalcDiscount = orderToCalcDiscount;
 	}
 	public Date getCreatedOn() {
 		return createdOn;
@@ -145,6 +174,12 @@ public class Order {
 	}
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
+	}
+	public List<Integer> getOrderIds() {
+		return orderIds;
+	}
+	public void setOrderIds(List<Integer> orderIds) {
+		this.orderIds = orderIds;
 	}
 	public List<Product> getOrderedProducts() {
 		return orderedProducts;
@@ -186,16 +221,18 @@ public class Order {
 		builder.append(orderRtlAmount);
 		builder.append(", orderCalcDiscount=");
 		builder.append(orderCalcDiscount);
-		builder.append(", mfgDate=");
-		builder.append(mfgDate);
-		builder.append(", expiryDate=");
-		builder.append(expiryDate);
+		builder.append(", orderFromCalcDiscount=");
+		builder.append(orderFromCalcDiscount);
+		builder.append(", orderToCalcDiscount=");
+		builder.append(orderToCalcDiscount);
 		builder.append(", createdOn=");
 		builder.append(createdOn);
 		builder.append(", cancelledAt=");
 		builder.append(cancelledAt);
 		builder.append(", orderStatus=");
 		builder.append(orderStatus);
+		builder.append(", orderIds=");
+		builder.append(orderIds);
 		builder.append(", orderedProducts=");
 		builder.append(orderedProducts);
 		builder.append("]");

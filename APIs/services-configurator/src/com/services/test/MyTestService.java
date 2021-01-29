@@ -79,8 +79,8 @@ public class MyTestService {
 		order.setOrderDescription("Testing Order Placement!");
 		order.setCustAddress1("Address1");
 		order.setCustAddress2("Address2");
-		order.setExpiryDate(new Date(System.currentTimeMillis()));
-		order.setMfgDate(new Date(System.currentTimeMillis()));
+		//order.setExpiryDate(new Date(System.currentTimeMillis()));
+		//order.setMfgDate(new Date(System.currentTimeMillis()));
 		order.setOrderOrgAmount(2000.00);
 		order.setOrderRtlAmount(1600.00);
 		order.setOrderStatus("I");
