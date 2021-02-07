@@ -3,7 +3,9 @@ com\services\get\queries\configurator\GetQueriesConfigurator.class
 com\services\get\users\configurator\GetUsersConfigurator.class
 com\services\create\user\configurator\CreateUserConfigurator.class
 com\services\delete\product\configurator\DeleteProductConfigurator.class
+com\services\transaction\logging\TransactionLoggingConfigurator.class
 com\services\test\Mailer.class
+com\services\remove\order\configurator\CancelOrderConfigurator.class
 com\services\configurator\ServicesConfigurator.class
 com\services\get\product\configurator\GetProductsConfigurator.class
 com\services\test\MyTestService.class

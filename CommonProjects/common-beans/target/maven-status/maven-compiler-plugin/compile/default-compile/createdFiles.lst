@@ -7,3 +7,4 @@ common\enums\OrderManagementServiceAction.class
 common\beans\Order.class
 common\response\MainResponseObject.class
 common\beans\Product.class
+common\enums\CustomerServicesAction.class

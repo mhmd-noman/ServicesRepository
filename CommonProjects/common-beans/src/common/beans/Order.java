@@ -16,6 +16,7 @@ public class Order {
 	private String city = null;
 	private String state = null;
 	private String country = null;
+	private Double orderPrchaseAmount = null;
 	private Double orderOrgAmount = null;
 	private Double orderFromOrgAmount = null;
 	private Double orderToOrgAmount = null;
@@ -25,6 +26,7 @@ public class Order {
 	private Double orderCalcDiscount = null;
 	private Double orderFromCalcDiscount = null;
 	private Double orderToCalcDiscount = null;
+	private Double profit = null;
 	private Date createdOn = null;
 	private Date cancelledAt = null;
 	private String orderStatus = null;
@@ -103,6 +105,12 @@ public class Order {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	public Double getOrderPrchaseAmount() {
+		return orderPrchaseAmount;
+	}
+	public void setOrderPrchaseAmount(Double orderPrchaseAmount) {
+		this.orderPrchaseAmount = orderPrchaseAmount;
+	}
 	public Double getOrderOrgAmount() {
 		return orderOrgAmount;
 	}
@@ -156,6 +164,12 @@ public class Order {
 	}
 	public void setOrderToCalcDiscount(Double orderToCalcDiscount) {
 		this.orderToCalcDiscount = orderToCalcDiscount;
+	}
+	public Double getProfit() {
+		return profit;
+	}
+	public void setProfit(Double profit) {
+		this.profit = profit;
 	}
 	public Date getCreatedOn() {
 		return createdOn;
@@ -215,6 +229,8 @@ public class Order {
 		builder.append(state);
 		builder.append(", country=");
 		builder.append(country);
+		builder.append(", orderPrchaseAmount=");
+		builder.append(orderPrchaseAmount);
 		builder.append(", orderOrgAmount=");
 		builder.append(orderOrgAmount);
 		builder.append(", orderRtlAmount=");
@@ -225,6 +241,8 @@ public class Order {
 		builder.append(orderFromCalcDiscount);
 		builder.append(", orderToCalcDiscount=");
 		builder.append(orderToCalcDiscount);
+		builder.append(", profit=");
+		builder.append(profit);
 		builder.append(", createdOn=");
 		builder.append(createdOn);
 		builder.append(", cancelledAt=");

@@ -264,7 +264,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 				paramList.add(orderManagementRequest.getOrder().getOrderCalcDiscount());
 				paramList.add(new Date(System.currentTimeMillis()));
 				paramList.add(orderManagementRequest.getOrder().getCancelledAt());
-				paramList.add(orderManagementRequest.getOrder().getOrderStatus());
+				paramList.add(Constants.IN_PROGRESS_ORDER_STATUS); // order status
 				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to insert order by using query: " +AbstractOrderManagementServicesDao.PLACE_ORDER+ " with paramters: "+ paramList: null);
 				orderId = AbstractCommonDbMethods.getInstance().updateWithKeyReturn(AbstractOrderManagementServicesDao.PLACE_ORDER, paramList, connection);
 			}
@@ -278,9 +278,12 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 	
 	private void addOrderProducts(Order order, Connection connection) throws BaseException {
 		List<Object> paramList = null;
+		List<Object> paramListForPrductsQntity = null;
 		List<String> queries = new ArrayList<>();
+		List<String> queriesForPrductsQntity = new ArrayList<>();
 		try {
 			paramList = new ArrayList<>();
+			paramListForPrductsQntity = new ArrayList<>();
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to add "+order.getOrderedProducts().size()+" products for order: [" +order.getOrderId()+ "]": null);
 			for (Product product : order.getOrderedProducts()) {
 				queries.add(AbstractOrderManagementServicesDao.INSERT_ORDER_PRODUCTS);
@@ -291,9 +294,14 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 				paramList.add(product.getOrgPrice());
 				paramList.add(Utils.getRetailPrice(product.getOrgPrice(), product.getDiscount()));
 				paramList.add(product.getDiscount());
-				paramList.add(Utils.getRetailPrice(Utils.getTotalPrice(product.getOrgPrice(),  product.getOrderedQuantity()), product.getDiscount()));
+				paramList.add(Utils.getRetailPrice(Utils.getTotalPrice(product.getOrgPrice(),  product.getOrderedQuantity()), product.getDiscount())); // getting retail price having total price of products
+//				// Maintaining Quantity
+				queriesForPrductsQntity.add(AbstractOrderManagementServicesDao.SUBT_PRODUCTS_QUANTITY);
+				paramListForPrductsQntity.add(product.getOrderedQuantity());
+				paramListForPrductsQntity.add(product.getId());
 			}
 			AbstractCommonDbMethods.getInstance().executeBatch(queries, paramList, connection);
+			AbstractCommonDbMethods.getInstance().executeBatch(queriesForPrductsQntity, paramListForPrductsQntity, connection);
 		} catch (Exception ex) {
 			logger.warn("##Exception## while adding orderec products ...");
 			throw new BaseException(ex);
@@ -367,18 +375,44 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 		}
 	}
 
-	public void cancelOrder(OrderManagementRequest productsManagementRequest, Connection connection) throws BaseException {
+	public void cancelOrder(OrderManagementRequest orderManagementRequest, Connection connection) throws BaseException {
 		List<Object> paramList = null;
+		Map<Integer, Order> orders = new ConcurrentHashMap<>();
 		try {
-			if (null != productsManagementRequest.getOrder()
-					&& !Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getOrder().getOrderId())) {
-				paramList = new ArrayList<>();
-				paramList.add(productsManagementRequest.getOrder().getOrderId());
-				logger.info(logger.isInfoEnabled() ? "Going to cancel order by using query: " +AbstractOrderManagementServicesDao.CANCEL_ORDER+ " with paramters: "+ paramList: null);
-				AbstractCommonDbMethods.getInstance().update(AbstractOrderManagementServicesDao.CANCEL_ORDER, paramList, connection);
+			orders = getOrders(orderManagementRequest, connection);
+			if (null != orders) {
+				if (null != orderManagementRequest.getOrder()
+						&& !Utils.validateIfNullOrInvalidInteger(orderManagementRequest.getOrder().getOrderId())) {
+					paramList = new ArrayList<>();
+					paramList.add(new Date(System.currentTimeMillis()));
+					paramList.add(orderManagementRequest.getOrder().getOrderId());
+					logger.info(logger.isInfoEnabled() ? "Going to cancel order by using query: " +AbstractOrderManagementServicesDao.CANCEL_ORDER+ " with paramters: "+ paramList: null);
+					AbstractCommonDbMethods.getInstance().update(AbstractOrderManagementServicesDao.CANCEL_ORDER, paramList, connection);
+				}
+				logger.info(logger.isInfoEnabled() ? "Going to retain products quantity for order: [" +orders.get(orderManagementRequest.getOrder().getOrderId()).getOrderId()+"]": null);
+				retainProductsQuantity(orders.get(orderManagementRequest.getOrder().getOrderId()), connection);
 			}
+			
 		} catch (Exception ex) {
 			logger.warn("##Exception## while removing product ...");
+			throw new BaseException(ex);
+		}
+	}
+	
+	private void retainProductsQuantity(Order order, Connection connection) throws BaseException {
+		List<Object> paramList = null;
+		List<String> queries = new ArrayList<>();
+		try {
+			paramList = new ArrayList<>();
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to retain total "+order.getOrderedProducts().size()+" products for order: [" +order.getOrderId()+ "]": null);
+			for (Product product : order.getOrderedProducts()) {
+				queries.add(AbstractOrderManagementServicesDao.ADD_PRODUCTS_QUANTITY);
+				paramList.add(product.getOrderedQuantity());
+				paramList.add(product.getId());
+			}
+			AbstractCommonDbMethods.getInstance().executeBatch(queries, paramList, connection);
+		} catch (Exception ex) {
+			logger.warn("##Exception## while adding orderec products ...");
 			throw new BaseException(ex);
 		}
 	}

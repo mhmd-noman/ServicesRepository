@@ -152,4 +152,34 @@ public class ServicesControllerManager {
 		mainResponseObject = servicesConfigurator.getQueries(mainRequestObject);
 		return mainResponseObject;
 	}
+	
+	@PostMapping("iteam/services/{dbCode}/pushWishlist")
+	public MainResponseObject pushWishlist(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
+		MainResponseObject mainResponseObject = null;
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call getQueries Service with Client[" +dbCode+ "]": null);
+		mainResponseObject = servicesConfigurator.pushWishlist(mainRequestObject);
+		return mainResponseObject;
+	}
+	
+	@PostMapping("iteam/services/{dbCode}/popWishlist")
+	public MainResponseObject popWishlist(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
+		MainResponseObject mainResponseObject = null;
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call popWishlist Service with Client[" +dbCode+ "]": null);
+		mainResponseObject = servicesConfigurator.popWishlist(mainRequestObject);
+		return mainResponseObject;
+	}
+	
+	@PostMapping("iteam/services/{dbCode}/getWishlist")
+	public MainResponseObject getWishlist(@PathVariable("dbCode") String dbCode, @RequestBody MainRequestObject mainRequestObject) throws BaseException {
+		MainResponseObject mainResponseObject = null;
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		mainRequestObject.setDbCode(dbCode);
+		logger.info(logger.isInfoEnabled() ? "Going to call getQueries Service with Client[" +dbCode+ "]": null);
+		mainResponseObject = servicesConfigurator.getWishlist(mainRequestObject);
+		return mainResponseObject;
+	}
 }

@@ -3,6 +3,7 @@ package common.utilities.methods;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -11,16 +12,27 @@ import java.util.Map;
 import common.beans.Order;
 
 public class Utils {
-	public static boolean isNullOrEmptyCollection(final Collection<?> c ) {
+	public static boolean isNullOrEmptyCollection(final Collection<?> c) {
 	    return c == null || c.isEmpty();
 	}
 	
-	public static boolean isNullOrEmptyMap(final Map<?,?> c ) {
+	public static boolean isNullOrEmptyMap(final Map<?,?> c) {
 	    return c == null || c.isEmpty();
+	}
+	
+	public static boolean isNullOrEmptyString(String s) {
+	    return s == null ||s.isEmpty() || s.trim().length() < 1;
 	}
 	
 	public static boolean validateIfNullOrEmptyString(String str) {
 		if (null == str || str.isEmpty()) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static boolean isValidString(String str) {
+		if (null != str && " " != str && str.trim().length() > 1) {
 			return true;
 		}
 		return false;
@@ -126,5 +138,42 @@ public class Utils {
 	public static String formatDate(Date date, String format) {
 	    SimpleDateFormat formatter = new SimpleDateFormat(format);  
 	    return formatter.format(date);    
+	}
+	
+	public static String [] convertCommaSeparatedStringToStringArray(String commaSeperatedString) {
+		if (null == commaSeperatedString || commaSeperatedString.trim().length() < 1) {
+			return null;
+		}
+		return commaSeperatedString.split(",");
+	}
+	
+	public static Integer [] convertCommaSeparatedStringToIntegerArray(String commaSeperatedString) {
+		String [] array = null;
+		Integer[] intArray = null;
+		
+		if (null == commaSeperatedString || commaSeperatedString.trim().length() < 1) {
+			return null;
+		}
+		array = commaSeperatedString.split(",");
+		intArray = new Integer[array.length];
+		for (int i = 0; i < array.length; i++) {
+			intArray[i] = Integer.parseInt(array[i]);
+		}
+		return intArray;
+	}
+	
+	public static List<Integer> convertCommaSeparatedStringToIntegerList(String commaSeperatedString) {
+		String [] array = null;
+		 List<Integer> intList = null;
+		
+		if (null == commaSeperatedString || commaSeperatedString.trim().length() < 1) {
+			return null;
+		}
+		array = commaSeperatedString.split(",");
+		intList = new ArrayList<>();
+		for (int i = 0; i < array.length; i++) {
+			intList.add(Integer.parseInt(array[i]));
+		}
+		return intList;
 	}
 }

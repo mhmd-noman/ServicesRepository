@@ -1,0 +1,8 @@
+transaction\logging\service\beans\TransactionLoggingRequest.class
+transaction\logging\service\dao\AbstractTransactionLoggingServiceDao.class
+transaction\logging\service\bl\AbstractTransactionLoggingServiceHandler.class
+transaction\logging\service\TransactionLoggingService.class
+transaction\logging\service\dao\TransactionLoggingServiceDaoImpl.class
+transaction\logging\service\beans\TransactionLoggingResponse.class
+transaction\logging\service\bl\TransactionLoggingImpl.class
+transaction\logging\service\utils\Constants.class

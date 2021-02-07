@@ -9,9 +9,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import common.beans.Query;
+import common.beans.Wishlist;
 import common.exception.handling.BaseException;
 import common.utilities.methods.Utils;
 import customer.services.beans.CustomerServicesRequest;
+import customer.services.beans.CustomerServicesResponse;
 import customer.services.utils.Constants;
 import database.manager.methods.AbstractCommonDbMethods;
 
@@ -93,6 +95,110 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 			}
 		} catch (Exception ex) {
 			logger.warn("##Exception## in adding query ...");
+			throw new BaseException(ex);
+		}
+	}
+	
+	@Override
+	public List<Wishlist> getWishlist(CustomerServicesRequest customerServicesRequest, Connection connection) throws BaseException {
+		List<Object> paramList = null;
+		List<Map<Integer, Object>> wishlistsResultSet = null;
+		StringBuilder query = null;
+		try {
+			paramList = new ArrayList<>();
+			
+			if (null != customerServicesRequest.getWishlist() && Utils.isValidString(customerServicesRequest.getWishlist().getUsername())) {
+				query = new StringBuilder(AbstractCustomerServicesDao.GET_WISHLIST);
+				paramList.add(customerServicesRequest.getWishlist().getUsername());
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch queries by using query: " +AbstractCustomerServicesDao.GET_QUERIES+ " with paramters: "+ paramList: null);
+				wishlistsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
+			}
+			
+			
+		} catch (Exception ex) {
+			logger.warn("##Exception## in getting queries service ...");
+			throw new BaseException(ex);
+		}
+		return prepareWishlistData(wishlistsResultSet);
+	}
+	
+	private static List<Wishlist> prepareWishlistData(List<Map<Integer, Object>> wishlistsResultSet) throws BaseException {
+		List<Wishlist> wishlists = new ArrayList<>();
+		Wishlist wishlist = null;
+		int index = 0;
+		try {
+			if (null != wishlistsResultSet) {
+				for (Map<Integer, Object> userRow : wishlistsResultSet) {
+					wishlist = new Wishlist();
+					wishlist.setUsername(null != userRow.get(++index) ? (String)userRow.get(index): null);
+					wishlist.setWishlist(null != userRow.get(++index) ? (String)userRow.get(index): null);
+					wishlists.add(wishlist);
+					index = 0;
+				}
+			}
+		} catch (Exception ex) {
+			logger.warn("##Exception## in preparing wishlist data ...");
+			throw new BaseException(ex);
+		}
+		return wishlists;
+	}
+	
+	@Override
+	public void pushWishlist(CustomerServicesRequest customerServicesRequest, CustomerServicesResponse customerServicesResponse, Connection connection) throws BaseException {
+		List<Object> paramList = null;
+		try {
+			if (null != customerServicesResponse && null != customerServicesResponse.getWishlist() && Utils.isNullOrEmptyString(customerServicesResponse.getWishlist().get(0).getWishlist())) {
+				if (null != customerServicesRequest) {
+					paramList = new ArrayList<>();
+					paramList.add(customerServicesRequest.getWishlist().getUsername());
+					paramList.add(customerServicesRequest.getWishlist().getWishlist());
+					customerServicesResponse.getWishlist().get(0).setWishlist(customerServicesRequest.getWishlist().getWishlist());
+					logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to insert wishlist in wishlists by using query: " +AbstractCustomerServicesDao.INSERT_WISHLIST+ " with paramters: "+ paramList: null);
+					AbstractCommonDbMethods.getInstance().update(AbstractCustomerServicesDao.INSERT_WISHLIST, paramList, connection);
+					return;
+				}
+			}
+			paramList = new ArrayList<>();
+			paramList.add(customerServicesRequest.getWishlist().getUsername());
+			paramList.add(","+customerServicesRequest.getWishlist().getWishlist());
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to push wishlist in wishlists by using query: " +AbstractCustomerServicesDao.PUSH_WISHLIST+ " with paramters: "+ paramList: null);
+			AbstractCommonDbMethods.getInstance().update(AbstractCustomerServicesDao.PUSH_WISHLIST, paramList, connection);
+		} catch (Exception ex) {
+			logger.warn("##Exception## while pushing wishlist ...");
+			throw new BaseException(ex);
+		}
+	}
+	
+	@Override
+	public void popWishlist(CustomerServicesRequest customerServicesRequest, CustomerServicesResponse customerServicesResponse, Connection connection) throws BaseException {
+		List<Object> paramList = null;
+		String [] wishlist = null;
+		String wishlistToUpdate = null;
+		try {
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to get comma separated string of wishlist into string array": null);
+			wishlist = Utils.convertCommaSeparatedStringToStringArray(customerServicesResponse.getWishlist().get(0).getWishlist());
+			
+			for (String product : wishlist) {
+				if (product.equalsIgnoreCase(customerServicesRequest.getWishlist().getWishlist())) {
+					logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to pop product from wishlist: [" +product+ "]": null);
+					continue;
+				}
+				if (Utils.isNullOrEmptyString(wishlistToUpdate)) {
+					wishlistToUpdate = product;
+					continue;
+				}
+				wishlistToUpdate = wishlistToUpdate +","+ product;
+			}
+			customerServicesResponse.getWishlist().get(0).setWishlist(wishlistToUpdate);
+			if (null != customerServicesRequest) {
+				paramList = new ArrayList<>();
+				paramList.add(customerServicesRequest.getWishlist().getUsername());
+				paramList.add(wishlistToUpdate);
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to pop wishlist in wishlists by using query: " +AbstractCustomerServicesDao.UPDATE_WISHLIST+ " with paramters: "+ paramList: null);
+				AbstractCommonDbMethods.getInstance().update(AbstractCustomerServicesDao.UPDATE_WISHLIST, paramList, connection);
+			}
+		} catch (Exception ex) {
+			logger.warn("##Exception## while poping wishlist ...");
 			throw new BaseException(ex);
 		}
 	}

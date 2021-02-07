@@ -3,11 +3,13 @@ package customer.services.beans;
 import java.util.List;
 
 import common.beans.Query;
+import common.beans.Wishlist;
 
 public class CustomerServicesResponse {
 	private String responseCode = null;
 	private String responseDesc = null;
 	private List<Query> queries = null;
+	private List<Wishlist> wishlist = null;
 
 	public String getResponseCode() {
 		return responseCode;
@@ -28,6 +30,13 @@ public class CustomerServicesResponse {
 		this.queries = queries;
 	}
 
+	public List<Wishlist> getWishlist() {
+		return wishlist;
+	}
+	public void setWishlist(List<Wishlist> wishlist) {
+		this.wishlist = wishlist;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -37,6 +46,8 @@ public class CustomerServicesResponse {
 		builder.append(responseDesc);
 		builder.append(", queries=");
 		builder.append(queries);
+		builder.append(", wishlist=");
+		builder.append(wishlist);
 		builder.append("]");
 		return builder.toString();
 	}

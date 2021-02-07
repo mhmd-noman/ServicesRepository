@@ -6,6 +6,7 @@ import common.beans.Order;
 import common.beans.Product;
 import common.beans.Query;
 import common.beans.User;
+import common.beans.Wishlist;
 import common.enums.UserManagementServiceAction;
 
 public class MainRequestObject {
@@ -24,6 +25,7 @@ public class MainRequestObject {
 	private Order orderInfo = null;
 	private Product productInfo = null;
 	private Query queryInfo = null;
+	private Wishlist wislist = null;
 	private List<Integer> ids = null;
 	private boolean fetchOutOfStockProducts = false;
 	private boolean fetchProductsWithDiscountOnly = false;
@@ -132,6 +134,12 @@ public class MainRequestObject {
 	public void setQueryInfo(Query queryInfo) {
 		this.queryInfo = queryInfo;
 	}
+	public Wishlist getWislist() {
+		return wislist;
+	}
+	public void setWislist(Wishlist wislist) {
+		this.wislist = wislist;
+	}
 	public List<Integer> getIds() {
 		return ids;
 	}
@@ -184,6 +192,8 @@ public class MainRequestObject {
 		builder.append(productInfo);
 		builder.append(", queryInfo=");
 		builder.append(queryInfo);
+		builder.append(", wislist=");
+		builder.append(wislist);
 		builder.append(", ids=");
 		builder.append(ids);
 		builder.append(", fetchOutOfStockProducts=");

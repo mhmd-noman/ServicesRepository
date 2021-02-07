@@ -10,14 +10,17 @@ CREATE TABLE
         last_name VARCHAR(255),
         password VARCHAR(255),
         phone VARCHAR(255),
-        username VARCHAR(255),
+        username VARCHAR(255) UNIQUE,
         is_admin CHAR(1) DEFAULT 'N',
         PRIMARY KEY (id),
         CONSTRAINT id UNIQUE (id)
     )
 
--- Products
+CREATE INDEX idx_users_email ON users (email);
+CREATE INDEX idx_users_phone ON users (phone);
+CREATE INDEX idx_users_username ON users (username);
 
+-- Products
 CREATE TABLE products (
     id INT AUTO_INCREMENT,
     name varchar(80) UNIQUE,
@@ -29,8 +32,9 @@ CREATE TABLE products (
     servings varchar(80),
     serving_size varchar(80),
     packaging varchar(80),
-    price DECIMAL(20),
-    discount DECIMAL(20),
+    purchase_price DECIMAL(10,2),
+    org_price DECIMAL(10,2),
+    discount DECIMAL(10,2),
     mfg_date DATE, 
     expiry_date DATE,
     bar_code char(13),
@@ -39,11 +43,17 @@ CREATE TABLE products (
     created_on DATETIME DEFAULT CURRENT_TIMESTAMP,
     last_updated_on DATETIME,
     is_active char(1) DEFAULT 'Y',
+    image varchar(1024),
     PRIMARY KEY (id)
 );
 
-ALTER TABLE products
-ADD COLUMN image varchar(1024);
+CREATE INDEX idx_name ON products (name);
+CREATE INDEX idx_company ON products (company);
+CREATE INDEX idx_category ON products (category);
+CREATE INDEX idx_flavour ON products (flavour);
+CREATE INDEX idx_weight ON products (weight);
+CREATE INDEX idx_org_price ON products (org_price);
+
 
 -- Orders 
 
@@ -60,17 +70,19 @@ CREATE TABLE orders (
     city varchar(30),
     state varchar(30),
     country varchar(30), 
-    order_org_amount DECIMAL(20),
-    order_rtl_amount DECIMAL(20),
-    order_calc_discount DECIMAL(20),
+    purchased_amount DECIMAL(10,2),
+    order_org_amount DECIMAL(10,2),
+    order_rtl_amount DECIMAL(10,2),
+    order_calc_discount DECIMAL(10,2),
+    profit DECIMAL(10,2),
     created_on DATETIME DEFAULT CURRENT_TIMESTAMP,
     cancelled_at DATETIME,
     order_status char(1) DEFAULT 'Y',
     PRIMARY KEY (order_id)
 );
 
-CREATE INDEX idx_cust_name ON orders (cust_name);
 CREATE INDEX idx_created_on ON orders (created_on);
+CREATE INDEX idx_cust_name ON orders (cust_name);
 CREATE INDEX idx_cust_phone ON orders (cust_phone);
 CREATE INDEX idx_cust_email ON orders (cust_email);
 CREATE INDEX idx_order_org_amount ON orders (order_org_amount);
@@ -79,19 +91,49 @@ CREATE INDEX idx_order_calc_discount ON orders (order_calc_discount);
 
 
 
+
 CREATE TABLE order_products (
     order_id INT,
     product_id INT,
     product_name varchar(80),
     product_quantity INTEGER,
-    product_org_price DECIMAL(20),
-    product_rtl_price DECIMAL(20),
-    product_discount DECIMAL(20),
-    product_net_price DECIMAL(20),
+    product_purchased_price DECIMAL(10,2),
+    product_org_price DECIMAL(10,2),
+    product_rtl_price DECIMAL(10,2),
+    product_discount DECIMAL(10,2),
+    product_net_price DECIMAL(10,2),
+    product_profit DECIMAL(10,2),
     PRIMARY KEY (order_id, product_id),
     CONSTRAINT fk_orders_order_id FOREIGN KEY (order_id) REFERENCES orders (order_id),
     CONSTRAINT fk_products_product_id FOREIGN KEY (product_id) REFERENCES products (id)
 );
+
+
+-- Transaction Infos
+
+CREATE TABLE transaction_infos (
+    trans_id INT AUTO_INCREMENT,
+    service_id varchar(80),
+    username varchar(255),
+    order_id INTEGER,
+    response_code varchar(20),
+    response_desc varchar(255),
+    purchased_amount DECIMAL(10,2),
+    org_amount DECIMAL(10,2),
+    processed_amount DECIMAL(10,2),
+    discount DECIMAL(10,2),
+    profit DECIMAL(10,2),
+    trans_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_updated_on DATETIME,
+    trans_status char(1),
+    PRIMARY KEY (trans_id)
+);
+
+CREATE INDEX idx_username ON transaction_infos (username);
+CREATE INDEX idx_order_id ON transaction_infos (order_id);
+CREATE INDEX idx_trans_time ON transaction_infos (trans_time);
+
+
 
 -- Contact Us
 
@@ -109,3 +151,15 @@ CREATE INDEX idx_contact_us_name ON contact_us (name);
 CREATE INDEX idx_contact_us_email ON contact_us (email);
 CREATE INDEX idx_contact_us_phone ON contact_us (phone);
 
+-- wishlists
+
+CREATE TABLE wishlists (
+    id INT AUTO_INCREMENT,
+    username varchar(80),
+    wishlist varchar(512),
+    last_updated_on DATETIME,
+    PRIMARY KEY (id, username),
+    CONSTRAINT fk_users_username FOREIGN KEY (username) REFERENCES users (username)
+);
+
+CREATE INDEX idx_wishlist_wishlist ON wishlists (wishlist);

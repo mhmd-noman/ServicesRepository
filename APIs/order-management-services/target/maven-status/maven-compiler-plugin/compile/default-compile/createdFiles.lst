@@ -1,3 +1,4 @@
+order\management\services\bl\CancelOrder.class
 order\management\services\OrderManagementService.class
 order\management\services\bl\PlaceOrder.class
 order\management\services\bl\AbstractOrderManagementServicesHandler$1.class

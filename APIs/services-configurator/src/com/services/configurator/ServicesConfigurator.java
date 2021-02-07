@@ -15,7 +15,10 @@ import com.services.get.order.configurator.GetOrdersConfigurator;
 import com.services.get.product.configurator.GetProductsConfigurator;
 import com.services.get.queries.configurator.GetQueriesConfigurator;
 import com.services.get.users.configurator.GetUsersConfigurator;
+import com.services.get.wishlist.configurator.GetWishlistConfigurator;
 import com.services.place.order.configurator.PlaceOrderConfigurator;
+import com.services.pop.wishlist.configurator.PopWishlistConfigurator;
+import com.services.push.wishlist.configurator.PushWishlistConfigurator;
 import com.services.remove.order.configurator.CancelOrderConfigurator;
 import com.services.transaction.logging.TransactionLoggingConfigurator;
 import com.services.update.product.configurator.UpdateProductConfigurator;
@@ -301,6 +304,66 @@ public class ServicesConfigurator {
 		getQueriesConfigurator = new GetQueriesConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for getQueries Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = getQueriesConfigurator.getQueries(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
+		return mainResponseObject;
+	}
+	
+	public MainResponseObject pushWishlist(MainRequestObject mainRequestObject) throws BaseException {
+		Connection con = null;
+		MainResponseObject mainResponseObject = null;
+		PushWishlistConfigurator pushWishlistConfigurator = null;
+		mainResponseObject = new MainResponseObject();
+		con = getConnection(mainRequestObject.getDbCode());
+		if (null == con) {
+			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
+			return mainResponseObject;
+		}
+		pushWishlistConfigurator = new PushWishlistConfigurator();
+		logger.info(logger.isInfoEnabled() ? "Going to make call for pushWishlist Service with requested content: [" +mainRequestObject+ "]": null);
+		mainResponseObject = pushWishlistConfigurator.pushWishlist(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
+		return mainResponseObject;
+	}
+	
+	public MainResponseObject popWishlist(MainRequestObject mainRequestObject) throws BaseException {
+		Connection con = null;
+		MainResponseObject mainResponseObject = null;
+		PopWishlistConfigurator popWishlistConfigurator = null;
+		mainResponseObject = new MainResponseObject();
+		con = getConnection(mainRequestObject.getDbCode());
+		if (null == con) {
+			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
+			return mainResponseObject;
+		}
+		popWishlistConfigurator = new PopWishlistConfigurator();
+		logger.info(logger.isInfoEnabled() ? "Going to make call for popWishlist Service with requested content: [" +mainRequestObject+ "]": null);
+		mainResponseObject = popWishlistConfigurator.popWishlist(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
+		return mainResponseObject;
+	}
+	
+	public MainResponseObject getWishlist(MainRequestObject mainRequestObject) throws BaseException {
+		Connection con = null;
+		MainResponseObject mainResponseObject = null;
+		GetWishlistConfigurator getWishlistConfigurator = null;
+		mainResponseObject = new MainResponseObject();
+		con = getConnection(mainRequestObject.getDbCode());
+		if (null == con) {
+			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
+			return mainResponseObject;
+		}
+		getWishlistConfigurator = new GetWishlistConfigurator();
+		logger.info(logger.isInfoEnabled() ? "Going to make call for getWishlist Service with requested content: [" +mainRequestObject+ "]": null);
+		mainResponseObject = getWishlistConfigurator.getWishlist(mainRequestObject, con);
 		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
 		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;

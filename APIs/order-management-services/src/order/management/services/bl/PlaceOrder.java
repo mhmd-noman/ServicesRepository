@@ -25,7 +25,7 @@ public class PlaceOrder extends AbstractOrderManagementServicesHandler {
 				orderManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
 				orderManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);
 			}
-			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to add order for username: ": null);
+			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to place order ...: ": null);
 			AbstractOrderManagementServicesDao.getInstance().placeOrder(orderManagementRequest, connection);
 			orderManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			orderManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);

@@ -8,9 +8,9 @@ import common.exception.handling.BaseException;
 import product.management.services.beans.ProductManagementRequest;
 
 public abstract class AbstractProductManagementServicesDao {
-	public static final String ADD_PRODUCT       = "insert into products (name, company, category, flavour, quantity, weight, servings, serving_size, price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, image, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	public static final String ADD_PRODUCT       = "insert into products (name, company, category, flavour, quantity, weight, servings, serving_size, purchase_price, org_price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, image, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	public static final String DELETE_PRODUCT    = "delete from products where id = ?";
-	public static final String GET_PRODUCTS      = "select id, name, company, category, flavour, quantity, weight, servings, serving_size, price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, created_on, last_updated_on, image, is_active from products where id is not null ";
+	public static final String GET_PRODUCTS      = "select id, name, company, category, flavour, quantity, weight, servings, serving_size, purchase_price, org_price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, created_on, last_updated_on, image, is_active from products where id is not null ";
 	public static final String PRODUCT_IDS       = "and id in (@product_ids) ";
 	public static final String PRODUCT_ID        = "and id = ? ";
 	public static final String PRODUCT_NAME      = "and name = ? ";
@@ -20,10 +20,10 @@ public abstract class AbstractProductManagementServicesDao {
 	public static final String PRODUCT_WEIGHT         = "and weight = ? ";
 	public static final String PRODUCT_SERVING        = "and servings = ? ";
 	
-	public static final String PRODUCT_PRICE          = "and price = ? ";
-	public static final String FROM_PRODUCT_PRICE     = "and price >= ? ";
-	public static final String TO_PRODUCT_PRICE       = "and price <= ? ";
-	public static final String PRODUCT_PRICE_RANGE    = "and price between ? and ? ";
+	public static final String PRODUCT_PRICE          = "and org_price = ? ";
+	public static final String FROM_PRODUCT_PRICE     = "and org_price >= ? ";
+	public static final String TO_PRODUCT_PRICE       = "and org_price <= ? ";
+	public static final String PRODUCT_PRICE_RANGE    = "and org_price between ? and ? ";
 	
 	public static final String PRODUCTS_WITH_DISCOUNT        = "and discount = ? ";
 	public static final String PRODUCTS_WITH_DISCOUNT_ONLY   = "and discount is not null ";

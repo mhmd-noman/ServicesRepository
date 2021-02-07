@@ -21,6 +21,15 @@ public abstract class AbstractCustomerServicesHandler {
 		case GET_QUERIES:
 			abstractCustomerServicesHandler = new GetQueries();
 			break;
+		case PUSH_WISHLIST:
+			abstractCustomerServicesHandler = new PushWishList();
+			break;
+		case POP_WISHLIST:
+			abstractCustomerServicesHandler = new PopWishList();
+			break;
+		case GET_WISHLIST:
+			abstractCustomerServicesHandler = new GetWishList();
+			break;
 		default:
 			abstractCustomerServicesHandler = new GetQueries();
 			break;

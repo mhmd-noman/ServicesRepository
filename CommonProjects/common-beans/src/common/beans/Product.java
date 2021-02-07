@@ -13,6 +13,7 @@ public class Product {
 	private String weight = null;
 	private String servings = null;
 	private String servingSize = null;
+	private Double purchasePrice = null;
 	private Double rtlPrice = null;
 	private Double orgPrice = null;
 	private Double fromOrgPrice = null;
@@ -91,6 +92,12 @@ public class Product {
 	}
 	public void setServingSize(String servingSize) {
 		this.servingSize = servingSize;
+	}
+	public Double getPurchasePrice() {
+		return purchasePrice;
+	}
+	public void setPurchasePrice(Double purchasePrice) {
+		this.purchasePrice = purchasePrice;
 	}
 	public Double getRtlPrice() {
 		return rtlPrice;
@@ -224,6 +231,8 @@ public class Product {
 		builder.append(servings);
 		builder.append(", servingSize=");
 		builder.append(servingSize);
+		builder.append(", purchasePrice=");
+		builder.append(purchasePrice);
 		builder.append(", rtlPrice=");
 		builder.append(rtlPrice);
 		builder.append(", orgPrice=");

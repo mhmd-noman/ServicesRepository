@@ -10,6 +10,7 @@ public class ProductManagementRequest {
 	private List<Integer> productIds = null;
 	private Integer pageNo   = null;
 	private Integer pageSize = null;
+	private boolean returnCount = false;
 	private boolean fetchOutOfStockProducts = false;
 	private boolean fetchProductsWithDiscountOnly = false;
 	private boolean ifCallingFromAddProductService = false;
@@ -41,6 +42,12 @@ public class ProductManagementRequest {
 	}
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+	public boolean isReturnCount() {
+		return returnCount;
+	}
+	public void setReturnCount(boolean returnCount) {
+		this.returnCount = returnCount;
 	}
 	public boolean isFetchOutOfStockProducts() {
 		return fetchOutOfStockProducts;
@@ -75,6 +82,8 @@ public class ProductManagementRequest {
 		builder.append(pageNo);
 		builder.append(", pageSize=");
 		builder.append(pageSize);
+		builder.append(", returnCount=");
+		builder.append(returnCount);
 		builder.append(", fetchOutOfStockProducts=");
 		builder.append(fetchOutOfStockProducts);
 		builder.append(", fetchProductsWithDiscountOnly=");

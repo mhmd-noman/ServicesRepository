@@ -5,16 +5,23 @@ CREATE TABLE transaction_infos (
     order_id INTEGER,
     response_code varchar(20),
     response_desc varchar(255),
-    org_amount DECIMAL(20),
-    processed_amount DECIMAL(20),
-    discount DECIMAL(20),
+    purchased_amount DECIMAL(10,2),
+    org_amount DECIMAL(10,2),
+    processed_amount DECIMAL(10,2),
+    discount DECIMAL(10,2),
+    profit DECIMAL(10,2),
     trans_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     last_updated_on DATETIME,
     trans_status char(1),
     PRIMARY KEY (trans_id)
 );
 
+CREATE INDEX idx_username ON transaction_infos (username);
+CREATE INDEX idx_order_id ON transaction_infos (order_id);
+CREATE INDEX idx_trans_time ON transaction_infos (trans_time);
 
+
+drop table transaction_infos
 
 select * from databases_info
 select * from masterdatabase:databases_info

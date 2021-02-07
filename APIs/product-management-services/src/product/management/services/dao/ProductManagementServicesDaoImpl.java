@@ -148,6 +148,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					product.setWeight(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setServings(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setServingSize(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setPurchasePrice(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
 					product.setOrgPrice(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
 					product.setDiscount(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
 					product.setMfgDate(null != productRow.get(++index) ? (Date)productRow.get(index): null);
@@ -184,6 +185,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 				paramList.add(productsManagementRequest.getProduct().getWeight());
 				paramList.add(productsManagementRequest.getProduct().getServings());
 				paramList.add(productsManagementRequest.getProduct().getServingSize());
+				paramList.add(productsManagementRequest.getProduct().getPurchasePrice());
 				paramList.add(productsManagementRequest.getProduct().getOrgPrice());
 				paramList.add(productsManagementRequest.getProduct().getDiscount());
 				paramList.add(productsManagementRequest.getProduct().getMfgDate());
@@ -234,7 +236,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					updateColumns.append("serving_size = '" +productsManagementRequest.getProduct().getServingSize()+ "',");
 				}
 				if (!Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getOrgPrice())) {
-					updateColumns.append("price = '" +productsManagementRequest.getProduct().getOrgPrice()+ "',");
+					updateColumns.append("org_price = '" +productsManagementRequest.getProduct().getOrgPrice()+ "',");
 				}
 				if (!Utils.validateIfNullOrInvalidDouble(productsManagementRequest.getProduct().getDiscount())) {
 					updateColumns.append("discount = '" +productsManagementRequest.getProduct().getDiscount()+ "',");

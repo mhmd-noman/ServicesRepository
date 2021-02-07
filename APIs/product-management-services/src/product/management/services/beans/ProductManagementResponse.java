@@ -8,6 +8,7 @@ public class ProductManagementResponse {
 	private String responseCode = null;
 	private String responseDesc = null;
 	private List<Product> products = null;
+	private Integer productsCount = null;
 
 	public String getResponseCode() {
 		return responseCode;
@@ -28,6 +29,12 @@ public class ProductManagementResponse {
 		this.products = products;
 	}
 
+	public Integer getProductsCount() {
+		return productsCount;
+	}
+	public void setProductsCount(Integer productsCount) {
+		this.productsCount = productsCount;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -37,6 +44,8 @@ public class ProductManagementResponse {
 		builder.append(responseDesc);
 		builder.append(", products=");
 		builder.append(products);
+		builder.append(", productsCount=");
+		builder.append(productsCount);
 		builder.append("]");
 		return builder.toString();
 	}

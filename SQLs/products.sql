@@ -9,8 +9,9 @@ CREATE TABLE products (
     servings varchar(80),
     serving_size varchar(80),
     packaging varchar(80),
-    price DECIMAL(20),
-    discount DECIMAL(20),
+    purchase_price DECIMAL(10,2),
+    org_price DECIMAL(10,2),
+    discount DECIMAL(10,2),
     mfg_date DATE, 
     expiry_date DATE,
     bar_code char(13),
@@ -19,22 +20,20 @@ CREATE TABLE products (
     created_on DATETIME DEFAULT CURRENT_TIMESTAMP,
     last_updated_on DATETIME,
     is_active char(1) DEFAULT 'Y',
+    image varchar(1024),
     PRIMARY KEY (id)
 );
 
-ALTER TABLE products(
-    image varchar(1024),
-);
+CREATE INDEX idx_name ON products (name);
+CREATE INDEX idx_company ON products (company);
+CREATE INDEX idx_category ON products (category);
+CREATE INDEX idx_flavour ON products (flavour);
+CREATE INDEX idx_weight ON products (weight);
+CREATE INDEX idx_org_price ON products (org_price);
 
-ALTER TABLE products
-ADD COLUMN image varchar(1024);
+drop table order_products
+drop table products
 
-
-
-ALTER TABLE users
-  DROP COLUMN image;
-
-drop table products;
 
 insert into products (name, quantity, company, flavour, weight) values ('Nitro Tech', 20, 'Muscletech', 'Chocolate', 4);
 
@@ -57,6 +56,5 @@ select id, name, company, category, flavour, quantity, weight, servings, serving
 
 select id, name, company, category, flavour, quantity, weight, servings, serving_size, price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, created_on, last_updated_on, is_active from products where id is not null and is_active = 'Y' limit 5, 5
 
-select id, name, company, category, flavour, quantity, weight, servings, serving_size, price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, created_on, last_updated_on, is_active from products where id is not null and is_active = 'Y' limit ? , ? 
 
 select * from products

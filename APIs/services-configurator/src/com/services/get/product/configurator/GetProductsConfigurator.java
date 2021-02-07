@@ -27,7 +27,6 @@ public class GetProductsConfigurator {
 		return mainResponseObject;
 	}
 	
-	
 	private void mapRequest(MainRequestObject mainRequestObject, ProductManagementRequest productManagementRequest) {
 		if (null != mainRequestObject) {
 			logger.info(logger.isInfoEnabled() ? "Requested content recieved for getProducts: [" +mainRequestObject+ "]": null);
@@ -48,6 +47,7 @@ public class GetProductsConfigurator {
 			mainResponseObject.setResponseCode(productManagementResponse.getResponseCode());
 			mainResponseObject.setResponseDesc(productManagementResponse.getResponseDesc());
 			mainResponseObject.setProducts(productManagementResponse.getProducts());
+			mainResponseObject.setTransCount(productManagementResponse.getProductsCount());
 		}
 	}
 }
