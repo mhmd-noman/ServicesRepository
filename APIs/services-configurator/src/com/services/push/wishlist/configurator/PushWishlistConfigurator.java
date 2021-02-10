@@ -7,7 +7,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.services.configurator.ServicesConfigurator;
+import com.services.get.product.configurator.GetProductsConfigurator;
 import com.services.pop.wishlist.configurator.PopWishlistConfigurator;
 
 import common.beans.Product;
@@ -30,20 +30,20 @@ public class PushWishlistConfigurator {
 		CustomerServicesResponse customerServicesResponse = new CustomerServicesResponse();
 		mapRequest(mainRequestObject, customerServicesRequest);
 		customerServicesResponse = customerServices.customerServices(customerServicesRequest, con);
-		mapResponse(mainResponseObject, customerServicesResponse);
+		mapResponse(mainResponseObject, customerServicesResponse, con);
 		return mainResponseObject;
 	}
 	
 	private void mapRequest(MainRequestObject mainRequestObject, CustomerServicesRequest customerServicesRequest) {
 		if (null != mainRequestObject) {
 			logger.info(logger.isInfoEnabled() ? "Requested content recieved for pushWishlist: [" +mainRequestObject+ "]": null);
-			customerServicesRequest.setWishlist(mainRequestObject.getWislist());
+			customerServicesRequest.setWishlist(mainRequestObject.getWishlist());
 		}
 		customerServicesRequest.setCustomerServicesAction(CustomerServicesAction.PUSH_WISHLIST);
 		mainRequestObject.setServiceId(CustomerServicesAction.PUSH_WISHLIST.toString());
 	}
 	
-	private void mapResponse(MainResponseObject mainResponseObject, CustomerServicesResponse customerServicesResponse) throws BaseException {
+	private void mapResponse(MainResponseObject mainResponseObject, CustomerServicesResponse customerServicesResponse,  Connection con) throws BaseException {
 		logger.info(logger.isInfoEnabled() ? "Response recieved for pushWishlist: [" +customerServicesResponse+ "]": null);
 		if (null != customerServicesResponse) {
 			mainResponseObject.setResponseCode(customerServicesResponse.getResponseCode());
@@ -51,21 +51,21 @@ public class PushWishlistConfigurator {
 			mainResponseObject.setWishlists(customerServicesResponse.getWishlist());
 			if (null != mainResponseObject.getWishlists()) {
 				mainResponseObject.getWishlists().get(0).setProducts(new ArrayList<>());
-				mainResponseObject.getWishlists().get(0).setProducts(getProducts(customerServicesResponse));
+				mainResponseObject.getWishlists().get(0).setProducts(getProducts(customerServicesResponse, con));
 			}
 		}
 	}
 	
-	private List<Product> getProducts(CustomerServicesResponse customerServicesResponse) throws BaseException {
+	private List<Product> getProducts(CustomerServicesResponse customerServicesResponse, Connection con) throws BaseException {
 		MainRequestObject mainRequestObject = new MainRequestObject();
+		GetProductsConfigurator getProductsConfigurator = new GetProductsConfigurator();
 		MainResponseObject mainResponseObject = null;
-		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		List<Integer> productIds = Utils.convertCommaSeparatedStringToIntegerList(customerServicesResponse.getWishlist().get(0).getWishlist());
 		if (Utils.isNullOrEmptyCollection(productIds)) {
 			return null;
 		}
 		mainRequestObject.setIds(productIds);
-		mainResponseObject = servicesConfigurator.getProducts(mainRequestObject);
+		mainResponseObject = getProductsConfigurator.getProducts(mainRequestObject, con);
 		return mainResponseObject.getProducts();
 	}
 }

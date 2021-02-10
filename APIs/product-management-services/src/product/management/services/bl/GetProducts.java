@@ -26,7 +26,7 @@ public class GetProducts extends AbstractProductManagementServicesHandler {
 			productsManagementResponse = new ProductManagementResponse();
 			productsList = new ArrayList<>();
 			
-			if (null == productsManagementRequest.getProduct()) {
+			if (null == productsManagementRequest.getProduct() && Utils.isNullOrEmptyCollection(productsManagementRequest.getProductIds())) {
 				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "No content has been provided in request for getProducts ... ": null);
 				productsManagementResponse.setResponseCode(ResponseCodes.INVALID_TRANS);
 				productsManagementResponse.setResponseDesc(ResponseCodes.INVALID_TRANS_DESCRIPTION);

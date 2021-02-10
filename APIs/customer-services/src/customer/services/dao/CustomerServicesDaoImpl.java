@@ -113,8 +113,6 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch queries by using query: " +AbstractCustomerServicesDao.GET_QUERIES+ " with paramters: "+ paramList: null);
 				wishlistsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 			}
-			
-			
 		} catch (Exception ex) {
 			logger.warn("##Exception## in getting queries service ...");
 			throw new BaseException(ex);
@@ -147,11 +145,13 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 	public void pushWishlist(CustomerServicesRequest customerServicesRequest, CustomerServicesResponse customerServicesResponse, Connection connection) throws BaseException {
 		List<Object> paramList = null;
 		try {
-			if (null != customerServicesResponse && null != customerServicesResponse.getWishlist() && Utils.isNullOrEmptyString(customerServicesResponse.getWishlist().get(0).getWishlist())) {
+			if (null != customerServicesResponse && Utils.isNullOrEmptyCollection(customerServicesResponse.getWishlist())) {
 				if (null != customerServicesRequest) {
 					paramList = new ArrayList<>();
 					paramList.add(customerServicesRequest.getWishlist().getUsername());
 					paramList.add(customerServicesRequest.getWishlist().getWishlist());
+					customerServicesResponse.setWishlist(new ArrayList<>());
+					customerServicesResponse.getWishlist().add(new Wishlist());
 					customerServicesResponse.getWishlist().get(0).setWishlist(customerServicesRequest.getWishlist().getWishlist());
 					logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to insert wishlist in wishlists by using query: " +AbstractCustomerServicesDao.INSERT_WISHLIST+ " with paramters: "+ paramList: null);
 					AbstractCommonDbMethods.getInstance().update(AbstractCustomerServicesDao.INSERT_WISHLIST, paramList, connection);
@@ -159,8 +159,9 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 				}
 			}
 			paramList = new ArrayList<>();
-			paramList.add(customerServicesRequest.getWishlist().getUsername());
 			paramList.add(","+customerServicesRequest.getWishlist().getWishlist());
+			paramList.add(Utils.getCurrentDateTime());
+			paramList.add(customerServicesRequest.getWishlist().getUsername());
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to push wishlist in wishlists by using query: " +AbstractCustomerServicesDao.PUSH_WISHLIST+ " with paramters: "+ paramList: null);
 			AbstractCommonDbMethods.getInstance().update(AbstractCustomerServicesDao.PUSH_WISHLIST, paramList, connection);
 		} catch (Exception ex) {
@@ -192,13 +193,41 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 			customerServicesResponse.getWishlist().get(0).setWishlist(wishlistToUpdate);
 			if (null != customerServicesRequest) {
 				paramList = new ArrayList<>();
-				paramList.add(customerServicesRequest.getWishlist().getUsername());
 				paramList.add(wishlistToUpdate);
+				paramList.add(Utils.getCurrentDateTime());
+				paramList.add(customerServicesRequest.getWishlist().getUsername());
 				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to pop wishlist in wishlists by using query: " +AbstractCustomerServicesDao.UPDATE_WISHLIST+ " with paramters: "+ paramList: null);
 				AbstractCommonDbMethods.getInstance().update(AbstractCustomerServicesDao.UPDATE_WISHLIST, paramList, connection);
 			}
 		} catch (Exception ex) {
 			logger.warn("##Exception## while poping wishlist ...");
+			throw new BaseException(ex);
+		}
+	}
+	
+	@Override
+	public boolean ifUserExists(String username, Connection connection) throws BaseException {
+		List<Object> paramList = null;
+		List<Map<Integer, Object>> userResultSet = null;
+		StringBuilder query = null;
+		try {
+			paramList = new ArrayList<>();
+			
+			if (Utils.isValidString(username)) {
+				query = new StringBuilder(AbstractCustomerServicesDao.VERIFY_IF_USER_EXISTS);
+				paramList.add(username);
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to check if user exists using query: " +AbstractCustomerServicesDao.VERIFY_IF_USER_EXISTS+ " with paramters: "+ paramList: null);
+				userResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
+			}
+			if (Utils.isNullOrEmptyCollection(userResultSet)) {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "User doesn't exist against passed username with paramters: "+ paramList: null);
+				return false;
+			} else {
+				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "User found against passed username with paramters: "+ paramList: null);
+				return true;
+			}
+		} catch (Exception ex) {
+			logger.warn("##Exception## in getting queries service ...");
 			throw new BaseException(ex);
 		}
 	}

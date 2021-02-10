@@ -1,10 +1,31 @@
 package com.services.test;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Stream;
 
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.services.configurator.ServicesConfigurator;
 
 import common.beans.Order;
@@ -16,7 +37,7 @@ import common.response.MainResponseObject;
 
 public class MyTestService {
 	public static final String dbCode = "MX_FIT";
-	public static void main(String [] args) {
+	public static void main(String [] args) throws DocumentException, URISyntaxException, IOException {
 		//getUsers();
 		//getProducts();
 		//addProduct();
@@ -27,18 +48,205 @@ public class MyTestService {
 		
 		  
 		// from,password,to,subject,message
-		Mailer.send("lastchance934@gmail.com", "numan41752666", "muhammad.nauman54@outlook.com", "hello javatpoint", "How r u?");
+		//Mailer.send("lastchance934@gmail.com", "numan41752666", "muhammad.nauman54@outlook.com", "hello javatpoint", "How r u?");
 		// change from, password and to 
-		  
-		
-
-		
-		     
-		
+		creatingInvoiceHavingTable();
 		
 	}
 	
 	
+	public static void creatingInvoice() throws FileNotFoundException, DocumentException {
+		Document document = new Document();
+		PdfWriter.getInstance(document, new FileOutputStream("iTextHelloWorld.pdf"));
+
+		document.open();
+		Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
+		Chunk chunk = new Chunk("Hello World", font);
+
+		document.add(chunk);
+		document.close();
+	}
+	
+//	public static void generatingBarCodes() {
+//		PdfDocument pdfDoc = new PdfDocument(new PdfWriter("C:\\apps\\invoices\\barCodeTest.pdf"));
+//	    Document doc = new Document(pdfDoc);    
+//		
+//		    Rectangle pagesize = new Rectangle(250, 432);
+//		    Document doc = new Document(pagesize);
+//			PdfWriter.getInstance(doc, new FileOutputStream("C:\\apps\\invoices\\barCodeTest.pdf"));
+//
+//		    
+//		    String code = "675-FH-A12";
+//		    Barcode128 code128 = new Barcode128(pdfDoc);
+//		    code128.setFont(null);
+//		    code128.setCode(code);
+//		    code128.setCodeType(Barcode128.CODE128);
+//		 
+//		    Table table = new Table(2);
+//		    table.addCell("Add text under the barcode:");
+//		 
+//		    Image code128Image = new Image(code128.createFormXObject(pdfDoc)).setAutoScale(true);
+//		    Paragraph paragraph = new Paragraph("Student code:" + code).setTextAlignment(TextAlignment.CENTER);
+//		 
+//		    Cell cell = new Cell();
+//		    cell.add(code128Image);
+//		    cell.add(paragraph);
+//		    table.addCell(cell);
+//		 
+//		    doc.add(table);
+//		    doc.close();
+//	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public static void creatingInvoiceHavingTable() throws DocumentException, URISyntaxException, IOException {
+		//Rectangle pagesize = new Rectangle(612, 864);
+		//Rectangle pagesize = new Rectangle(306, 432);
+		Rectangle pagesize = new Rectangle(250, 432);
+		Document document = new Document(pagesize);
+		PdfWriter.getInstance(document, new FileOutputStream("C:\\apps\\invoices\\testInvoice.pdf"));
+
+		document.open();
+		
+		// Adding Logo Image
+		PdfPTable logotable = new PdfPTable(2);
+		logotable.setWidthPercentage(100);
+		logotable.setWidths(new int[]{1, 2});
+		logotable.addCell(createLogoImageCell("C:\\apps\\invoices\\logo.png"));
+		logotable.addCell(createLogoTextCell("POS - Powered By iSpecterTeam"));
+	    document.add(logotable);
+		
+		// Adding Logo Image
+		//Image img = Image.getInstance("C:\\apps\\invoices\\logo.png");
+		//img.scalePercent(8);
+		//document.add(img);
+		
+		// Intro Message
+		document.add(new Paragraph("Welcome to ISpecterTeam's POS", FontFactory.getFont(FontFactory.COURIER, 8)));
+		document.add(new Paragraph("Your Customer Id: 2345433", FontFactory.getFont(FontFactory.COURIER, 8)));
+		document.add(new Paragraph(new Date(new java.util.Date().getTime()).toString(), FontFactory.getFont(FontFactory.COURIER, 8)));
+		document.add(new Paragraph("\n"));
+		
+		// Adding Metadata:
+		document.addCreationDate();
+		document.addAuthor("M Noman");
+		document.addCreator("iSpecterTeam");
+		document.addTitle("How to create PDF document in Java");
+	    document.addSubject("Writing to create invoice in order to process POS Order");
+	 
+	    // first column to be three times as wide as the second and third column
+		PdfPTable table = new PdfPTable(new float[] {8, 3, 4});
+		table.setWidthPercentage(110f);
+		table.setPaddingTop(10f);
+		addTableHeader(table);
+		//addRows(table);
+		addCustomRows(table);
+		addCustomRows(table);
+		addCustomRows(table);
+		addCustomRows(table);
+		addCustomRows(table);
+		
+		PdfPTable table1 = new PdfPTable(new float[] {11, 4});
+		table1.setWidthPercentage(110f);
+		addRows(table1);
+		
+		
+		document.add(table);
+		document.add(table1);
+		
+		
+		document.close();
+		System.out.println("Invoice Processed!!!");
+	}
+	
+	private static void addTableHeader(PdfPTable table) {
+		Font fontH1 = FontFactory.getFont(FontFactory.COURIER, 8, Font.BOLD);
+	    Stream.of("Name", "Qty", "Price")
+	      .forEach(columnTitle -> {
+	        PdfPCell header = new PdfPCell(new Phrase("row 2, col 2", fontH1));
+	        header.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+	        header.setBorderWidth(1);
+	        header.setPhrase(new Phrase(columnTitle));
+	        table.addCell(header);
+	    });
+	}
+	
+	private static void addRows(PdfPTable table) {
+		Font fontH1 = FontFactory.getFont(FontFactory.COURIER, 8, Font.BOLD);
+		// Product Name
+		PdfPCell horizontalAlignCell1 = new PdfPCell(new Phrase("Total ", fontH1));
+		horizontalAlignCell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+		//horizontalAlignCell1.setPadding(2f);
+		table.addCell(horizontalAlignCell1);
+		
+		// Product Quantity 
+		PdfPCell horizontalAlignCell = new PdfPCell(new Phrase("135000 Rs", fontH1));
+		horizontalAlignCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+		//horizontalAlignCell.setPadding(2f);
+		table.addCell(horizontalAlignCell);
+	}
+	
+	
+	private static void addCustomRows(PdfPTable table) throws URISyntaxException, BadElementException, IOException {
+		Font fontH1 = FontFactory.getFont(FontFactory.COURIER, 8, Font.NORMAL);
+		Image img = Image.getInstance("C:\\apps\\invoices\\logo.png");
+		img.scalePercent(8);
+		
+		// Product Name
+		PdfPCell horizontalAlignCell1 = new PdfPCell(new Phrase("Nitro Tech - 5lbs", fontH1));
+		horizontalAlignCell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+		horizontalAlignCell1.setVerticalAlignment(Element.ALIGN_CENTER);
+		//horizontalAlignCell1.setPadding(2f);
+		table.addCell(horizontalAlignCell1);
+		
+		// Product Quantity 
+		PdfPCell horizontalAlignCell = new PdfPCell(new Phrase("3", fontH1));
+		horizontalAlignCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+		horizontalAlignCell.setVerticalAlignment(Element.ALIGN_CENTER);
+		//horizontalAlignCell.setPadding(2f);
+		table.addCell(horizontalAlignCell);
+		
+		// Product Prices
+		PdfPCell verticalAlignCell = new PdfPCell(new Phrase("17000 Rs", fontH1));
+		verticalAlignCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+		verticalAlignCell.setVerticalAlignment(Element.ALIGN_CENTER);
+		//verticalAlignCell.setPadding(2f);
+		table.addCell(verticalAlignCell);
+	}
+	
+	public static PdfPCell createLogoImageCell(String path) throws DocumentException, IOException {
+	    Image img = Image.getInstance(path);
+	    img.scalePercent(6);
+	    PdfPCell cell = new PdfPCell(img, true);
+	    cell.setVerticalAlignment(Element.ALIGN_LEFT);
+	    cell.setPaddingRight(5f);
+	    cell.setBorder(Rectangle.NO_BORDER);
+	    return cell;
+	}
+	
+	public static PdfPCell createLogoTextCell(String text) throws DocumentException, IOException {
+	    PdfPCell cell = new PdfPCell();
+	    Paragraph p = new Paragraph(text, FontFactory.getFont(FontFactory.COURIER, 10, Font.BOLD));
+	    //p.setAlignment(Element.ALIGN_RIGHT);
+	    cell.addElement(p);
+	    cell.setVerticalAlignment(Element.ALIGN_CENTER);
+	    cell.setBorder(Rectangle.NO_BORDER);
+	    return cell;
+	}
+
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public void insertingImageInInvoice() throws DocumentException, MalformedURLException, IOException {
+		Document document = new Document();
+		PdfWriter.getInstance(document, new FileOutputStream("iTextImageExample.pdf"));
+		document.open();
+		Image img = Image.getInstance("C:\\apps\\invoices\\logo.png");
+		document.add(img);
+
+		document.close();
+	}
 	
 	public static void placeOrder() throws BaseException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();

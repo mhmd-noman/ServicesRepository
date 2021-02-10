@@ -25,7 +25,7 @@ public class MainRequestObject {
 	private Order orderInfo = null;
 	private Product productInfo = null;
 	private Query queryInfo = null;
-	private Wishlist wislist = null;
+	private Wishlist wishlist = null;
 	private List<Integer> ids = null;
 	private boolean fetchOutOfStockProducts = false;
 	private boolean fetchProductsWithDiscountOnly = false;
@@ -134,11 +134,11 @@ public class MainRequestObject {
 	public void setQueryInfo(Query queryInfo) {
 		this.queryInfo = queryInfo;
 	}
-	public Wishlist getWislist() {
-		return wislist;
+	public Wishlist getWishlist() {
+		return wishlist;
 	}
-	public void setWislist(Wishlist wislist) {
-		this.wislist = wislist;
+	public void setWishlist(Wishlist wislist) {
+		this.wishlist = wislist;
 	}
 	public List<Integer> getIds() {
 		return ids;
@@ -193,7 +193,7 @@ public class MainRequestObject {
 		builder.append(", queryInfo=");
 		builder.append(queryInfo);
 		builder.append(", wislist=");
-		builder.append(wislist);
+		builder.append(wishlist);
 		builder.append(", ids=");
 		builder.append(ids);
 		builder.append(", fetchOutOfStockProducts=");

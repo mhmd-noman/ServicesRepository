@@ -178,7 +178,7 @@ public class ServicesControllerManager {
 		MainResponseObject mainResponseObject = null;
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		mainRequestObject.setDbCode(dbCode);
-		logger.info(logger.isInfoEnabled() ? "Going to call getQueries Service with Client[" +dbCode+ "]": null);
+		logger.info(logger.isInfoEnabled() ? "Going to call getWishlist Service with Client[" +dbCode+ "]": null);
 		mainResponseObject = servicesConfigurator.getWishlist(mainRequestObject);
 		return mainResponseObject;
 	}

@@ -176,4 +176,12 @@ public class Utils {
 		}
 		return intList;
 	}
+	
+	public static Date getCurrentDateTime() {
+		return new Date(System.currentTimeMillis());
+	}
+	
+	public static String getCurrentDateTimeInString() {
+		return new Date(System.currentTimeMillis()).toString();
+	}
 }
