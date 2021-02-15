@@ -79,6 +79,11 @@
 	    <artifactId>itextpdf</artifactId>
 	    <version>5.5.13</version>
 	</dependency>
-  	
+
+	  	<dependency>
+	  		<groupId>invoice-generation-service</groupId>
+	  		<artifactId>invoice-generation-service</artifactId>
+	  		<version>0.0.1-SNAPSHOT</version>
+	  	</dependency>
   </dependencies>
 </project>

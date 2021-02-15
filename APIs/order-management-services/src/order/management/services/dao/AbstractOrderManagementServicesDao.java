@@ -42,6 +42,11 @@ public abstract class AbstractOrderManagementServicesDao {
 	public static final String ORDER_TO_DISCOUNT       = "and o.order_calc_discount <= ? ";
 	public static final String ORDER_DISCOUNT_RANGE    = "and o.order_calc_discount between ? and ? ";
 	
+	public static final String ORDER_DATE              = "and o.created_on = ? ";
+	public static final String ORDER_FROM_DATE         = "and o.created_on >= ? ";
+	public static final String ORDER_TO_DATE           = "and o.created_on <= ? ";
+	public static final String ORDERS_INTERVAL         = "and o.created_on between ? and ? ";
+	
 	public static final String FETCH_COMPLETED_ORDERS  = "and o.order_status = 'P' ";
 	public static final String FETCH_CANCELLED_ORDERS  = "and o.order_status = 'F' ";
 	public static final String FETCH_INPROGRESS_ORDERS = "and o.order_status = 'I' ";

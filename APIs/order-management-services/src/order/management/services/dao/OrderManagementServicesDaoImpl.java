@@ -133,6 +133,25 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 					paramList.add(orderManagementRequest.getOrder().getOrderFromCalcDiscount());
 					paramList.add(orderManagementRequest.getOrder().getOrderToCalcDiscount());
 				}
+				
+				if (!Utils.validateIfNullOrInvalidDouble(orderManagementRequest.getOrder().getOrderCalcDiscount())) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_DATE);
+					paramList.add(orderManagementRequest.getOrder().getCreatedOn());
+				}
+				if (Utils.isValidDate(orderManagementRequest.getOrder().getFromDate(), CommonConstants.DATE_FORMAT_HIPHENS_YYYY_M_MDD)
+						&& !Utils.isValidDate(orderManagementRequest.getOrder().getToDate(), CommonConstants.DATE_FORMAT_HIPHENS_YYYY_M_MDD)) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_FROM_DATE);
+					paramList.add(orderManagementRequest.getOrder().getFromDate());
+				} else if (!Utils.isValidDate(orderManagementRequest.getOrder().getFromDate(), CommonConstants.DATE_FORMAT_HIPHENS_YYYY_M_MDD)
+						&& Utils.isValidDate(orderManagementRequest.getOrder().getToDate(), CommonConstants.DATE_FORMAT_HIPHENS_YYYY_M_MDD)) {
+					query.append(AbstractOrderManagementServicesDao.ORDER_TO_DATE);
+					paramList.add(orderManagementRequest.getOrder().getToDate());
+				} else if (Utils.isValidDate(orderManagementRequest.getOrder().getFromDate(), CommonConstants.DATE_FORMAT_HIPHENS_YYYY_M_MDD)
+						&& Utils.isValidDate(orderManagementRequest.getOrder().getToDate(), CommonConstants.DATE_FORMAT_HIPHENS_YYYY_M_MDD)) {
+					query.append(AbstractOrderManagementServicesDao.ORDERS_INTERVAL);
+					paramList.add(orderManagementRequest.getOrder().getFromDate());
+					paramList.add(orderManagementRequest.getOrder().getToDate());
+				}
 			}
 			
 			if (orderManagementRequest.isFetchCompletedOrdersOnly()) {

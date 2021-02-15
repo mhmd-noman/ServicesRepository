@@ -28,6 +28,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.services.configurator.ServicesConfigurator;
 
+import common.beans.Invoice;
 import common.beans.Order;
 import common.beans.Product;
 import common.beans.User;
@@ -36,8 +37,8 @@ import common.request.MainRequestObject;
 import common.response.MainResponseObject;  
 
 public class MyTestService {
-	public static final String dbCode = "MX_FIT";
-	public static void main(String [] args) throws DocumentException, URISyntaxException, IOException {
+	public static final String dbCode = "UFN";
+	public static void main(String [] args) throws DocumentException, URISyntaxException, IOException, BaseException {
 		//getUsers();
 		//getProducts();
 		//addProduct();
@@ -50,10 +51,161 @@ public class MyTestService {
 		// from,password,to,subject,message
 		//Mailer.send("lastchance934@gmail.com", "numan41752666", "muhammad.nauman54@outlook.com", "hello javatpoint", "How r u?");
 		// change from, password and to 
-		creatingInvoiceHavingTable();
+		//creatingInvoiceHavingTable();
+		generateInvoice();
 		
 	}
 	
+	public static void generateInvoice() throws BaseException {
+		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
+		MainRequestObject mainRequestObject = new MainRequestObject();
+		MainResponseObject mainResponseObject = null;
+		mainRequestObject.setDbCode(dbCode);
+		
+		Order order = getOrder();
+		Invoice invoice = new Invoice();
+		invoice.setDestPath("C:\\apps\\invoices\\");
+		// Page Size
+		invoice.setWidthUnits(250f);
+		invoice.setHeightUnits(432f);
+		
+		// 18 products can land on size of 432f
+		// Logo
+		invoice.setLogo("C:\\apps\\invoices\\logo.png");
+		invoice.setLogoHeader("iTeamVision's POS");
+		invoice.setLogoHorizontalAlignment("ALIGN_LEFT");
+		invoice.setLogoVerticalAlignment("ALIGN_LEFT");
+		invoice.setLogoBorder(0);
+		invoice.setLogoScalePercentage(6f);
+		// MetaData
+		invoice.setAuthor("M Noman");
+		invoice.setCreator("iTeamVision");
+		invoice.setTitle("POS Invoice");
+		invoice.setSubject("Creating POS Invoice for Order id: 1");
+		// Font
+		invoice.setBasicFont("COURIER");
+		invoice.setBasicFontStrength("NORMAL");
+		invoice.setBasicTextSize(8f);
+		invoice.setHeadingFont("COURIER");
+		invoice.setHeadingFontStrength("BOLD");
+		invoice.setHeadingTextSize(10f);
+		invoice.setTableFont("COURIER");
+		invoice.setTableFontStrength("NORMAL");
+		invoice.setTableTextSize(8f);
+		
+		PdfPTable table = new PdfPTable(new float[] {8, 3, 4});
+		table.setWidthPercentage(110f);
+		table.setPaddingTop(10f);
+		
+		invoice.setNumberOfColumns(3);
+		invoice.setTableHeaders("Name,Qty,Price");
+		invoice.setTableColsConfig(new float[] {8, 3, 4});
+		invoice.setTableHeaderBckgrdColor("DARK_GREY");
+		invoice.setTablePaddingTop(10f);
+		invoice.setTableHeadingBorder(0);
+		invoice.setTableWidthPercentage(110f);
+		invoice.setTableBorder(0f); // it's not working
+		invoice.setCellHorizontalAlignment("ALIGN_CENTER");
+		invoice.setCellHorizontalAlignment("ALIGN_CENTER");
+		
+		invoice.setHeader("Welcome to iTeamVision's POS");
+		invoice.setFooter("POS - Powered By iTeamVision");
+		invoice.setOrder(order);
+		
+		mainRequestObject.setInvoiceInfo(invoice);
+		mainResponseObject = servicesConfigurator.generateInvoice(mainRequestObject);
+		System.out.println("Response Code: "+ mainResponseObject.getResponseCode());
+		System.out.println("Response Desc: "+ mainResponseObject.getResponseDesc());
+	}
+	
+	public static Order getOrder() {
+		List<Product> products = new ArrayList<>();
+		Product product1 = new Product();
+		product1.setId(1);
+		product1.setName("Nitro Tech");
+		product1.setOrderedQuantity(5);
+		product1.setRtlPrice(1800.00);
+		product1.setOrgPrice(2000.00);
+		product1.setDiscount(5.00);
+		
+		Product product2 = new Product();
+		product2.setId(2);
+		product2.setName("ON Whey");
+		product2.setOrderedQuantity(2);
+		product2.setOrgPrice(2000.00);
+		product2.setDiscount(5.00);
+		
+		products.add(product1);
+		products.add(product2);
+		
+		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+//		products.add(getProduct());
+		
+		
+		
+		Order order = new Order();
+		order.setOrderId(2);
+		order.setArea("Canal");
+		order.setState("Punjab");
+		order.setCity("Lahore");
+		order.setCountry("Pakistan");
+		order.setCustName("Damon");
+		order.setCustEmail("damon@gmail.com");
+		order.setCustPhone("032412345698");
+		order.setCustPhone2("032456958691");
+		order.setOrderCalcDiscount(5.00);
+		order.setOrderDescription("Testing Order Placement!");
+		order.setCustAddress1("Address1");
+		order.setCustAddress2("Address2");
+		//order.setExpiryDate(new Date(System.currentTimeMillis()));
+		//order.setMfgDate(new Date(System.currentTimeMillis()));
+		order.setOrderOrgAmount(2000.00);
+		order.setOrderRtlAmount(1600.00);
+		order.setOrderStatus("I");
+		order.setOrderedProducts(products);
+		return order;
+	}
+	
+	private static Product getProduct() {
+		Product product2 = new Product();
+		product2.setId(2);
+		product2.setName("ON Whey");
+		product2.setOrderedQuantity(2);
+		product2.setOrgPrice(2000.00);
+		product2.setDiscount(5.00);
+		product2.setRtlPrice(1500.00);
+		return product2;
+	}
 	
 	public static void creatingInvoice() throws FileNotFoundException, DocumentException {
 		Document document = new Document();

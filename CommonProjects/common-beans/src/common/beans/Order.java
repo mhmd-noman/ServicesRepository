@@ -27,6 +27,8 @@ public class Order {
 	private Double orderFromCalcDiscount = null;
 	private Double orderToCalcDiscount = null;
 	private Double profit = null;
+	private Date fromDate = null;
+	private Date toDate = null;
 	private Date createdOn = null;
 	private Date cancelledAt = null;
 	private String orderStatus = null;
@@ -171,6 +173,18 @@ public class Order {
 	public void setProfit(Double profit) {
 		this.profit = profit;
 	}
+	public Date getFromDate() {
+		return fromDate;
+	}
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
+	}
+	public Date getToDate() {
+		return toDate;
+	}
+	public void setToDate(Date toDate) {
+		this.toDate = toDate;
+	}
 	public Date getCreatedOn() {
 		return createdOn;
 	}
@@ -243,6 +257,10 @@ public class Order {
 		builder.append(orderToCalcDiscount);
 		builder.append(", profit=");
 		builder.append(profit);
+		builder.append(", fromDate=");
+		builder.append(fromDate);
+		builder.append(", toDate=");
+		builder.append(toDate);
 		builder.append(", createdOn=");
 		builder.append(createdOn);
 		builder.append(", cancelledAt=");

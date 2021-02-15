@@ -1,0 +1,68 @@
+<!--
+	@author: Muhammad Noman
+	@creation date: Jan, 11, 2021
+-->
+<project name="database-manager" basedir="." default="all">
+
+	<!-- Project settings -->
+    <property name="project.title" value="invoice-generation-service"/>
+    <property name="project.distname" value="invoice-generation-service"/>
+    <property name="distpath.project" value="../libraries"/>
+
+    <!-- Path settings -->	
+    <property name="doc.path" value="./doc/api"/>
+    <property name="doc.src" value="./src"/>
+	<property name="srcpath.libdir" value="../libraries"/>
+	<property name="classes.dir" value="./classes"/>
+	<property name="build.dir" value="./build" />
+	<property name="libs" value="${srcpath.libdir}/slf4j-api-1.7.30.jar" />
+	
+    <path id="compile.classpath">
+    	<fileset dir="${srcpath.libdir}">
+	    	<include name="**/*.jar"/>
+    	</fileset>   	       
+    </path><target name="chkBuild"><uptodate property="build.notRequired" targetfile="../dep_lib\${project.distname}.jar"><srcfiles dir="${doc.src}" includes="**/*.java"/></uptodate><echo message="${project.distname}.jar checkUptodate result: ${build.notRequired}"/></target>
+
+    <!-- Create binary distribution -->
+    <target unless="build.notRequired" name="dist"
+        description="Create binary distribution">
+      <mkdir dir="${distpath.project}"/>
+       <jar destfile="${distpath.project}/${project.distname}.jar"
+         basedir="${classes.dir}" >              	       
+       </jar>    	 
+       <delete dir="${classes.dir}"/>
+       <delete dir="${build.dir}"/>	
+	   <copy file="../libraries/${project.distname}.jar" todir="../dep_lib"/>
+    </target>
+
+    <!-- Compile Tag -->
+    <target unless="build.notRequired" name="compile" depends="prepare">
+      <echo message="|-- compile classpath"/>
+      <echo message="|   |"/>
+      <echo message="|   |-- ${echo.path.compile}"/>        
+      <echo message=""/>  
+      <mkdir dir="${classes.dir}" />
+      <javac srcdir="${doc.src}" destdir="${classes.dir}" debug="true">
+            <classpath refid="compile.classpath"/>
+        </javac>
+    </target>
+
+	<!-- Prepare Tag -->
+    <target unless="build.notRequired" name="prepare">
+        <tstamp/>
+    </target>
+
+	<!-- Clean Tag -->
+    <target unless="build.notRequired" name="clean" description="Prepare for clean build">
+      <delete dir="${classes.dir}"/>
+      <delete dir="${build.dir}"/>	
+	  <delete dir="${distpath.project}/${project.distname}"/>        		
+    </target>
+
+	<!-- Project tag -->
+    <target unless="build.notRequired" name="project" depends="clean,prepare,compile"/>
+
+    <!-- Build project and create distribution-->
+    <target name="all" depends="chkBuild, project, dist"/>
+
+</project>

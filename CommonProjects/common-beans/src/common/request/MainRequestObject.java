@@ -2,6 +2,7 @@ package common.request;
 
 import java.util.List;
 
+import common.beans.Invoice;
 import common.beans.Order;
 import common.beans.Product;
 import common.beans.Query;
@@ -26,6 +27,7 @@ public class MainRequestObject {
 	private Product productInfo = null;
 	private Query queryInfo = null;
 	private Wishlist wishlist = null;
+	private Invoice invoiceInfo = null;
 	private List<Integer> ids = null;
 	private boolean fetchOutOfStockProducts = false;
 	private boolean fetchProductsWithDiscountOnly = false;
@@ -140,6 +142,12 @@ public class MainRequestObject {
 	public void setWishlist(Wishlist wislist) {
 		this.wishlist = wislist;
 	}
+	public Invoice getInvoiceInfo() {
+		return invoiceInfo;
+	}
+	public void setInvoiceInfo(Invoice invoiceInfo) {
+		this.invoiceInfo = invoiceInfo;
+	}
 	public List<Integer> getIds() {
 		return ids;
 	}
@@ -194,6 +202,8 @@ public class MainRequestObject {
 		builder.append(queryInfo);
 		builder.append(", wislist=");
 		builder.append(wishlist);
+		builder.append(", invoiceInfo=");
+		builder.append(invoiceInfo);
 		builder.append(", ids=");
 		builder.append(ids);
 		builder.append(", fetchOutOfStockProducts=");

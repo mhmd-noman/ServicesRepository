@@ -16,6 +16,7 @@ import com.services.get.product.configurator.GetProductsConfigurator;
 import com.services.get.queries.configurator.GetQueriesConfigurator;
 import com.services.get.users.configurator.GetUsersConfigurator;
 import com.services.get.wishlist.configurator.GetWishlistConfigurator;
+import com.services.invoice.generation.configurator.InvoiceGenerationConfigurator;
 import com.services.place.order.configurator.PlaceOrderConfigurator;
 import com.services.pop.wishlist.configurator.PopWishlistConfigurator;
 import com.services.push.wishlist.configurator.PushWishlistConfigurator;
@@ -364,6 +365,26 @@ public class ServicesConfigurator {
 		getWishlistConfigurator = new GetWishlistConfigurator();
 		logger.info(logger.isInfoEnabled() ? "Going to make call for getWishlist Service with requested content: [" +mainRequestObject+ "]": null);
 		mainResponseObject = getWishlistConfigurator.getWishlist(mainRequestObject, con);
+		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
+		logTransaction(mainRequestObject, mainResponseObject, con);
+		return mainResponseObject;
+	}
+	
+	public MainResponseObject generateInvoice(MainRequestObject mainRequestObject) throws BaseException {
+		Connection con = null;
+		MainResponseObject mainResponseObject = null;
+		InvoiceGenerationConfigurator invoiceGenerationConfigurator = null;
+		mainResponseObject = new MainResponseObject();
+		con = getConnection(mainRequestObject.getDbCode());
+		if (null == con) {
+			logger.info(logger.isInfoEnabled() ? "Couldn't get connection for Database Client: [" +mainRequestObject.getDbCode()+ "]": null);
+			mainResponseObject.setResponseCode(ResponseCodes.DB_CONNECTION_FAILED);
+			mainResponseObject.setResponseDesc(ResponseCodes.DB_CONNECTION_FAILED_DESC);
+			return mainResponseObject;
+		}
+		invoiceGenerationConfigurator = new InvoiceGenerationConfigurator();
+		logger.info(logger.isInfoEnabled() ? "Going to make call for getWishlist Service with requested content: [" +mainRequestObject+ "]": null);
+		mainResponseObject = invoiceGenerationConfigurator.generateInvoice(mainRequestObject, con);
 		logger.info(logger.isInfoEnabled() ? "Going to log transaction": null);
 		logTransaction(mainRequestObject, mainResponseObject, con);
 		return mainResponseObject;
