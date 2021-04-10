@@ -11,6 +11,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
+import javax.mail.Message;
+import javax.management.Notification;
+
+import com.google.auth.oauth2.GoogleCredentials;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
@@ -55,6 +59,30 @@ public class MyTestService {
 		generateInvoice();
 		
 	}
+	//BOqPT5hkzXS6YLG0x0PhSMsYkELXz72sxTADDXr8r5YUH0uEg9sVIZ8SIPA77NqdNukRZzUaIRHQmcGqJMtHXZM
+//	private void sendPushNotification() {
+//		GoogleCredentials googleCredentials = GoogleCredentials
+//	            .fromStream(new ClassPathResource("firebase-service-account.json").getInputStream());
+//	    FirebaseOptions firebaseOptions = FirebaseOptions
+//	            .builder()
+//	            .setCredentials(googleCredentials)
+//	            .build();
+//	    FirebaseApp app = FirebaseApp.initializeApp(firebaseOptions, "my-app");
+//	Notification notification = Notification
+//	                .builder()
+//	                .setTitle("Some subject")
+//	                .setBody("Some content")
+//	                .build();
+//
+//	        Message message = Message
+//	                .builder()
+//	                .setToken(token)
+//	                .setNotification(notification)
+//	                .putAllData(note.getData())
+//	                .build();
+//
+//	        String sentMessageRef = firebaseMessaging.send(message);
+//	}
 	
 	public static void generateInvoice() throws BaseException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();

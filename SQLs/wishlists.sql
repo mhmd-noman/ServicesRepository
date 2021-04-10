@@ -8,3 +8,11 @@ CREATE TABLE wishlists (
 );
 
 CREATE INDEX idx_wishlist_wishlist ON wishlists (wishlist);
+
+select * from products
+select * from users
+
+update wishlists set wishlist = CONCAT(wishlist, ",2") where username = 'damon';
+select * from wishlists
+
+insert into wishlists (username, wishlist) values ('damon','1'); 

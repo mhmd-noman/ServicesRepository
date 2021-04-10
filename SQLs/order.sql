@@ -65,11 +65,15 @@ insert into orders (order_description, cust_name, cust_phone, area, city) values
 
 INSERT INTO orders (order_id, order_description, cust_name, cust_phone, cust_phone2, cust_address, cust_address2, cust_email, area, city, state, country, order_org_amount, order_rtl_amount, order_calc_discount, created_on, cancelled_at, order_status) VALUES (1, 'First Order', 'Damon', '01236589696', '01236589696', 'adr', 'adr2', 'a@gmail.com', 'DHA', 'Lahore', 'Punjab', 'Pakistan', 12, 12, 12, '2020-10-04 17:55:10', '2020-10-04 17:55:10', 'Y');
 
-select * from orders
-select * from order_products
+select * from products
+select * from orders where order_id = 15;
+select * from order_products where order_id = 15;
+
+select * from orders where created_on between '2019-01-11' and '2021-01-11 16:12:01'
 
 insert into order_products (order_id, product_id, product_quantity, product_org_price, product_rtl_price, product_discount, product_net_price) values (1, 1, '5', 100.00, 80.00, 20, 400.00);
 
+select * from orders 
 
 INSERT INTO order_products (order_id, product_id, product_quantity, product_org_price, product_rtl_price, product_discount, product_net_price) VALUES (1, 1, 5, 100, 80, 20, 400);
 

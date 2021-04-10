@@ -39,6 +39,9 @@ insert into products (name, quantity, company, flavour, weight) values ('Nitro T
 
 select * from products 
 
+update products set quantity = quantity - 5 where id = 1;
+update products set quantity = (quantity - 2) where id = 1
+
 INSERT INTO products (id, name, company, category, flavour, quantity, weight, servings, serving_size, price, discount, mfg_date, expiry_date, bar_code, direction_to_use, description, created_on, last_updated_on, is_active) VALUES (1, 'Nitro Tech', 'Muscletech', null, 'Chocolate', 20, 4, '30', null, 12000, 5, '2020-06-06', '2020-06-06', '554411223366', null, null, '2020-10-03 19:19:21', null, 'Y');
 
 select * from products 
