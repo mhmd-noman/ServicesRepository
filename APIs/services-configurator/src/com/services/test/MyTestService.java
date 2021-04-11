@@ -58,9 +58,12 @@ public class MyTestService {
 	}
 	
 	public static void postRequest() throws Exception {
-		MainRequestObject request = new MainRequestObject();
+		MainRequestObject request  = new MainRequestObject();
+		MainResponseObject response = new MainResponseObject();
+		request.setUsername("Damon");
 		ApiCommunicationManager acm = new ApiCommunicationManager();
-		acm.postRequest(request, "getUsers");
+		response = acm.postRequest(request, "getUsers");
+		System.out.println(response.getUsers());
 	}
 	
 	//BOqPT5hkzXS6YLG0x0PhSMsYkELXz72sxTADDXr8r5YUH0uEg9sVIZ8SIPA77NqdNukRZzUaIRHQmcGqJMtHXZM

@@ -62,7 +62,7 @@
 	</appender>
 
 	
-	<logger name="api.communicator" level="debug"
+	<logger name="api.communicator.manager" level="debug"
 		additivity="false">
 		<appender-ref ref="api.communicator" />
 	</logger>

@@ -29,10 +29,10 @@ public class ApiCommunicationMethods extends AbstractApiCommunicationMethods {
 		HttpRequest request = null;
 		String token = null;
 		try {
-			token = getToken(Constants.BASE_URI + Constants.AUTH_FOR_TOKEN_CALL, Constants.USERNAME, Constants.PASSWORD);
+			token = Constants.TOKEN_PREFIX + getToken(Constants.BASE_URI + Constants.AUTH_FOR_TOKEN_CALL, Constants.USERNAME, Constants.PASSWORD);
 			jsonRequest = parseObjectToJson(requestContent);
 			logger.info(logger.isInfoEnabled() ? "Going to post with request with url: [" +uri+ "] and requestedContent: [" +jsonRequest+ "]": null);
-			request = HttpRequest.newBuilder().uri(URI.create(uri)).POST(HttpRequest.BodyPublishers.ofString(jsonRequest)).build();
+			request = HttpRequest.newBuilder().uri(URI.create(uri)).setHeader(Constants.CONTENT_TYPE, "application/json").setHeader("Authorization", token).POST(HttpRequest.BodyPublishers.ofString(jsonRequest)).build();
 			HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
 			if (null != response) {
 				logger.info(logger.isInfoEnabled() ? "Response received as status: [" +response.statusCode()+ "] and responseContent: [" +response.body()+ "]": null);
@@ -54,6 +54,7 @@ public class ApiCommunicationMethods extends AbstractApiCommunicationMethods {
 		// Creating the ObjectMapper object
 		com.fasterxml.jackson.databind.ObjectMapper mapper = new ObjectMapper();
 		// Converting the Object to JSONString
+		logger.info(logger.isInfoEnabled() ? "Going to parse recieved MainRequestObject to json to pass to api ...": null);
 		return mapper.writeValueAsString(request);
 	}
 	
@@ -61,13 +62,16 @@ public class ApiCommunicationMethods extends AbstractApiCommunicationMethods {
     {
         Gson gson = new Gson();
         // Converting json to object
+        logger.info(logger.isInfoEnabled() ? "Going to parse recieved json content to MainResponseObject ...": null);
         return gson.fromJson(response, MainResponseObject.class);
     }
 	
 	private String getToken(String uri, String username, String password) throws IOException, InterruptedException {
+		logger.debug(logger.isDebugEnabled() ? "Going to prepare token call using uri: [" +uri+ "], username: [" +username+ "] and password: [*********]": null);
 		HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(uri)).setHeader(Constants.CONTENT_TYPE, "application/json").POST(HttpRequest.BodyPublishers.ofString(getCredentialsInJson(username, password))).build();
 		HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
+		logger.info(logger.isInfoEnabled() ? "Response code recieved after token call: [" +response.statusCode()+ "]": null);
 		return new JSONObject(response.body()).getString("token");
 	}
 	
@@ -78,6 +82,4 @@ public class ApiCommunicationMethods extends AbstractApiCommunicationMethods {
 		newMap.put("password", password);
 		return new JSONObject(newMap).toString();
 	}
-	
-	
 }

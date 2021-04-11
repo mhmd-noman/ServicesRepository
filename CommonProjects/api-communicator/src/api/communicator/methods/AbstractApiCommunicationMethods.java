@@ -5,8 +5,6 @@ import common.request.MainRequestObject;
 import common.response.MainResponseObject;
 
 public abstract class AbstractApiCommunicationMethods {
-	public static final String FETCH_DATABASE = "select id, db_code, name, url, user, password from databases_info where db_code = ?";
-	
 	AbstractApiCommunicationMethods() {
 	}
 	public static AbstractApiCommunicationMethods getInstance()  throws BaseException {
