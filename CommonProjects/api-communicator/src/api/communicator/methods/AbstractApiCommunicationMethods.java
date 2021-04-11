@@ -12,5 +12,5 @@ public abstract class AbstractApiCommunicationMethods {
 	public static AbstractApiCommunicationMethods getInstance()  throws BaseException {
 		return new ApiCommunicationMethods();
 	}
-	public abstract MainResponseObject postRequest(MainRequestObject request, String url) throws Exception;
+	public abstract MainResponseObject postRequest(MainRequestObject request, String uri) throws Exception;
 }

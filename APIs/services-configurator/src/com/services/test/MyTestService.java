@@ -28,6 +28,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.services.configurator.ServicesConfigurator;
 
+import api.communicator.manager.ApiCommunicationManager;
 import common.beans.Invoice;
 import common.beans.Order;
 import common.beans.Product;
@@ -38,7 +39,7 @@ import common.response.MainResponseObject;
 
 public class MyTestService {
 	public static final String dbCode = "UFN";
-	public static void main(String [] args) throws DocumentException, URISyntaxException, IOException, BaseException {
+	public static void main(String [] args) throws Exception {
 		//getUsers();
 		//getProducts();
 		//addProduct();
@@ -52,9 +53,16 @@ public class MyTestService {
 		//Mailer.send("lastchance934@gmail.com", "numan41752666", "muhammad.nauman54@outlook.com", "hello javatpoint", "How r u?");
 		// change from, password and to 
 		//creatingInvoiceHavingTable();
-		generateInvoice();
+		postRequest();
 		
 	}
+	
+	public static void postRequest() throws Exception {
+		MainRequestObject request = new MainRequestObject();
+		ApiCommunicationManager acm = new ApiCommunicationManager();
+		acm.postRequest(request, "getUsers");
+	}
+	
 	//BOqPT5hkzXS6YLG0x0PhSMsYkELXz72sxTADDXr8r5YUH0uEg9sVIZ8SIPA77NqdNukRZzUaIRHQmcGqJMtHXZM
 //	private void sendPushNotification() {
 //		GoogleCredentials googleCredentials = GoogleCredentials
