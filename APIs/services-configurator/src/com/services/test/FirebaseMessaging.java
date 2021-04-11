@@ -11,7 +11,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
-import com.google.auth.oauth2.GoogleCredentials;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;

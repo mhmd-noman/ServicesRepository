@@ -11,10 +11,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
-import javax.mail.Message;
-import javax.management.Notification;
-
-import com.google.auth.oauth2.GoogleCredentials;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;

@@ -34,6 +34,15 @@
 		</encoder>
 	</appender>
 	
+	<appender name="api.communicator" class="ch.qos.logback.core.FileAppender">
+		<File>${DEV_HOME}/api-communicator.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>
+				[%date] [%-5level] [%thread] %logger{40} - %message%n
+			</pattern>
+		</encoder>
+	</appender>
+	
 	<appender name="database.manager" class="ch.qos.logback.core.FileAppender">
 		<File>${DEV_HOME}/database-manager.log</File>
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -52,6 +61,11 @@
 		</encoder>
 	</appender>
 
+	
+	<logger name="api.communicator" level="debug"
+		additivity="false">
+		<appender-ref ref="api.communicator" />
+	</logger>
 	
 	<logger name="com.services.manager" level="debug"
 		additivity="false">
