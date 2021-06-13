@@ -1,5 +1,0 @@
-database\manager\handler\DatabaseManager.class
-database\manager\utils\Constants.class
-database\manager\beans\DatabaseInfo.class
-database\manager\methods\AbstractCommonDbMethods.class
-database\manager\methods\CommonDaoMethods.class

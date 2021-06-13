@@ -6,7 +6,12 @@ public class ApiInfo {
 	private String name = null;
 	private String url = null;
 	private String user = null;
-	private String password = null;
+	private String apiBaseUri = null;
+	private String contentType = null;
+	private String tokenPrefix = null;
+	private String token = null;
+	private String authUsername = null;
+	private String authPassword = null;
 
 	public Integer getId() {
 		return id;
@@ -38,17 +43,47 @@ public class ApiInfo {
 	public void setUser(String user) {
 		this.user = user;
 	}
-	public String getPassword() {
-		return password;
+	public String getApiBaseUri() {
+		return apiBaseUri;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setApiBaseUri(String apiBaseUri) {
+		this.apiBaseUri = apiBaseUri;
+	}
+	public String getContentType() {
+		return contentType;
+	}
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+	public String getTokenPrefix() {
+		return tokenPrefix;
+	}
+	public void setTokenPrefix(String tokenPrefix) {
+		this.tokenPrefix = tokenPrefix;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public String getAuthUsername() {
+		return authUsername;
+	}
+	public void setAuthUsername(String authUsername) {
+		this.authUsername = authUsername;
+	}
+	public String getAuthPassword() {
+		return authPassword;
+	}
+	public void setAuthPassword(String authPassword) {
+		this.authPassword = authPassword;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("DatabaseInfo [id=");
+		builder.append("ApiInfo [id=");
 		builder.append(id);
 		builder.append(", dbCode=");
 		builder.append(dbCode);
@@ -58,8 +93,18 @@ public class ApiInfo {
 		builder.append(url);
 		builder.append(", user=");
 		builder.append(user);
-		builder.append(", password=");
-		builder.append(password);
+		builder.append(", apiBaseUri=");
+		builder.append(apiBaseUri);
+		builder.append(", contentType=");
+		builder.append(contentType);
+		builder.append(", tokenPrefix=");
+		builder.append(tokenPrefix);
+		builder.append(", token=");
+		builder.append(token);
+		builder.append(", authUsername=");
+		builder.append(authUsername);
+		builder.append(", authPassword=");
+		builder.append(authPassword);
 		builder.append("]");
 		return builder.toString();
 	}

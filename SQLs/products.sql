@@ -20,7 +20,11 @@ CREATE TABLE products (
     created_on DATETIME DEFAULT CURRENT_TIMESTAMP,
     last_updated_on DATETIME,
     is_active char(1) DEFAULT 'Y',
-    image varchar(1024),
+    image1 varchar(1024),
+    image2 varchar(1024),
+    image3 varchar(1024),
+    image4 varchar(1024),
+    image5 varchar(1024),
     PRIMARY KEY (id)
 );
 
@@ -38,6 +42,16 @@ drop table products
 insert into products (name, quantity, company, flavour, weight) values ('Nitro Tech', 20, 'Muscletech', 'Chocolate', 4);
 
 select * from products 
+
+
+alter table products CHANGE image image1 varchar(1024);
+alter table products add image2 varchar(1024);
+alter table products add image2 varchar(1024);
+alter table products add image3 varchar(1024);
+alter table products add image4 varchar(1024);
+alter table products add image5 varchar(1024);
+
+/img/product_12.png
 
 update products set quantity = quantity - 5 where id = 1;
 update products set quantity = (quantity - 2) where id = 1

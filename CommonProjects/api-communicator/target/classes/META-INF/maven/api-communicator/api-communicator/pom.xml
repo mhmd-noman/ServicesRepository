@@ -50,7 +50,12 @@
 	    <artifactId>json</artifactId>
 	    <version>20201115</version>
 	</dependency>
-   
+
+   <dependency>
+   	<groupId>common-utilities</groupId>
+   	<artifactId>common-utilities</artifactId>
+   	<version>0.0.1-SNAPSHOT</version>
+   </dependency>
   </dependencies>
   
   

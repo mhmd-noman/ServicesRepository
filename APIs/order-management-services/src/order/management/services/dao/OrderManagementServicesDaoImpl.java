@@ -241,7 +241,11 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 					product.setDescription(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setCreatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
 					product.setLastUpdatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
-					product.setImagePath(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath1(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath2(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath3(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath4(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath5(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setIsActive(null != productRow.get(++index) ? (CommonConstants.OPTION_Y.equalsIgnoreCase((String)productRow.get(index)) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N): null);
 					if (null != order.getOrderedProducts()) {
 						order.getOrderedProducts().add(product);

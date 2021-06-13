@@ -146,11 +146,13 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					product.setFlavour(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setQuantity(null != productRow.get(++index) ? (Integer)productRow.get(index): null);
 					product.setWeight(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setWeightInKgs(null != product.getWeight() ? String.valueOf(Utils.getWeightInKilograms(product.getWeight())): null);
 					product.setServings(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setServingSize(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setPurchasePrice(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
 					product.setOrgPrice(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
 					product.setDiscount(null != productRow.get(++index) ? ((BigDecimal)productRow.get(index)).doubleValue(): null);
+					product.setRtlPrice(Utils.getRetailPrice(product.getOrgPrice(), product.getDiscount()));
 					product.setMfgDate(null != productRow.get(++index) ? (Date)productRow.get(index): null);
 					product.setExpiryDate(null != productRow.get(++index) ? (Date)productRow.get(index): null);
 					product.setBarCode(null != productRow.get(++index) ? (String)productRow.get(index): null);
@@ -158,7 +160,11 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 					product.setDescription(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setCreatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
 					product.setLastUpdatedOn(null != productRow.get(++index) ? ((Date)productRow.get(index)): null);
-					product.setImagePath(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath1(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath2(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath3(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath4(null != productRow.get(++index) ? (String)productRow.get(index): null);
+					product.setImagePath5(null != productRow.get(++index) ? (String)productRow.get(index): null);
 					product.setIsActive(null != productRow.get(++index) ? (CommonConstants.OPTION_Y.equalsIgnoreCase((String)productRow.get(index)) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N): null);
 					products.add(product);
 					index = 0;
@@ -193,7 +199,11 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 				paramList.add(productsManagementRequest.getProduct().getBarCode());
 				paramList.add(productsManagementRequest.getProduct().getDirectiontoUse());
 				paramList.add(productsManagementRequest.getProduct().getDescription());
-				paramList.add(productsManagementRequest.getProduct().getImagePath());
+				paramList.add(productsManagementRequest.getProduct().getImagePath1());
+				paramList.add(productsManagementRequest.getProduct().getImagePath2());
+				paramList.add(productsManagementRequest.getProduct().getImagePath3());
+				paramList.add(productsManagementRequest.getProduct().getImagePath4());
+				paramList.add(productsManagementRequest.getProduct().getImagePath5());
 				paramList.add(CommonConstants.OPTION_Y.equalsIgnoreCase(productsManagementRequest.getProduct().isActive()) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N);
 				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to insert user by using query: " +AbstractProductManagementServicesDao.ADD_PRODUCT+ " with paramters: "+ paramList: null);
 				AbstractCommonDbMethods.getInstance().update(AbstractProductManagementServicesDao.ADD_PRODUCT, paramList, connection);
@@ -256,8 +266,20 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getDescription())) {
 					updateColumns.append("description = '" +productsManagementRequest.getProduct().getDescription()+ "',");
 				}
-				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getImagePath())) {
-					updateColumns.append("image = '" +productsManagementRequest.getProduct().getImagePath()+ "',");
+				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getImagePath1())) {
+					updateColumns.append("image1 = '" +productsManagementRequest.getProduct().getImagePath1()+ "',");
+				}
+				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getImagePath2())) {
+					updateColumns.append("image2 = '" +productsManagementRequest.getProduct().getImagePath2()+ "',");
+				}
+				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getImagePath3())) {
+					updateColumns.append("image3 = '" +productsManagementRequest.getProduct().getImagePath3()+ "',");
+				}
+				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getImagePath4())) {
+					updateColumns.append("image4 = '" +productsManagementRequest.getProduct().getImagePath4()+ "',");
+				}
+				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().getImagePath5())) {
+					updateColumns.append("image5 = '" +productsManagementRequest.getProduct().getImagePath5()+ "',");
 				}
 				if (!Utils.validateIfNullOrEmptyString(productsManagementRequest.getProduct().isActive())) {
 					updateColumns.append("is_active = '" + (CommonConstants.OPTION_Y.equalsIgnoreCase(productsManagementRequest.getProduct().isActive()) ? CommonConstants.OPTION_Y : CommonConstants.OPTION_N)+ "',");

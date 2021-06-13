@@ -53,7 +53,7 @@ public class MyTestService {
 		//Mailer.send("lastchance934@gmail.com", "numan41752666", "muhammad.nauman54@outlook.com", "hello javatpoint", "How r u?");
 		// change from, password and to 
 		//creatingInvoiceHavingTable();
-		postRequest();
+		getProducts();
 		
 	}
 	
@@ -526,7 +526,7 @@ public class MyTestService {
 		MainResponseObject mainResponseObject = null;
 		List<Integer> ids = new ArrayList<>();
 		ids.add(1);
-		ids.add(2);
+		ids.add(12);
 		mainRequestObject.setIds(ids);
 		mainRequestObject.setDbCode(dbCode);
 		mainRequestObject.setFetchOutOfStockProducts(true);

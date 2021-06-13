@@ -10,7 +10,8 @@ public class Product {
 	private String flavour = null;
 	private Integer quantity = null;
 	private Integer orderedQuantity = null;
-	private String weight = null;
+	private String weight = null; // by default we set weight in database in pounds(lbs).
+	private String weightInKgs = null;
 	private String servings = null;
 	private String servingSize = null;
 	private Double purchasePrice = null;
@@ -30,7 +31,11 @@ public class Product {
 	private Date expiryDate = null;
 	private Date createdOn = null;
 	private Date lastUpdatedOn = null;
-	private String imagePath = null;
+	private String imagePath1 = null;
+	private String imagePath2 = null;
+	private String imagePath3 = null;
+	private String imagePath4 = null;
+	private String imagePath5 = null;
 	private String isActive = null;
 
 	public Integer getId() {
@@ -80,6 +85,12 @@ public class Product {
 	}
 	public void setWeight(String weight) {
 		this.weight = weight;
+	}
+	public String getWeightInKgs() {
+		return weightInKgs;
+	}
+	public void setWeightInKgs(String weightInKgs) {
+		this.weightInKgs = weightInKgs;
 	}
 	public String getServings() {
 		return servings;
@@ -195,11 +206,35 @@ public class Product {
 	public void setLastUpdatedOn(Date lastUpdatedOn) {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
-	public String getImagePath() {
-		return imagePath;
+	public String getImagePath1() {
+		return imagePath1;
 	}
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setImagePath1(String imagePath1) {
+		this.imagePath1 = imagePath1;
+	}
+	public String getImagePath2() {
+		return imagePath2;
+	}
+	public void setImagePath2(String imagePath2) {
+		this.imagePath2 = imagePath2;
+	}
+	public String getImagePath3() {
+		return imagePath3;
+	}
+	public void setImagePath3(String imagePath3) {
+		this.imagePath3 = imagePath3;
+	}
+	public String getImagePath4() {
+		return imagePath4;
+	}
+	public void setImagePath4(String imagePath4) {
+		this.imagePath4 = imagePath4;
+	}
+	public String getImagePath5() {
+		return imagePath5;
+	}
+	public void setImagePath5(String imagePath5) {
+		this.imagePath5 = imagePath5;
 	}
 	public String isActive() {
 		return isActive;
@@ -227,6 +262,8 @@ public class Product {
 		builder.append(orderedQuantity);
 		builder.append(", weight=");
 		builder.append(weight);
+		builder.append(", weightInKgs=");
+		builder.append(weightInKgs);
 		builder.append(", servings=");
 		builder.append(servings);
 		builder.append(", servingSize=");
@@ -265,8 +302,16 @@ public class Product {
 		builder.append(createdOn);
 		builder.append(", lastUpdatedOn=");
 		builder.append(lastUpdatedOn);
-		builder.append(", imagePath=");
-		builder.append(imagePath);
+		builder.append(", imagePath1=");
+		builder.append(imagePath1);
+		builder.append(", imagePath2=");
+		builder.append(imagePath2);
+		builder.append(", imagePath3=");
+		builder.append(imagePath3);
+		builder.append(", imagePath4=");
+		builder.append(imagePath4);
+		builder.append(", imagePath5=");
+		builder.append(imagePath5);
 		builder.append(", isActive=");
 		builder.append(isActive);
 		builder.append("]");

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import common.beans.Order;
+import common.utilities.constants.CommonConstants;
 
 public class Utils {
 	public static boolean isNullOrEmptyCollection(final Collection<?> c) {
@@ -48,6 +49,18 @@ public class Utils {
 	
 	public static boolean validateIfNullOrInvalidDouble(Double number) {
 		if (null == number) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static boolean validateIfNullOrInvalidDouble(String number) {
+		try {
+			if (null == number) {
+				return true;
+			}
+			Double.parseDouble(number);
+		} catch (NumberFormatException ex) {
 			return true;
 		}
 		return false;
@@ -231,5 +244,12 @@ public class Utils {
 	
 	public static String getCurrentDateTimeInString() {
 		return new Date(System.currentTimeMillis()).toString();
+	}
+	
+	public static Double getWeightInKilograms(String weightInPounds) {
+		if (!validateIfNullOrInvalidDouble(weightInPounds)) {
+			return Double.parseDouble(weightInPounds) * Double.parseDouble(CommonConstants.POUNDS_TO_KILOGRAM);
+		}
+		return 0.0d;
 	}
 }

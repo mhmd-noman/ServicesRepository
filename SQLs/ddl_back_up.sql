@@ -1,3 +1,21 @@
+-- databases_info
+
+CREATE TABLE databases_info (
+    id INT AUTO_INCREMENT,
+    db_code varchar(80) UNIQUE,
+    name varchar(80),   
+    url varchar(255),
+    user varchar(80),
+    password varchar(80),
+    api_base_uri varchar(80),
+    content_type varchar(80),
+    token_prefix varchar(20),
+    token varchar(250),
+    auth_username varchar(80),
+    auth_password varchar(80),
+    PRIMARY KEY(id, db_code)
+);
+
 -- Users
 
 CREATE TABLE
@@ -43,7 +61,11 @@ CREATE TABLE products (
     created_on DATETIME DEFAULT CURRENT_TIMESTAMP,
     last_updated_on DATETIME,
     is_active char(1) DEFAULT 'Y',
-    image varchar(1024),
+    image1 varchar(1024),
+    image2 varchar(1024),
+    image3 varchar(1024),
+    image4 varchar(1024),
+    image5 varchar(1024),
     PRIMARY KEY (id)
 );
 
