@@ -38,7 +38,7 @@ public class DatabaseManager {
 			return conn;
 		}
 		
-		logger.info(logger.isInfoEnabled() ? "Going to get database info for "+dbCode+" from Master database..": null);
+		logger.info(logger.isInfoEnabled() ? "Going to get database info for "+dbCode+", hunted from Master database..": null);
 		dbInfo = AbstractCommonDbMethods.getInstance().getDatabaseInfo(dbCode, conn);
 		logger.info(logger.isInfoEnabled() ? "Going to get connection for "+dbCode+" database..": null);
 		if (null == dbInfo) {

@@ -19,12 +19,13 @@ import com.mysql.jdbc.Statement;
 import common.exception.handling.BaseException;
 import common.utilities.methods.Utils;
 import database.manager.beans.DatabaseInfo;
+import database.manager.utils.DatabaseUtilities;
 
 public class CommonDaoMethods extends AbstractCommonDbMethods {
 	private static final Logger logger = LoggerFactory.getLogger(CommonDaoMethods.class);
 	
 	@Override
-	public List<Map<Integer, Object>> select(String query, List<Object> parameters, Connection con) {
+	public List<Map<Integer, Object>> select(String query, List<Object> parameters, Connection con) throws BaseException {
 		List<Map<Integer, Object>> resultSet = new ArrayList<>();
 		ResultSetMetaData rsmd = null;
 		ResultSet rs = null;
@@ -48,12 +49,14 @@ public class CommonDaoMethods extends AbstractCommonDbMethods {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DatabaseUtilities.disposeResources(stmt, rs);
 		}
 		return resultSet;
 	}
 	
 	@Override
-	public Integer update(String query, List<Object> parameters, Connection con) {
+	public Integer update(String query, List<Object> parameters, Connection con) throws BaseException {
 		PreparedStatement stmt = null;
 		int updatedRows = 0;
 		try {
@@ -62,12 +65,14 @@ public class CommonDaoMethods extends AbstractCommonDbMethods {
 			updatedRows = stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DatabaseUtilities.disposeResources(stmt, null);
 		}
 		return updatedRows;
 	}
 	
 	@Override
-	public Integer updateWithKeyReturn(String query, List<Object> parameters, Connection con) {
+	public Integer updateWithKeyReturn(String query, List<Object> parameters, Connection con) throws BaseException {
 		PreparedStatement stmt = null;
 		int key = 0;
 		ResultSet rs = null;
@@ -81,12 +86,14 @@ public class CommonDaoMethods extends AbstractCommonDbMethods {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DatabaseUtilities.disposeResources(stmt, rs);
 		}
 		return key;
 	}
 	
 	@Override
-	public int executeBatch(List<String> queries, List<Object> parameters, Connection con) {
+	public int executeBatch(List<String> queries, List<Object> parameters, Connection con) throws BaseException {
 		PreparedStatement stmt = null;
 		int updatedRows[] = null;
 		int mainCount = 0;
@@ -106,6 +113,8 @@ public class CommonDaoMethods extends AbstractCommonDbMethods {
 			updatedRows = stmt.executeBatch();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DatabaseUtilities.disposeResources(stmt, null);
 		}
 		return updatedRows.length;
 	}

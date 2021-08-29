@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,7 +39,7 @@ import common.response.MainResponseObject;
 
 public class FirebaseMessaging  {
 	public static final String dbCode = "UFN";
-	public static void main(String [] args) throws DocumentException, URISyntaxException, IOException, BaseException {
+	public static void main(String [] args) throws DocumentException, URISyntaxException, IOException, BaseException, SQLException {
 		//getUsers();
 		//getProducts();
 		//addProduct();
@@ -57,7 +58,7 @@ public class FirebaseMessaging  {
 	}
 	
 	
-	public static void generateInvoice() throws BaseException {
+	public static void generateInvoice() throws BaseException, SQLException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -401,7 +402,7 @@ public class FirebaseMessaging  {
 		document.close();
 	}
 	
-	public static void placeOrder() throws BaseException {
+	public static void placeOrder() throws BaseException, SQLException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -454,7 +455,7 @@ public class FirebaseMessaging  {
 		System.out.println("Response Desc: "+ mainResponseObject.getResponseDesc());
 	}
 	
-	public static void getOrders() throws BaseException {
+	public static void getOrders() throws BaseException, SQLException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -471,7 +472,7 @@ public class FirebaseMessaging  {
 		}
 	}
 	
-	public static void getUsers() throws BaseException {
+	public static void getUsers() throws BaseException, SQLException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -486,7 +487,7 @@ public class FirebaseMessaging  {
 		}
 	}
 	
-	public static void getProducts() throws BaseException {
+	public static void getProducts() throws BaseException, SQLException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -506,7 +507,7 @@ public class FirebaseMessaging  {
 		}
 	}
 	
-	public static void addProduct() throws BaseException {
+	public static void addProduct() throws BaseException, SQLException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -547,7 +548,7 @@ public class FirebaseMessaging  {
 		System.out.println("Response Desc: "+ mainResponseObject.getResponseDesc());
 	}
 	
-	public static void deleteProduct() throws BaseException {
+	public static void deleteProduct() throws BaseException, SQLException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;
@@ -562,7 +563,7 @@ public class FirebaseMessaging  {
 		
 	}
 	
-	public static void updateProduct() throws BaseException {
+	public static void updateProduct() throws BaseException, SQLException {
 		ServicesConfigurator servicesConfigurator = new ServicesConfigurator();
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = null;

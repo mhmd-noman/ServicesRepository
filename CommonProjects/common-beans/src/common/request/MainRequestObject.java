@@ -29,6 +29,7 @@ public class MainRequestObject {
 	private Wishlist wishlist = null;
 	private Invoice invoiceInfo = null;
 	private List<Integer> ids = null;
+	private boolean returnCount = false;
 	private boolean fetchOutOfStockProducts = false;
 	private boolean fetchProductsWithDiscountOnly = false;
 	String enabled = null;
@@ -154,6 +155,12 @@ public class MainRequestObject {
 	public void setIds(List<Integer> ids) {
 		this.ids = ids;
 	}
+	public boolean isReturnCount() {
+		return returnCount;
+	}
+	public void setReturnCount(boolean returnCount) {
+		this.returnCount = returnCount;
+	}
 	public boolean isFetchOutOfStockProducts() {
 		return fetchOutOfStockProducts;
 	}
@@ -206,6 +213,8 @@ public class MainRequestObject {
 		builder.append(invoiceInfo);
 		builder.append(", ids=");
 		builder.append(ids);
+		builder.append(", returnCount=");
+		builder.append(returnCount);
 		builder.append(", fetchOutOfStockProducts=");
 		builder.append(fetchOutOfStockProducts);
 		builder.append(", fetchProductsWithDiscountOnly=");

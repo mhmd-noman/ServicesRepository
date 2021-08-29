@@ -1,5 +1,6 @@
 package com.services.manager.oauth2.jwt.security;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
@@ -43,7 +44,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 	}
 	
 	// These following 2 methods can be used in future if somehow we need to maintain admin persons from database ...
-	public UserDetails loadUserByUsername(String username, String dbCode) throws BaseException {
+	public UserDetails loadUserByUsername(String username, String dbCode) throws BaseException, SQLException {
 		logger.info(logger.isInfoEnabled() ? "Going to load user from user service for username:[" +username+ "]": null);
 		UserDetails userDetails = loadUserForAuthentication(username, dbCode);
 		if (null != userDetails) {
@@ -53,7 +54,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 		}
 	}
 	
-	public UserDetails loadUserForAuthentication(String username, String dbCode) throws BaseException {
+	public UserDetails loadUserForAuthentication(String username, String dbCode) throws BaseException, SQLException {
 		MainRequestObject mainRequestObject = new MainRequestObject();
 		MainResponseObject mainResponseObject = new MainResponseObject();
 		ServicesControllerManager servicesControllerManager = new ServicesControllerManager();

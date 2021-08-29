@@ -36,6 +36,7 @@ public class GetProductsConfigurator {
 			productManagementRequest.setFetchProductsWithDiscountOnly(mainRequestObject.isFetchProductsWithDiscountOnly());
 			productManagementRequest.setPageNo(mainRequestObject.getPageNo());
 			productManagementRequest.setPageSize(mainRequestObject.getPageSize());
+			productManagementRequest.setReturnCount(mainRequestObject.isReturnCount());
 			mainRequestObject.setServiceId(ProductManagementServiceAction.GET_PRODUCTS.toString());
 		}
 		productManagementRequest.setProductManagementServiceAction(ProductManagementServiceAction.GET_PRODUCTS);
