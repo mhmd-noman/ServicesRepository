@@ -116,12 +116,13 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 			if (!productsManagementRequest.isFetchOutOfStockProducts()) {
 				query.append(AbstractProductManagementServicesDao.IS_ACTIVE_PRODUCT);
 			}
-			if (!Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getPageNo()) && !Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getPageSize())) {
-				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch orders as pageNo:[" +productsManagementRequest.getPageNo()+ "] and pageSize:[" +productsManagementRequest.getPageSize()+"]": null);
-				query.append(AbstractProductManagementServicesDao.PRODUCT_PAGINATION_SUPPORT);
-				paramList.add(((productsManagementRequest.getPageNo() - 1) * productsManagementRequest.getPageSize()));
-				paramList.add(productsManagementRequest.getPageSize());
-			}
+			// turned off DB pagination support due to front end pagination 
+//			if (!Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getPageNo()) && !Utils.validateIfNullOrInvalidInteger(productsManagementRequest.getPageSize())) {
+//				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch orders as pageNo:[" +productsManagementRequest.getPageNo()+ "] and pageSize:[" +productsManagementRequest.getPageSize()+"]": null);
+//				query.append(AbstractProductManagementServicesDao.PRODUCT_PAGINATION_SUPPORT);
+//				paramList.add(((productsManagementRequest.getPageNo() - 1) * productsManagementRequest.getPageSize()));
+//				paramList.add(productsManagementRequest.getPageSize());
+//			}
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch products by using query: " +AbstractProductManagementServicesDao.GET_PRODUCTS+ " with paramters: "+ paramList: null);
 			productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);
 		} catch (Exception ex) {

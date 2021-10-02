@@ -36,11 +36,11 @@ public class GetProducts extends AbstractProductManagementServicesHandler {
 			productsList = AbstractProductManagementServicesDao.getInstance().getProducts(productsManagementRequest, connection);
 			if (!Utils.isNullOrEmptyCollection(productsList)) {
 				logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Retrieved Products: "+ productsList: null);
-				productsManagementResponse.setProducts(productsList);
 				if (productsManagementRequest.isReturnCount()) {
 					logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to return count of products as well as isReturnCount found: [" +productsManagementRequest.isReturnCount()+ "]": null);
 					productsManagementResponse.setProductsCount(productsList.size());
 				}
+				productsManagementResponse.setProducts(Utils.pagination(productsList, productsManagementRequest.getPageNo(), productsManagementRequest.getPageSize()));
 			}
 			productsManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			productsManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
