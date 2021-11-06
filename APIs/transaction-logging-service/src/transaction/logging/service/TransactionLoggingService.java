@@ -28,7 +28,7 @@ public class TransactionLoggingService {
 			transLoggingManagementResponse = AbstractTransactionLoggingServiceHandler.getInstance().transLoggingManagementService(transLoggingManagementRequest, con);
 			return transLoggingManagementResponse;
 		} catch (Exception ex) {
-			logger.warn("##Exception## in transLoggingService ...");
+			logger.warn("##Exception## in transLoggingService ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

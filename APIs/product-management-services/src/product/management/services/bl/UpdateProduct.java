@@ -36,7 +36,7 @@ public class UpdateProduct extends AbstractProductManagementServicesHandler {
 			productManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			productManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while updating product ...");
+			logger.warn("##Exception## while updating product ..."+ex);
 			throw new BaseException(ex);
 		}
 		return productManagementResponse;

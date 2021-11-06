@@ -53,7 +53,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 			usersResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 			//}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while getting users data ...");
+			logger.warn("##Exception## while getting users data ..."+ex);
 			throw new BaseException(ex);
 		}
 		return prepareUsersData(usersResultSet);
@@ -80,7 +80,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 				}
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while preparing user data ...");
+			logger.warn("##Exception## while preparing user data ..."+ex);
 			throw new BaseException(ex);
 		}	
 		return users;
@@ -103,7 +103,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 				AbstractCommonDbMethods.getInstance().update(AbstractUserManagementServicesDao.CREATE_USER, paramList, connection);
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while creating user ...");
+			logger.warn("##Exception## while creating user ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -139,7 +139,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 				AbstractCommonDbMethods.getInstance().update(query.toString(), paramList, connection);	
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while updating user ...");
+			logger.warn("##Exception## while updating user ..."+ex);
 			throw new BaseException(ex);
 		}	
 	}
@@ -155,7 +155,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 				AbstractCommonDbMethods.getInstance().update(AbstractUserManagementServicesDao.DELETE_USER, paramList, connection);
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while deleting user ...");
+			logger.warn("##Exception## while deleting user ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -184,7 +184,7 @@ public class UserManagementServicesDaoImpl extends AbstractUserManagementService
 			usersResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 			return prepareUsersData(usersResultSet);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while getting users data ...");
+			logger.warn("##Exception## while getting users data ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

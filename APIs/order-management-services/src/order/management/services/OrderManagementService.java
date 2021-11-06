@@ -30,7 +30,7 @@ public class OrderManagementService {
 			logger.info(logger.isInfoEnabled() ? "Going to call productManagementService Service": null);
 			orderManagementResponse = AbstractOrderManagementServicesHandler.getInstance(orderManagementRequest.getOrderManagementServiceAction()).orderManagementService(orderManagementRequest, con);
 		} catch (Exception ex) {
-			logger.warn("##Exception## in order management service ...");
+			logger.warn("##Exception## in order management service ..."+ex);
 			throw new BaseException(ex);
 		}
 		return orderManagementResponse;

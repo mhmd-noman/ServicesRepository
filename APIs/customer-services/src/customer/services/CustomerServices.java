@@ -28,7 +28,7 @@ public class CustomerServices {
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to call CustomerServices ...": null);
 			customerServicesResponse = AbstractCustomerServicesHandler.getInstance(customerServicesRequest.getCustomerServicesAction()).customerServices(customerServicesRequest, con);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while getting queries ...");
+			logger.warn("##Exception## while getting queries ..."+ex);
 			throw new BaseException(ex);
 		}
 		return customerServicesResponse;

@@ -28,7 +28,7 @@ public class InvoiceGenerationService {
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to call invoiceGenerationService": null);
 			invoiceGenerationResponse = AbstractInvoiceGenerationHandler.getInstance().generateInvoice(invoiceGenerationRequest, con);
 		} catch (Exception ex) {
-			logger.warn("##Exception## in user management service ...");
+			logger.warn("##Exception## in user management service ..."+ex);
 			throw new BaseException(ex);
 		}
 		return invoiceGenerationResponse;

@@ -37,7 +37,7 @@ public class DeleteProduct extends AbstractProductManagementServicesHandler {
 			productManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			productManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while deleting product ...");
+			logger.warn("##Exception## while deleting product ..."+ex);
 			throw new BaseException(ex);
 		}
 		return productManagementResponse;

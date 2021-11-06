@@ -40,7 +40,7 @@ public class GetUsers extends AbstractUserManagementServicesHandler {
 			usersManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			usersManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while getting users ...");
+			logger.warn("##Exception## while getting users ..."+ex);
 			throw new BaseException(ex);
 		}
 		return usersManagementResponse;

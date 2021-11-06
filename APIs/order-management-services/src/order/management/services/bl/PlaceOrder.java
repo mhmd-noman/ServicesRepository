@@ -31,7 +31,7 @@ public class PlaceOrder extends AbstractOrderManagementServicesHandler {
 			orderManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 			return orderManagementResponse;
 		} catch (Exception ex) {
-			logger.warn("##Exception## while placing order ...");
+			logger.warn("##Exception## while placing order ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

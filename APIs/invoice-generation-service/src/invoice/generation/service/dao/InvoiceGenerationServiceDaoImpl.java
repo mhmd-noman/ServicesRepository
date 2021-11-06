@@ -27,7 +27,7 @@ public class InvoiceGenerationServiceDaoImpl extends AbstractInvoiceGenerationSe
 				AbstractCommonDbMethods.getInstance().update(AbstractInvoiceGenerationServiceDao.CREATE_USER, paramList, connection);
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while creating user ...");
+			logger.warn("##Exception## while creating user ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

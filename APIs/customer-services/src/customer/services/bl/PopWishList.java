@@ -74,7 +74,7 @@ public class PopWishList extends AbstractCustomerServicesHandler {
 			customerServicesResponse.setResponseCode(ResponseCodes.SUCCESS);
 			customerServicesResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while adding queries (contactUs) ...");
+			logger.warn("##Exception## while adding queries (contactUs) ..."+ex);
 			throw new BaseException(ex);
 		}
 		return customerServicesResponse;

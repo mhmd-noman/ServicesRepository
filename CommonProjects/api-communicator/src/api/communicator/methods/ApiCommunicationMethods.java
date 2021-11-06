@@ -41,11 +41,11 @@ public class ApiCommunicationMethods extends AbstractApiCommunicationMethods {
 			logger.info(logger.isInfoEnabled() ? "Problem seems to be appeared while calling api so returning null ...": null);
 			return null;
 		} catch (IOException e) {
-			logger.warn("##Exception## while posting request to api ...");
+			logger.warn("##Exception## while posting request to api ..."+e);
 			throw new BaseException(e);
 			
 		} catch (InterruptedException e) {
-			logger.warn("##Exception## while posting request to api ...");
+			logger.warn("##Exception## while posting request to api ..."+e);
 			throw new BaseException(e);
 		}
 	}

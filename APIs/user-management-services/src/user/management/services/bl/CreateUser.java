@@ -60,7 +60,7 @@ public class CreateUser extends AbstractUserManagementServicesHandler {
 			usersManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 			return usersManagementResponse;
 		} catch (Exception ex) {
-			logger.warn("##Exception## while creating user ...");
+			logger.warn("##Exception## while creating user ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -100,7 +100,7 @@ public class CreateUser extends AbstractUserManagementServicesHandler {
 				return usersManagementResponse;
 			}
 		}  catch (Exception ex) {
-			logger.warn("##Exception## while validating if user already exists ...");
+			logger.warn("##Exception## while validating if user already exists ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

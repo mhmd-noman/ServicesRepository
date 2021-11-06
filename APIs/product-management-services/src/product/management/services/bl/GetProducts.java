@@ -45,7 +45,7 @@ public class GetProducts extends AbstractProductManagementServicesHandler {
 			productsManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			productsManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while getting products ...");
+			logger.warn("##Exception## while getting products ..."+ ex);
 			throw new BaseException(ex);
 		}
 		return productsManagementResponse;

@@ -45,7 +45,7 @@ public class UpdateUser extends AbstractUserManagementServicesHandler {
 			usersManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			usersManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while updating user ...");
+			logger.warn("##Exception## while updating user ..."+ex);
 			throw new BaseException(ex);
 		}
 		return usersManagementResponse;
@@ -93,7 +93,7 @@ public class UpdateUser extends AbstractUserManagementServicesHandler {
 				return usersManagementResponse;
 			}
 		}  catch (Exception ex) {
-			logger.warn("##Exception## while validating if user updation content already exists ...");
+			logger.warn("##Exception## while validating if user updation content already exists ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

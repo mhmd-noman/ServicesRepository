@@ -29,7 +29,7 @@ public class TransactionLoggingImpl extends AbstractTransactionLoggingServiceHan
 			transactionLoggingResponse.setResponseCode(transactionLoggingRequest.getMainResponseObject().getResponseCode());
 			transactionLoggingResponse.setResponseDesc(transactionLoggingRequest.getMainResponseObject().getResponseDesc());
 		} catch (Exception ex) {
-			logger.warn("##Exception## while logging transaction ...");
+			logger.warn("##Exception## while logging transaction ..."+ex);
 			throw new BaseException(ex);
 		}
 		return transactionLoggingResponse;

@@ -48,7 +48,7 @@ public class TransactionLoggingServiceDaoImpl extends AbstractTransactionLogging
 				AbstractCommonDbMethods.getInstance().update(AbstractTransactionLoggingServiceDao.LOG_TRANSACTION, paramList, connection);
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while logging transaction ...");
+			logger.warn("##Exception## while logging transaction ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

@@ -37,7 +37,7 @@ public class DeleteUser extends AbstractUserManagementServicesHandler {
 			usersManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			usersManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while deleting user  ...");
+			logger.warn("##Exception## while deleting user  ..."+ex);
 			throw new BaseException(ex);
 		}
 		return usersManagementResponse;

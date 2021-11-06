@@ -29,7 +29,7 @@ public class UpdateOrder extends AbstractOrderManagementServicesHandler {
 			orderManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			orderManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while updating order ...");
+			logger.warn("##Exception## while updating order ..."+ex);
 			throw new BaseException(ex);
 		}
 		return orderManagementResponse;

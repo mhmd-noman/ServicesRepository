@@ -30,7 +30,7 @@ public class ProductManagementService {
 			logger.info(logger.isInfoEnabled() ? "Going to call productManagementService Service": null);
 			productManagementResponse = AbstractProductManagementServicesHandler.getInstance(productManagementRequest.getProductManagementServiceAction()).productManagementService(productManagementRequest, con);
 		} catch (Exception ex) {
-			logger.warn("##Exception## in product management service ...");
+			logger.warn("##Exception## in product management service ..."+ex);
 			throw new BaseException(ex);
 		}
 		return productManagementResponse;

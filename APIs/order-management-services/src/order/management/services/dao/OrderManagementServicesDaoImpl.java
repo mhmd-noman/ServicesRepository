@@ -178,7 +178,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch orders by using query: " +query+ " with paramters: "+ paramList: null);
 			productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 		} catch (Exception ex) {
-			logger.warn("##Exception## while getting orders ...");
+			logger.warn("##Exception## while getting orders ..."+ex);
 			throw new BaseException(ex);
 		}
 		return prepareOrdersData(productsResultSet);
@@ -258,7 +258,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 				}
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while preparing orders data ...");
+			logger.warn("##Exception## while preparing orders data ..."+ex);
 			throw new BaseException(ex);
 		}
 		return orders;
@@ -294,7 +294,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 			orderManagementRequest.getOrder().setOrderId(orderId);
 			addOrderProducts(orderManagementRequest.getOrder(), connection);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while placing order ...");
+			logger.warn("##Exception## while placing order ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -326,7 +326,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 			AbstractCommonDbMethods.getInstance().executeBatch(queries, paramList, connection);
 			AbstractCommonDbMethods.getInstance().executeBatch(queriesForPrductsQntity, paramListForPrductsQntity, connection);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while adding orderec products ...");
+			logger.warn("##Exception## while adding orderec products ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -393,7 +393,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 				AbstractCommonDbMethods.getInstance().update(query.toString(), paramList, connection);	
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while updating order ...");
+			logger.warn("##Exception## while updating order ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -417,7 +417,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 			}
 			
 		} catch (Exception ex) {
-			logger.warn("##Exception## while removing product ...");
+			logger.warn("##Exception## while removing product ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -435,7 +435,7 @@ public class OrderManagementServicesDaoImpl extends AbstractOrderManagementServi
 			}
 			AbstractCommonDbMethods.getInstance().executeBatch(queries, paramList, connection);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while adding orderec products ...");
+			logger.warn("##Exception## while adding orderec products ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

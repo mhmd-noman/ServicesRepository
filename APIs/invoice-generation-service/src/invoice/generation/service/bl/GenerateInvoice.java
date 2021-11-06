@@ -88,7 +88,7 @@ public class GenerateInvoice extends AbstractInvoiceGenerationHandler {
 			invoiceGenerationResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 			return invoiceGenerationResponse;
 		} catch (Exception ex) {
-			logger.warn("##Exception## while generating invoice ...");
+			logger.warn("##Exception## while generating invoice ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

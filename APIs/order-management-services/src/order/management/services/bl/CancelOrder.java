@@ -33,7 +33,7 @@ public class CancelOrder extends AbstractOrderManagementServicesHandler {
 			orderManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			orderManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while removing order ...");
+			logger.warn("##Exception## while removing order ..."+ex);
 			throw new BaseException(ex);
 		}
 		return orderManagementResponse;

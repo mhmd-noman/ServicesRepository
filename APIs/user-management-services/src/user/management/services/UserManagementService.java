@@ -28,7 +28,7 @@ public class UserManagementService {
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to call userManagementService Service": null);
 			usersManagementResponse = AbstractUserManagementServicesHandler.getInstance(usersManagementRequest.getUserManagementServiceAction()).userManagementService(usersManagementRequest, con);
 		} catch (Exception ex) {
-			logger.warn("##Exception## in user management service ...");
+			logger.warn("##Exception## in user management service ..."+ex);
 			throw new BaseException(ex);
 		}
 		return usersManagementResponse;

@@ -133,7 +133,7 @@ public class CommonDaoMethods extends AbstractCommonDbMethods {
 			logger.info(logger.isInfoEnabled() ? "Going to fetch Database by using query: " +AbstractCommonDbMethods.FETCH_DATABASE+ " with paramters: "+ paramList: null);
 			dbResultSet = select(AbstractCommonDbMethods.FETCH_DATABASE, paramList, connection);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while deleting product ...");
+			logger.warn("##Exception## while deleting product ..."+ex);
 			throw new BaseException(ex);
 		}
 		return prepareDbData(dbResultSet);

@@ -50,7 +50,7 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch queries by using query: " +AbstractCustomerServicesDao.GET_QUERIES+ " with paramters: "+ paramList: null);
 			queriesResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);
 		} catch (Exception ex) {
-			logger.warn("##Exception## in getting queries service ...");
+			logger.warn("##Exception## in getting queries service ..."+ex);
 			throw new BaseException(ex);
 		}
 		return prepareQueriesData(queriesResultSet);
@@ -74,7 +74,7 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 				}
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## in preparing queries data ...");
+			logger.warn("##Exception## in preparing queries data ..."+ex);
 			throw new BaseException(ex);
 		}
 		return queries;
@@ -94,7 +94,7 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 				AbstractCommonDbMethods.getInstance().update(AbstractCustomerServicesDao.CONTACT_US, paramList, connection);
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## in adding query ...");
+			logger.warn("##Exception## in adding query ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -114,7 +114,7 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 				wishlistsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);	
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## in getting queries service ...");
+			logger.warn("##Exception## in getting queries service ..."+ex);
 			throw new BaseException(ex);
 		}
 		return prepareWishlistData(wishlistsResultSet);
@@ -135,7 +135,7 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 				}
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## in preparing wishlist data ...");
+			logger.warn("##Exception## in preparing wishlist data ..."+ex);
 			throw new BaseException(ex);
 		}
 		return wishlists;
@@ -165,7 +165,7 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to push wishlist in wishlists by using query: " +AbstractCustomerServicesDao.PUSH_WISHLIST+ " with paramters: "+ paramList: null);
 			AbstractCommonDbMethods.getInstance().update(AbstractCustomerServicesDao.PUSH_WISHLIST, paramList, connection);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while pushing wishlist ...");
+			logger.warn("##Exception## while pushing wishlist ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -200,7 +200,7 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 				AbstractCommonDbMethods.getInstance().update(AbstractCustomerServicesDao.UPDATE_WISHLIST, paramList, connection);
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while poping wishlist ...");
+			logger.warn("##Exception## while poping wishlist ..."+ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -227,7 +227,7 @@ public class CustomerServicesDaoImpl extends AbstractCustomerServicesDao {
 				return true;
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## in getting queries service ...");
+			logger.warn("##Exception## in getting queries service ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

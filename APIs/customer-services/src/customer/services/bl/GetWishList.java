@@ -46,7 +46,7 @@ public class GetWishList extends AbstractCustomerServicesHandler {
 			customerServicesResponse.setResponseCode(ResponseCodes.SUCCESS);
 			customerServicesResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while getting queries ...");
+			logger.warn("##Exception## while getting queries ..."+ex);
 			throw new BaseException(ex);
 		}
 		return customerServicesResponse;

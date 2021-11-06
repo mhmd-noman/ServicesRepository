@@ -46,7 +46,7 @@ public class AddProduct extends AbstractProductManagementServicesHandler {
 			productManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 			return productManagementResponse;
 		} catch (Exception ex) {
-			logger.warn("##Exception## while adding product ...");
+			logger.warn("##Exception## while adding product ..."+ex);
 			throw new BaseException(ex);
 		}
 	}

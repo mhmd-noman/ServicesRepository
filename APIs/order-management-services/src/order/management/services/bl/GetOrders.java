@@ -43,7 +43,7 @@ public class GetOrders extends AbstractOrderManagementServicesHandler {
 			ordersManagementResponse.setResponseCode(ResponseCodes.SUCCESS);
 			ordersManagementResponse.setResponseDesc(ResponseCodes.SUCCESS_DESCRIPTION);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while getting orders ...");
+			logger.warn("##Exception## while getting orders ..."+ex);
 			throw new BaseException(ex);
 		}
 		return ordersManagementResponse;

@@ -126,7 +126,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 			logger.info(logger.isInfoEnabled() ? Constants.SERVICE_NAME + "Going to fetch products by using query: " +AbstractProductManagementServicesDao.GET_PRODUCTS+ " with paramters: "+ paramList: null);
 			productsResultSet = AbstractCommonDbMethods.getInstance().select(query.toString(), paramList, connection);
 		} catch (Exception ex) {
-			logger.warn("##Exception## while getting products ...");
+			logger.warn("##Exception## while getting products ..."+ ex);
 			throw new BaseException(ex);
 		}
 		return prepareProductsData(productsResultSet);
@@ -172,7 +172,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 				}
 			}
 	} catch (Exception ex) {
-		logger.warn("##Exception## while preparing product data ...");
+		logger.warn("##Exception## while preparing product data ..."+ ex);
 		throw new BaseException(ex);
 	}
 		return products;
@@ -210,7 +210,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 				AbstractCommonDbMethods.getInstance().update(AbstractProductManagementServicesDao.ADD_PRODUCT, paramList, connection);
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while adding product ...");
+			logger.warn("##Exception## while adding product ..."+ ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -292,7 +292,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 				AbstractCommonDbMethods.getInstance().update(query.toString(), paramList, connection);	
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while updating product ...");
+			logger.warn("##Exception## while updating product ..."+ ex);
 			throw new BaseException(ex);
 		}
 	}
@@ -308,7 +308,7 @@ public class ProductManagementServicesDaoImpl extends AbstractProductManagementS
 				AbstractCommonDbMethods.getInstance().update(AbstractProductManagementServicesDao.DELETE_PRODUCT, paramList, connection);
 			}
 		} catch (Exception ex) {
-			logger.warn("##Exception## while deleting product ...");
+			logger.warn("##Exception## while deleting product ..."+ ex);
 			throw new BaseException(ex);
 		}
 	}

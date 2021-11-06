@@ -21,7 +21,7 @@ public class DatabaseUtilities {
 				resultSet.close();
 			}
 		} catch (SQLException ex) {
-			logger.warn("##SQLException## while disposing ResultSet ...");
+			logger.warn("##SQLException## while disposing ResultSet ..."+ex);
 			throw new BaseException(ex);
 		} finally {
 			try {
@@ -29,7 +29,7 @@ public class DatabaseUtilities {
 					preparedStatment.close();
 				}
 			} catch (SQLException ex) {
-				logger.warn("##SQLException## while disposing PreparedStatement ...");
+				logger.warn("##SQLException## while disposing PreparedStatement ..."+ex);
 				throw new BaseException(ex);
 			}
 		}
@@ -42,7 +42,7 @@ public class DatabaseUtilities {
 				resultSet.close();
 			}
 		} catch (SQLException ex) {
-			logger.warn("##SQLException## while disposing ResultSet ...");
+			logger.warn("##SQLException## while disposing ResultSet ..."+ex);
 			throw new BaseException(ex);
 		} finally {
 			try {
@@ -50,7 +50,7 @@ public class DatabaseUtilities {
 					statement.close();
 				}
 			} catch (SQLException ex) {
-				logger.warn("##SQLException## while disposing PreparedStatement ...");
+				logger.warn("##SQLException## while disposing PreparedStatement ..."+ex);
 				throw new BaseException(ex);
 			}
 		}
@@ -65,7 +65,7 @@ public class DatabaseUtilities {
 					con.setAutoCommit(true);
 				}
 			} catch (SQLException ex) {
-				logger.warn("##SQLException## while disposing connection ...");
+				logger.warn("##SQLException## while disposing connection ..."+ex);
 				throw new BaseException(ex);
 			} finally {
 				con.close();
@@ -81,7 +81,7 @@ public class DatabaseUtilities {
 				con.setAutoCommit(true);
 				return con;
 			} catch (SQLException ex) {
-				logger.warn("##SQLException## while committing connection ...");
+				logger.warn("##SQLException## while committing connection ..."+ex);
 				throw new BaseException(ex);
 			}
 		}
@@ -96,7 +96,7 @@ public class DatabaseUtilities {
 				con.setAutoCommit(true);
 				return con;
 			} catch (SQLException ex) {
-				logger.warn("##SQLException## while Rolling back connection ...");
+				logger.warn("##SQLException## while Rolling back connection ..."+ex);
 				throw new BaseException(ex);
 			}
 		}
@@ -109,7 +109,7 @@ public class DatabaseUtilities {
 			try {
 				return (!con.getAutoCommit());
 			} catch (SQLException ex) {
-				logger.warn("##SQLException## while Rolling back connection ...");
+				logger.warn("##SQLException## while Rolling back connection ..."+ex);
 				throw new BaseException(ex);
 			}
 		}
