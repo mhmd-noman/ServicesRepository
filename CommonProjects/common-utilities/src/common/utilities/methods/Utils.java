@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -197,8 +198,17 @@ public class Utils {
 	}
 	
 	public static String formatDate(Date date, String format) {
-	    SimpleDateFormat formatter = new SimpleDateFormat(format);  
-	    return formatter.format(date);    
+		if (isValidDate(date, format)) {
+			return new SimpleDateFormat(format).format(date);	
+		}
+		return null;
+	}
+	
+	public static Date formatDate(String date, String format) throws ParseException {
+		if (isValidDateForString(date, format)) {
+			return new SimpleDateFormat(format).parse(date);	
+		}
+		return null;
 	}
 	
 	public static String [] convertCommaSeparatedStringToStringArray(String commaSeperatedString) {
@@ -251,5 +261,27 @@ public class Utils {
 			return Double.parseDouble(weightInPounds) * Double.parseDouble(CommonConstants.POUNDS_TO_KILOGRAM);
 		}
 		return 0.0d;
+	}
+	
+	public static <T> List<T> pagination(List<T> collection, int pageNo, int pageSize) {
+		if (pageNo <= 0 || pageNo <= 0) {
+			return collection;
+		}
+		int fromIndex = (pageNo - 1) * pageSize;
+		if (null == collection || collection.size() < fromIndex) {
+			return Collections.emptyList();
+		}
+		return collection.subList(fromIndex, Math.min(fromIndex + pageSize, collection.size()));
+	}
+	
+	public static <T> List<T> pagination(List<T> collection, Integer pageNo, Integer pageSize) {
+		if (null == pageNo || null == pageSize || pageNo <= 0 || pageNo <= 0) {
+			return collection;
+		}
+		int fromIndex = (pageNo - 1) * pageSize;
+		if (null == collection || collection.size() < fromIndex) {
+			return Collections.emptyList();
+		}
+		return collection.subList(fromIndex, Math.min(fromIndex + pageSize, collection.size()));
 	}
 }

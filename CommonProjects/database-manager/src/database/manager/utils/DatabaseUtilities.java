@@ -92,8 +92,10 @@ public class DatabaseUtilities {
 		logger.info(logger.isInfoEnabled() ? "Rolling back DB connection ...": null);
 		if (null != con) {
 			try {
-				con.rollback();
-				con.setAutoCommit(true);
+				if (!con.getAutoCommit()) {
+					con.rollback();
+					con.setAutoCommit(true);
+				}
 				return con;
 			} catch (SQLException ex) {
 				logger.warn("##SQLException## while Rolling back connection ..."+ex);
